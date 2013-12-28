@@ -7,102 +7,102 @@ class UserController extends Controller {
     public function loginAction() {
         $errors = new MessageBag();
 
-        if ($old = Input::old("errors")) {
+        if ($old = Input::old('errors')) {
             $errors = $old;
         }
 
         $data = [
-            "errors" => $errors
+            'errors' => $errors
         ];
 
-        if (Input::server("REQUEST_METHOD") == "POST") {
+        if (Input::server('REQUEST_METHOD') === 'POST') {
             $validator = Validator::make(Input::all(), [
-                "username" => "required",
-                "password" => "required"
+                'username' => 'required',
+                'password' => 'required'
             ]);
 
             if ($validator->passes()) {
                 $credentials = [
-                    "username" => Input::get("username"),
-                    "password" => Input::get("password")
+                    'username' => Input::get('username'),
+                    'password' => Input::get('password')
                 ];
 
                 if (Auth::attempt($credentials)) {
-                    return Redirect::route("user/profile");
+                    return Redirect::route('user/profile');
                 }
             }
 
-            $data["errors"] = new MessageBag([
-                "password" => [
-                    "Username and/or password invalid."
+            $data['errors'] = new MessageBag([
+                'password' => [
+                    Lang::get('login.fail')
                 ]
             ]);
 
-            $data["username"] = Input::get("username");
+            $data['username'] = Input::get('username');
 
-            return Redirect::route("user/login")
+            return Redirect::route('user/login')
                 ->withInput($data);
         }
 
-        return View::make("user/login", $data);
+        return View::make('user/login', $data);
     }
 
     public function requestAction() {
         $data = [
-            "requested" => Input::old("requested")
+            'requested' => Input::old('requested')
         ];
 
-        if (Input::server("REQUEST_METHOD") == "POST") {
+        if (Input::server('REQUEST_METHOD') == 'POST') {
             $validator = Validator::make(Input::all(), [
-                "email" => "required"
+                'email' => 'required'
             ]);
 
             if ($validator->passes()) {
                 $credentials = [
-                    "email" => Input::get("email")
+                    'email' => Input::get('email')
                 ];
 
                 Password::remind($credentials,
                     function ($message, $user) {
-                        $message->from("chris@example.com");
+                        $message->from('chris@example.com');
                     }
                 );
 
-                $data["requested"] = true;
+                $data['requested'] = true;
 
-                return Redirect::route("user/request")
+                return Redirect::route('user/request')
                     ->withInput($data);
             }
         }
 
-        return View::make("user/request", $data);
+        return View::make('user/request', $data);
     }
 
     public function resetAction() {
-        $token = "?token=" . Input::get("token");
+        $token = '?token=' . Input::get('token');
 
         $errors = new MessageBag();
 
-        if ($old = Input::old("errors")) {
+        if ($old = Input::old('errors')) {
             $errors = $old;
         }
 
         $data = [
-            "token" => $token,
-            "errors" => $errors
+            'token' => $token,
+            'errors' => $errors
         ];
 
-        if (Input::server("REQUEST_METHOD") == "POST") {
+        if (Input::server('REQUEST_METHOD') == 'POST') {
             $validator = Validator::make(Input::all(), [
-                "email" => "required|email",
-                "password" => "required|min:6",
-                "password_confirmation" => "required|same:password",
-                "token" => "required|exists:token,token"
+                'email' => 'required|email',
+                'password' => 'required|min:6',
+                'password_confirmation' => 'required|same:password',
+                'token' => 'required|exists:token,token'
             ]);
 
             if ($validator->passes()) {
                 $credentials = [
-                    "email" => Input::get("email")
+                    'email' => Input::get('email')
                 ];
 
                 Password::reset($credentials,
@@ -112,27 +112,27 @@ class UserController extends Controller {
 
                         Auth::login($user);
 
-                        return Redirect::route("user/profile");
+                        return Redirect::route('user/profile');
                     }
                 );
             }
 
-            $data["email"] = Input::get("email");
-            $data["errors"] = $validator->errors();
+            $data['email'] = Input::get('email');
+            $data['errors'] = $validator->errors();
 
-            return Redirect::to(URL::route("user/reset") . $token)
+            return Redirect::to(URL::route('user/reset') . $token)
                 ->withInput($data);
         }
 
-        return View::make("user/reset", $data);
+        return View::make('user/reset', $data);
     }
 
     public function profileAction() {
-        return View::make("user/profile");
+        return View::make('user/profile');
     }
 
     public function logoutAction() {
         Auth::logout();
-        return Redirect::route("user/login");
+        return Redirect::route('user/login');
     }
 }
