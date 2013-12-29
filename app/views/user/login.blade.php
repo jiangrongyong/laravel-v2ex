@@ -1,9 +1,10 @@
 @extends("layout.guest")
 @section("content")
+    <link rel="stylesheet" href="/css/login.css">
     {{ Form::open([
         "route" => "user/login",
         "autocomplete" => "off",
-        "class" => "form-signin",
+        "class" => "form-login",
         "role" => "form"
     ]) }}
         <h2>{{Lang::get('app.name')}}</h2>
