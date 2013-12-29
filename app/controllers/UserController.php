@@ -128,9 +128,6 @@ class UserController extends Controller {
     }
 
     public function profileAction() {
-        if (Auth::guest()) {
-            return Redirect::route('user/login');
-        }
         return View::make('user/profile');
     }
 
