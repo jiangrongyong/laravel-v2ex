@@ -1,4 +1,4 @@
-@extends("layout")
+@extends("layout.guest")
 @section("content")
     {{ Form::open([
         "url" => URL::route("user/reset") . $token,

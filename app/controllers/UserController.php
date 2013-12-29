@@ -64,7 +64,7 @@ class UserController extends Controller {
 
                 Password::remind($credentials,
                     function ($message, $user) {
-                        $message->from('chris@example.com');
+                        $message->from('jiangrongyong@gmail.com');
                     }
                 );
 
