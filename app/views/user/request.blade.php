@@ -1,4 +1,4 @@
-@extends("layout")
+@extends("layout.guest")
 @section("content")
     @if ($requested)
         Check your mail!
@@ -14,8 +14,4 @@
             {{ Form::submit("reset") }}
         {{ Form::close() }}
     @endif
-@stop
-@section("footer")
-    @parent
-    <script src="//polyfill.io"></script>
 @stop
