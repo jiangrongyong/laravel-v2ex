@@ -34,10 +34,7 @@
 }
 
 .form-signin input[type="password"] {
-    margin: 10px 0 10px 0;
-}
-
-.form-signin input[type="submit"] {
-    float: right;
-    width: 80px;
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }

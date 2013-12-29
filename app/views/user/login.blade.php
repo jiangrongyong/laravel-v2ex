@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/layout.css">
 
-    <title>登录</title>
+    <title>{{Lang::get('app.name')}}</title>
 </head>
 <body>
 <div class="container">
@@ -18,12 +18,13 @@
     "class" => "form-signin",
     "role" => "form"
     ]) }}
+    <h2>{{Lang::get('app.name')}}</h2>
     {{ Form::text("username", Input::get("username"), [
-    "placeholder" => "username",
+    "placeholder" => Lang::get('login.username'),
     "class" => "form-control"
     ]) }}
     {{ Form::password("password", [
-    "placeholder" => "password",
+    "placeholder" => Lang::get('login.password'),
     "class" => "form-control"
     ]) }}
     @if ($error = $errors->first("password"))
@@ -31,7 +32,7 @@
         {{ $error }}
     </div>
     @endif
-    {{ Form::submit("登录", [
+    {{ Form::submit("Log in", [
     "class" => "btn btn-lg btn-primary btn-block"
     ]) }}
     {{ Form::close() }}
