@@ -1,23 +1,30 @@
 <?php
 
-Route::get('/', function () {
-    if (Auth::guest()) {
-        return Redirect::route('user/login');
-    }
-    return Redirect::route('user/profile');
+Route::group(["before" => "guest"], function () {
+    Route::any("/", [
+        "as" => "user/login",
+        "uses" => "UserController@loginAction"
+    ]);
+
+    Route::any("/request", [
+        "as" => "user/request",
+        "uses" => "UserController@requestAction"
+    ]);
+
+    Route::any("/reset", [
+        "as" => "user/reset",
+        "uses" => "UserController@resetAction"
+    ]);
 });
 
-Route::any('login', [
-    'as' => 'user/login',
-    'uses' => 'UserController@loginAction'
-]);
+Route::group(["before" => "auth"], function () {
+    Route::any("/profile", [
+        "as" => "user/profile",
+        "uses" => "UserController@profileAction"
+    ]);
 
-Route::any('profile', [
-    'as' => 'user/profile',
-    'uses' => 'UserController@profileAction'
-]);
-
-Route::any('logout', [
-    'as' => 'user/logout',
-    'uses' => 'UserController@logoutAction'
-]);
+    Route::any("/logout", [
+        "as" => "user/logout",
+        "uses" => "UserController@logoutAction"
+    ]);
+});
