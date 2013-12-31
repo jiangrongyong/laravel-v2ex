@@ -1376,6 +1376,27 @@ class Auth extends Illuminate\Support\Facades\Auth{
 	 }
 
 	/**
+	 * Get the default authentication driver name.
+	 *
+	 * @return string
+	 * @static 
+	 */
+	 public static function getDefaultDriver(){
+		return Illuminate\Auth\AuthManager::getDefaultDriver();
+	 }
+
+	/**
+	 * Set the default authentication driver name.
+	 *
+	 * @param string  $name
+	 * @return void
+	 * @static 
+	 */
+	 public static function setDefaultDriver($name){
+		 Illuminate\Auth\AuthManager::setDefaultDriver($name);
+	 }
+
+	/**
 	 * Create a new manager instance.
 	 *
 	 * @param \Illuminate\Foundation\Application  $app
@@ -1879,6 +1900,38 @@ class Cache extends Illuminate\Support\Facades\Cache{
 	 */
 	 public static function getPrefix(){
 		return Illuminate\Cache\CacheManager::getPrefix();
+	 }
+
+	/**
+	 * Set the cache "prefix" value.
+	 *
+	 * @param string  $name
+	 * @return void
+	 * @static 
+	 */
+	 public static function setPrefix($name){
+		 Illuminate\Cache\CacheManager::setPrefix($name);
+	 }
+
+	/**
+	 * Get the default cache driver name.
+	 *
+	 * @return string
+	 * @static 
+	 */
+	 public static function getDefaultDriver(){
+		return Illuminate\Cache\CacheManager::getDefaultDriver();
+	 }
+
+	/**
+	 * Set the default cache driver name.
+	 *
+	 * @param string  $name
+	 * @return void
+	 * @static 
+	 */
+	 public static function setDefaultDriver($name){
+		 Illuminate\Cache\CacheManager::setDefaultDriver($name);
 	 }
 
 	/**
@@ -4935,6 +4988,17 @@ class Form extends Illuminate\Support\Facades\Form{
 	 }
 
 	/**
+	 * Set the model instance on the form builder.
+	 *
+	 * @param mixed  $model
+	 * @return void
+	 * @static 
+	 */
+	 public static function setModel($model){
+		 Illuminate\Html\FormBuilder::setModel($model);
+	 }
+
+	/**
 	 * Close the current form.
 	 *
 	 * @return string
@@ -6434,14 +6498,14 @@ class Input extends Illuminate\Support\Facades\Input{
 	 }
 
 	/**
-	 * Returns the root url from which this request is executed.
+	 * Returns the root URL from which this request is executed.
 	 * 
 	 * The base URL never ends with a /.
 	 * 
 	 * This is similar to getBasePath(), except that it also includes the
 	 * script filename (e.g. index.php) if one exists.
 	 *
-	 * @return string The raw url (i.e. not urldecoded)
+	 * @return string The raw URL (i.e. not urldecoded)
 	 * @api 
 	 * @static 
 	 */
@@ -7879,6 +7943,27 @@ class Queue extends Illuminate\Support\Facades\Queue{
 	 }
 
 	/**
+	 * Get the name of the default queue connection.
+	 *
+	 * @return string
+	 * @static 
+	 */
+	 public static function getDefaultDriver(){
+		return Illuminate\Queue\QueueManager::getDefaultDriver();
+	 }
+
+	/**
+	 * Set the name of the default queue connection.
+	 *
+	 * @param string  $name
+	 * @return void
+	 * @static 
+	 */
+	 public static function setDefaultDriver($name){
+		 Illuminate\Queue\QueueManager::setDefaultDriver($name);
+	 }
+
+	/**
 	 * Get the full name for the given connection.
 	 *
 	 * @param string  $connection
@@ -9050,14 +9135,14 @@ class Request extends Illuminate\Support\Facades\Request{
 	 }
 
 	/**
-	 * Returns the root url from which this request is executed.
+	 * Returns the root URL from which this request is executed.
 	 * 
 	 * The base URL never ends with a /.
 	 * 
 	 * This is similar to getBasePath(), except that it also includes the
 	 * script filename (e.g. index.php) if one exists.
 	 *
-	 * @return string The raw url (i.e. not urldecoded)
+	 * @return string The raw URL (i.e. not urldecoded)
 	 * @api 
 	 * @static 
 	 */
@@ -9966,6 +10051,16 @@ class Route extends Illuminate\Support\Facades\Route{
 	 * @return \Illuminate\Routing\Route
 	 * @static 
 	 */
+	 public static function getCurrentRoute(){
+		return Illuminate\Routing\Router::getCurrentRoute();
+	 }
+
+	/**
+	 * Get the currently dispatched route instance.
+	 *
+	 * @return \Illuminate\Routing\Route
+	 * @static 
+	 */
 	 public static function current(){
 		return Illuminate\Routing\Router::current();
 	 }
@@ -10213,6 +10308,27 @@ class Session extends Illuminate\Support\Facades\Session{
 	 */
 	 public static function getSessionConfig(){
 		return Illuminate\Session\SessionManager::getSessionConfig();
+	 }
+
+	/**
+	 * Get the default session driver name.
+	 *
+	 * @return string
+	 * @static 
+	 */
+	 public static function getDefaultDriver(){
+		return Illuminate\Session\SessionManager::getDefaultDriver();
+	 }
+
+	/**
+	 * Set the default session driver name.
+	 *
+	 * @param string  $name
+	 * @return void
+	 * @static 
+	 */
+	 public static function setDefaultDriver($name){
+		 Illuminate\Session\SessionManager::setDefaultDriver($name);
 	 }
 
 	/**
@@ -10762,6 +10878,27 @@ class SSH extends Illuminate\Support\Facades\SSH{
 	 */
 	 public static function resolve($name){
 		return Illuminate\Remote\RemoteManager::resolve($name);
+	 }
+
+	/**
+	 * Get the default connection name.
+	 *
+	 * @return string
+	 * @static 
+	 */
+	 public static function getDefaultConnection(){
+		return Illuminate\Remote\RemoteManager::getDefaultConnection();
+	 }
+
+	/**
+	 * Set the default connection name.
+	 *
+	 * @param string  $name
+	 * @return void
+	 * @static 
+	 */
+	 public static function setDefaultConnection($name){
+		 Illuminate\Remote\RemoteManager::setDefaultConnection($name);
 	 }
 
 	/**

@@ -28,3 +28,5 @@ Route::group(["before" => "auth"], function () {
         "uses" => "UserController@logoutAction"
     ]);
 });
+
+Route::controller('password', 'RemindersController');

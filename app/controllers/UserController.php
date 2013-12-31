@@ -92,7 +92,7 @@ class UserController extends Controller {
             'errors' => $errors
         ];
 
-        if (Input::server('REQUEST_METHOD') == 'POST') {
+        if (Input::server('REQUEST_METHOD') === 'POST') {
             $validator = Validator::make(Input::all(), [
                 'email' => 'required|email',
                 'password' => 'required|min:6',
