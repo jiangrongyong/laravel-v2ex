@@ -47,6 +47,10 @@ class UserController extends Controller {
         return View::make('user/login', $data);
     }
 
+    public function profileAction() {
+        return View::make('user/profile');
+    }
+
     public function logoutAction() {
         Auth::logout();
         return Redirect::route('user/login');
