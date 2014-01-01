@@ -7,7 +7,7 @@
                 {{ $error }}
             </div>
         @endif
-        <input type="text" name="email" class="form-control" placeholder="john@example.com" required autofocus>
+        <input type="email" name="email" class="form-control" placeholder="john@example.com" required autofocus>
         <input type="submit" value="Send Reminder" class="btn btn-lg btn-primary btn-block">
     </form>
 @stop
