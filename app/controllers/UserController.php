@@ -4,6 +4,11 @@ use Illuminate\Support\MessageBag;
 
 class UserController extends Controller {
 
+    public function __construct() {
+        $this->beforeFilter('auth', array('only' => array('getProfile', 'getLogout')));
+        $this->beforeFilter('guest', array('only' => array('getLogin', 'postLogin')));
+    }
+
     public function getLogin() {
         $errors = new MessageBag();
 
