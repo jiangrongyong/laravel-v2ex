@@ -31,7 +31,7 @@ class UserController extends Controller {
             ];
 
             if (Auth::attempt($credentials)) {
-                return Redirect::route('user/profile');
+                return Redirect::action('UserController@getProfile');
             }
         }
 
@@ -47,12 +47,12 @@ class UserController extends Controller {
             ->withInput($data);
     }
 
-    public function profileAction() {
+    public function getProfile() {
         return View::make('user/profile');
     }
 
-    public function logoutAction() {
+    public function getLogout() {
         Auth::logout();
-        return Redirect::route('user/login');
+        return Redirect::action('UserController@getLogin');
     }
 }
