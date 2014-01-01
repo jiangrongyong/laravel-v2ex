@@ -2,14 +2,18 @@
 @section("content")
     <link rel="stylesheet" href="/css/login.css">
     {{ Form::open(["action" => "UserController@postLogin", "autocomplete" => "off", "class" => "form-login", "role" => "form"]) }}
-        @if ($error = $errors->first("password"))
+        @if (Session::get('errors'))
             <div class="alert alert-warning">
-                {{ $error }}
+                <ul>
+                    @foreach (Session::get('errors')->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
         @endif
         <h2>{{Lang::get('app.name')}}</h2>
-        {{ Form::text("username", Input::get("username"), ["placeholder" => Lang::get('login.username'), "class" => "form-control", "required" => "true", "autofocus" => "true"]) }}
-        {{ Form::password("password", ["placeholder" => Lang::get('login.password'), "class" => "form-control", "required" => "true"]) }}
+        {{ Form::text("username", Input::get("username"), ["placeholder" => Lang::get('login.username'), "class" => "form-control", "autofocus" => "true"]) }}
+        {{ Form::password("password", ["placeholder" => Lang::get('login.password'), "class" => "form-control"]) }}
         <label class="checkbox">
             <input type="checkbox" name="remember" value="true" />
             Remember me

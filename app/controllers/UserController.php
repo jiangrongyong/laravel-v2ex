@@ -29,26 +29,19 @@ class UserController extends Controller {
             'password' => 'required'
         ]);
 
-        if ($validator->passes()) {
-            $credentials = [
-                'username' => Input::get('username'),
-                'password' => Input::get('password')
-            ];
-            if (Auth::attempt($credentials, Input::get('remember', false))) {
-                return Redirect::action('UserController@getProfile');
-            }
+        if ($validator->fails()) {
+            return Redirect::back()->withInput()->withErrors($validator->messages());
         }
 
-        $data['errors'] = new MessageBag([
-            'password' => [
-                Lang::get('login.fail')
-            ]
-        ]);
+        $credentials = [
+            'username' => Input::get('username'),
+            'password' => Input::get('password')
+        ];
+        if (Auth::attempt($credentials, Input::get('remember', false))) {
+            return Redirect::action('UserController@getProfile');
+        }
 
-        $data['username'] = Input::get('username');
-
-        return Redirect::action('UserController@getLogin')
-            ->withInput($data);
+        return Redirect::back()->withInput()->withErrors(new MessageBag([Lang::get('login.fail')]));
     }
 
     public function getProfile() {
