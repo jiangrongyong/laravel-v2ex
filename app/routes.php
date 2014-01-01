@@ -1,11 +1,6 @@
 <?php
 
 Route::group(["before" => "guest"], function () {
-    Route::any("/", [
-        "as" => "user/login",
-        "uses" => "UserController@loginAction"
-    ]);
-
     Route::any("/request", [
         "as" => "user/request",
         "uses" => "UserController@requestAction"
@@ -30,3 +25,4 @@ Route::group(["before" => "auth"], function () {
 });
 
 Route::controller('password', 'RemindersController');
+Route::controller('user', 'UserController');

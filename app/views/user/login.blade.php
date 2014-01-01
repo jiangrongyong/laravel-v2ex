@@ -2,7 +2,7 @@
 @section("content")
     <link rel="stylesheet" href="/css/login.css">
     {{ Form::open([
-        "route" => "user/login",
+        "action" => "UserController@postLogin",
         "autocomplete" => "off",
         "class" => "form-login",
         "role" => "form"

@@ -4,7 +4,7 @@ use Illuminate\Support\MessageBag;
 
 class UserController extends Controller {
 
-    public function loginAction() {
+    public function getLogin() {
         $errors = new MessageBag();
 
         if ($old = Input::old('errors')) {
@@ -15,36 +15,36 @@ class UserController extends Controller {
             'errors' => $errors
         ];
 
-        if (Input::server('REQUEST_METHOD') === 'POST') {
-            $validator = Validator::make(Input::all(), [
-                'username' => 'required',
-                'password' => 'required'
-            ]);
+        return View::make('user/login', $data);
+    }
 
-            if ($validator->passes()) {
-                $credentials = [
-                    'username' => Input::get('username'),
-                    'password' => Input::get('password')
-                ];
+    public function postLogin() {
+        $validator = Validator::make(Input::all(), [
+            'username' => 'required',
+            'password' => 'required'
+        ]);
 
-                if (Auth::attempt($credentials)) {
-                    return Redirect::route('user/profile');
-                }
+        if ($validator->passes()) {
+            $credentials = [
+                'username' => Input::get('username'),
+                'password' => Input::get('password')
+            ];
+
+            if (Auth::attempt($credentials)) {
+                return Redirect::route('user/profile');
             }
-
-            $data['errors'] = new MessageBag([
-                'password' => [
-                    Lang::get('login.fail')
-                ]
-            ]);
-
-            $data['username'] = Input::get('username');
-
-            return Redirect::route('user/login')
-                ->withInput($data);
         }
 
-        return View::make('user/login', $data);
+        $data['errors'] = new MessageBag([
+            'password' => [
+                Lang::get('login.fail')
+            ]
+        ]);
+
+        $data['username'] = Input::get('username');
+
+        return Redirect::action('UserController@getLogin')
+            ->withInput($data);
     }
 
     public function profileAction() {
