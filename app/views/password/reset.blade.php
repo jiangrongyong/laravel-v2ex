@@ -32,7 +32,7 @@
             </div>
         @endif
         {{ Form::password("password_confirmation", [
-            "placeholder" => "Confirm password",
+            "placeholder" => "Repeat Password",
             "class" => "form-control password_confirmation"
         ]) }}
         @if ($error = $errors->first("password_confirmation"))
