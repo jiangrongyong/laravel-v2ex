@@ -25,7 +25,7 @@
             </div>
         @endif
         <label class="checkbox">
-            <input type="checkbox" value="remember-me" />
+            <input type="checkbox" name="remember" value="true" />
             Remember me
         </label>
         {{ Form::submit("Log in", [

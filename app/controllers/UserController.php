@@ -34,8 +34,7 @@ class UserController extends Controller {
                 'username' => Input::get('username'),
                 'password' => Input::get('password')
             ];
-
-            if (Auth::attempt($credentials)) {
+            if (Auth::attempt($credentials, Input::get('remember', false))) {
                 return Redirect::action('UserController@getProfile');
             }
         }
