@@ -40,6 +40,7 @@
                 {{ $error }}
             </div>
         @endif
+        <input type="hidden" name="token" value="{{ $token }}">
         <div class="error">
             {{ Session::get('error') }}
         </div>

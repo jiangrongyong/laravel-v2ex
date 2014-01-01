@@ -21,6 +21,7 @@
                 {{ $error }}
             </div>
         @endif
+        <a href="{{ action('RemindersController@getRemind') }}">Forgot password</a>
         {{ Form::submit("Log in", [
             "class" => "btn btn-lg btn-primary btn-block"
         ]) }}

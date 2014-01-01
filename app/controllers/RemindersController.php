@@ -61,7 +61,7 @@ class RemindersController extends Controller {
                 return Redirect::back()->with('error', Lang::get($response));
 
             case Password::PASSWORD_RESET:
-                return Redirect::to('/');
+                return Redirect::action('UserController@getProfile');
         }
     }
 
