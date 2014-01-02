@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => 'jiangrongyong@gmail.com', 'name' => 'jiangrongyong'),
+	'from' => array('address' => 'laravelphp.cn@gmail.com', 'name' => 'laravelphp.cn'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return array(
 	|
 	*/
 
-	'username' => 'jiangrongyong',
+	'username' => 'laravelphp.cn',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return array(
 	|
 	*/
 
-	'password' => '',
+	'password' => 'BfUia6dJjHipPp4j',
 
 	/*
 	|--------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 @extends("layout.guest")
 @section("content")
     <link rel="stylesheet" href="/css/remind.css">
-    <form action="{{ action('RemindersController@postRemind') }}" class="form-request" role="form" method="POST">
+    <form action="{{ action('RemindersController@postRemind') }}" class="form-remind" role="form" method="POST">
         @if (Session::get('errors'))
             <div class="alert alert-warning">
                 <ul>

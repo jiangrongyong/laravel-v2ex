@@ -34,3 +34,7 @@
     border-top-right-radius: 0;
     margin-bottom: 10px;
 }
+
+.form-reset ul {
+    padding-left: 20px;
+}
