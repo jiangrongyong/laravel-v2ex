@@ -23,7 +23,7 @@ class RemindersController extends Controller {
                 return Redirect::back()->withErrors(new MessageBag([Lang::get($response)]));
 
             case Password::REMINDER_SENT:
-                return Redirect::back()->with('status', Lang::get($response));
+                return Redirect::back()->with('infos', new MessageBag([Lang::get($response)]));
         }
     }
 
@@ -62,7 +62,7 @@ class RemindersController extends Controller {
                 return Redirect::back()->withInput()->withErrors(Lang::get($response));
 
             case Password::PASSWORD_RESET:
-                return Redirect::action('UserController@getProfile');
+                return Redirect::action('UserController@getLogin')->with('infos', new MessageBag(['密码修改成功']));;
         }
     }
 

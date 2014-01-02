@@ -6,7 +6,16 @@
             <div class="alert alert-warning">
                 <ul>
                     @foreach (Session::get('errors')->all() as $error)
-                    <li>{{ $error }}</li>
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        @if (Session::get('infos'))
+            <div class="alert alert-success">
+                <ul>
+                    @foreach (Session::get('infos')->all() as $info)
+                        <li>{{ $info }}</li>
                     @endforeach
                 </ul>
             </div>
