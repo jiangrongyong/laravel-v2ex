@@ -2,7 +2,7 @@
 @section("content")
     <link rel="stylesheet" href="/css/login.css">
     {{ Form::open(["action" => "UserController@postLogin", "autocomplete" => "off", "class" => "form-login", "role" => "form"]) }}
-        @if (Session::get('errors'))
+        @if (Session::has('errors'))
             <div class="alert alert-warning">
                 <ul>
                     @foreach (Session::get('errors')->all() as $error)
@@ -11,7 +11,7 @@
                 </ul>
             </div>
         @endif
-        @if (Session::get('infos'))
+        @if (Session::has('infos'))
             <div class="alert alert-success">
                 <ul>
                     @foreach (Session::get('infos')->all() as $info)

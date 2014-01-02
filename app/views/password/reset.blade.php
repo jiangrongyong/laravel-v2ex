@@ -7,7 +7,7 @@
         "class" => "form-reset",
         "role" => "form"
     ]) }}
-        @if (Session::get('errors'))
+        @if (Session::has('errors'))
             <div class="alert alert-warning">
                 <ul>
                     @foreach (Session::get('errors')->all() as $error)
