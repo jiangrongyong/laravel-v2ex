@@ -1,10 +1,14 @@
 @extends("layout.guest")
 @section("content")
-    <link rel="stylesheet" href="/css/request.css">
+    <link rel="stylesheet" href="/css/remind.css">
     <form action="{{ action('RemindersController@postRemind') }}" class="form-request" role="form" method="POST">
-        @if ($error = $errors->first("msg"))
+        @if (Session::get('errors'))
             <div class="alert alert-warning">
-                {{ $error }}
+                <ul>
+                    @foreach (Session::get('errors')->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
         @endif
         <input type="email" name="email" class="form-control" placeholder="john@example.com" required autofocus>

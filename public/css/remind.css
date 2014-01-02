@@ -21,3 +21,7 @@
 .form-request input[type="email"] {
     margin-bottom: 10px;
 }
+
+.form-request ul {
+    padding-left: 20px;
+}
