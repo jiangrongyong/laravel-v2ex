@@ -7,7 +7,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
     protected $table = "users";
 
-    protected $hidden = ["password"];
+    protected $guarded = array('id', 'created_at', 'updated_at');
 
     public function getAuthIdentifier() {
         return $this->getKey();
@@ -19,5 +19,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
     public function getReminderEmail() {
         return $this->email;
+    }
+
+    public function setPasswordAttribute($value) {
+        $this->attributes['password'] = Hash::make($value);
     }
 }

@@ -4,7 +4,11 @@ use Illuminate\Support\MessageBag;
 
 class UserController extends Controller {
 
-    public function __construct() {
+    protected $user;
+
+    public function __construct(User $user) {
+        $this->user = $user;
+
         $this->beforeFilter('auth', array('only' => array('getProfile', 'getLogout')));
         $this->beforeFilter('guest', array('only' => array('getLogin', 'postLogin')));
     }
@@ -58,13 +62,8 @@ class UserController extends Controller {
             return Redirect::back()->withInput()->withErrors($validator->messages());
         }
 
-        $user = new User();
-        $user->username = Input::get('username');
-        $user->password = Hash::make(Input::get('password'));
-        $user->email = Input::get('email');
-
         try {
-            $user->save();
+            $user = $this->user->create(Input::all());
         } catch (\Illuminate\Database\QueryException $e) {
             return Redirect::back()->withInput()->withErrors(new MessageBag([Lang::get('signup.fail')]));
         }
