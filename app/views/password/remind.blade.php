@@ -2,12 +2,10 @@
 @section("content")
     <link rel="stylesheet" href="/css/remind.css">
     <form action="{{ action('RemindersController@postRemind') }}" class="form-remind" role="form" method="POST">
-        @if (Session::has('errors'))
+        @if ($errors->any())
             <div class="alert alert-warning">
                 <ul>
-                    @foreach (Session::get('errors')->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
+                    {{ implode('', $errors->all('<li>:message</li>')) }}
                 </ul>
             </div>
         @endif
