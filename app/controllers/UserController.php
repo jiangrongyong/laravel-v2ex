@@ -10,17 +10,7 @@ class UserController extends Controller {
     }
 
     public function getLogin() {
-        $errors = new MessageBag();
-
-        if ($old = Input::old('errors')) {
-            $errors = $old;
-        }
-
-        $data = [
-            'errors' => $errors
-        ];
-
-        return View::make('user/login', $data);
+        return View::make('user/login');
     }
 
     public function postLogin() {
@@ -51,5 +41,35 @@ class UserController extends Controller {
     public function getLogout() {
         Auth::logout();
         return Redirect::action('UserController@getLogin');
+    }
+
+    public function getSignup() {
+        return View::make('user/signup');
+    }
+
+    public function postSignup() {
+        $validator = Validator::make(Input::all(), [
+            'username' => 'required',
+            'password' => 'required',
+            'email' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return Redirect::back()->withInput()->withErrors($validator->messages());
+        }
+
+        $user = new User();
+        $user->username = Input::get('username');
+        $user->password = Hash::make(Input::get('password'));
+        $user->email = Input::get('email');
+
+        try {
+            $user->save();
+        } catch (\Illuminate\Database\QueryException $e) {
+            return Redirect::back()->withInput()->withErrors(new MessageBag([Lang::get('signup.fail')]));
+        }
+
+        Auth::login($user);
+        return Redirect::action('UserController@getProfile');
     }
 }

@@ -3,45 +3,27 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserTable
-extends Migration
-{
-    public function up()
-    {
-        Schema::create("user", function(Blueprint $table)
-        {
-            $table
-                ->increments("id");
+class CreateUserTable extends Migration {
 
-            $table
-                ->string("username")
-                ->nullable()
-                ->default(null);
+    public function up() {
+        Schema::create('user', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
 
-            $table
-                ->string("password")
-                ->nullable()
-                ->default(null);
+            $table->increments('id');
 
-            $table
-                ->string("email")
-                ->nullable()
-                ->default(null);
+            $table->string('username')->unique();
 
-            $table
-                ->dateTime("created_at")
-                ->nullable()
-                ->default(null);
+            $table->string('password');
 
-            $table
-                ->dateTime("updated_at")
-                ->nullable()
-                ->default(null);
+            $table->string('email')->unique();
+
+            $table->dateTime('created_at');
+
+            $table->dateTime('updated_at');
         });
     }
 
-    public function down()
-    {
-        Schema::dropIfExists("user");
+    public function down() {
+        Schema::dropIfExists('user');
     }
 }
