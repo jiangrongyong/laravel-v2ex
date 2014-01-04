@@ -49,9 +49,9 @@ class UserController extends Controller {
 
     public function postSignup() {
         $validator = Validator::make(Input::all(), [
-            'username' => 'required',
+            'username' => 'required|unique:users',
             'password' => 'required',
-            'email' => 'required'
+            'email' => 'required|email|unique:users'
         ]);
 
         if ($validator->fails()) {

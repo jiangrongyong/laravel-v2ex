@@ -28,6 +28,7 @@
             Remember me
         </label>
         {{ Form::submit("Log in", ["class" => "btn btn-lg btn-primary btn-block"]) }}
-        <a href="{{ action('RemindersController@getRemind') }}">Forgot password</a>
+        <a id="signup_link" href="{{ action('UserController@getSignup') }}">Sign up</a>
+        <a id="forgot_link" href="{{ action('RemindersController@getRemind') }}">Forgot password</a>
     {{ Form::close() }}
 @stop
