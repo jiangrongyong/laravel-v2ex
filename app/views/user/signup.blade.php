@@ -2,12 +2,10 @@
 @section("content")
     <link rel="stylesheet" href="/css/signup.css">
     {{ Form::open(["action" => "UserController@postSignup", "autocomplete" => "off", "class" => "form-signup", "role" => "form"]) }}
-        @if (Session::has('errors'))
+        @if ($errors->any())
             <div class="alert alert-warning">
                 <ul>
-                    @foreach (Session::get('errors')->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
+                    {{ implode('', $errors->all('<li>:message</li>')) }}
                 </ul>
             </div>
         @endif
