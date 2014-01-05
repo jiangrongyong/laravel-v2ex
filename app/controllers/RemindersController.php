@@ -18,7 +18,9 @@ class RemindersController extends Controller {
      * @return Response
      */
     public function postRemind() {
-        switch ($response = Password::remind(Input::only('email'))) {
+        switch ($response = Password::remind(Input::only('email'), function ($message, $user) {
+            $message->subject('Password Reset');
+        })) {
             case Password::INVALID_USER:
                 return Redirect::back()->withErrors(new MessageBag([Lang::get($response)]));
 
