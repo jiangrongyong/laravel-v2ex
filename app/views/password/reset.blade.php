@@ -7,13 +7,7 @@
         "class" => "form-reset",
         "role" => "form"
     ]) }}
-        @if ($errors->any())
-            <div class="alert alert-warning">
-                <ul>
-                    {{ implode('', $errors->all('<li>:message</li>')) }}
-                </ul>
-            </div>
-        @endif
+        {{ Form::errors() }}
         <h2>{{Lang::get('app.name')}}</h2>
         {{ Form::text("email", Input::get("email"), [
             "placeholder" => "john@example.com",

@@ -2,13 +2,7 @@
 @section("content")
     <link rel="stylesheet" href="/css/remind.css">
     <form action="{{ action('RemindersController@postRemind') }}" class="form-remind" role="form" method="POST">
-        @if ($errors->any())
-            <div class="alert alert-warning">
-                <ul>
-                    {{ implode('', $errors->all('<li>:message</li>')) }}
-                </ul>
-            </div>
-        @endif
+        {{ Form::errors() }}
         @if (Session::has('infos'))
             <div class="alert alert-success">
                 <ul>

@@ -2,13 +2,7 @@
 @section("content")
     <link rel="stylesheet" href="/css/login.css">
     {{ Form::open(["action" => "UserController@postLogin", "autocomplete" => "off", "class" => "form-login", "role" => "form"]) }}
-        @if ($errors->any())
-            <div class="alert alert-warning">
-                <ul>
-                    {{ implode('', $errors->all('<li>:message</li>')) }}
-                </ul>
-            </div>
-        @endif
+        {{ Form::errors() }}
         @if (Session::has('infos'))
             <div class="alert alert-success">
                 <ul>
