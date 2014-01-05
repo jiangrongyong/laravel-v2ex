@@ -1,6 +1,6 @@
 @extends("layout.guest")
 @section("content")
-    <link rel="stylesheet" href="/css/remind.css">
+    <link rel="stylesheet" href="{{ asset('css/remind.css') }}">
     <form action="{{ action('RemindersController@postRemind') }}" class="form-remind" role="form" method="POST">
         {{ Form::errors() }}
         @if (Session::has('infos'))

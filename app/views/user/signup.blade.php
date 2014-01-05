@@ -1,6 +1,6 @@
 @extends("layout.guest")
 @section("content")
-    <link rel="stylesheet" href="/css/signup.css">
+    <link rel="stylesheet" href="{{ asset('css/signup.css') }}">
     {{ Form::open(["action" => "UserController@postSignup", "autocomplete" => "off", "class" => "form-signup", "role" => "form"]) }}
         {{ Form::errors() }}
         @if (Session::has('infos'))

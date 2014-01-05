@@ -1,6 +1,6 @@
 @extends("layout.guest")
 @section("content")
-    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     {{ Form::open([
         "url" => action('RemindersController@postReset'),
         "autocomplete" => "off",
