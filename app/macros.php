@@ -9,10 +9,8 @@ Form::macro('errors', function () {
     }
     return sprintf(
         '<div class="alert alert-warning">
-            <ul>
-                %s
-            </ul>
+            %s
         </div>',
-        implode('', $errors->all('<li>:message</li>'))
+        HTML::ul($errors->all())
     );
 });
