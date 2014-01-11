@@ -8,8 +8,9 @@ class NodesTopicsController extends \BaseController {
      * @return Response
      */
     public function index($node_id) {
-        $topics = Node::with('topics.user')->find($node_id);
-        return $topics;
+        $node = Node::with('topics.user')->find($node_id);
+        $topics = $node->topics;
+        return View::make('node.topic.index')->with(compact('topics'));
     }
 
     /**
