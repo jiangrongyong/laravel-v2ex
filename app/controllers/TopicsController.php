@@ -37,6 +37,7 @@ class TopicsController extends \BaseController {
      */
     public function show($id) {
         $topic = Topic::with('replies.user')->with('user')->find($id);
+        return View::make('topic.show')->with(compact('topic'));
 
         return Response::json($topic);
     }
