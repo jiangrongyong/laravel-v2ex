@@ -7,4 +7,8 @@ class Node extends Eloquent {
 
     protected $table = "nodes";
 
+    public function topics() {
+        return $this->hasMany('Topic');
+    }
+
 }

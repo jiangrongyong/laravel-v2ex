@@ -10,6 +10,7 @@ class CreateRepliesTable extends Migration {
             $table->increments('id');
             $table->text('content');
             $table->integer('topic_id');
+            $table->integer('user_id');
             $table->timestamp('created_at');
             $table->timestamp('updated_at');
         });
