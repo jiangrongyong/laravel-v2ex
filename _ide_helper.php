@@ -115,6 +115,17 @@ class App extends Illuminate\Support\Facades\App{
 	 }
 
 	/**
+	 * Resolve a service provider instance from the class name.
+	 *
+	 * @param string  $provider
+	 * @return \Illuminate\Support\ServiceProvider
+	 * @static 
+	 */
+	 public static function resolveProviderClass($provider){
+		return Illuminate\Foundation\Application::resolveProviderClass($provider);
+	 }
+
+	/**
 	 * Load and boot all of the remaining deferred providers.
 	 *
 	 * @return void
@@ -526,6 +537,16 @@ class App extends Illuminate\Support\Facades\App{
 	 */
 	 public static function onRequest($method, $parameters = array()){
 		return Illuminate\Foundation\Application::onRequest($method, $parameters);
+	 }
+
+	/**
+	 * Register the core class aliases in the container.
+	 *
+	 * @return void
+	 * @static 
+	 */
+	 public static function registerCoreContainerAliases(){
+		 Illuminate\Foundation\Application::registerCoreContainerAliases();
 	 }
 
 	/**
@@ -1715,6 +1736,16 @@ class Auth extends Illuminate\Support\Facades\Auth{
 	 */
 	 public static function setRequest($request){
 		return Illuminate\Auth\Guard::setRequest($request);
+	 }
+
+	/**
+	 * Get the last user we attempted to authenticate.
+	 *
+	 * @return \Illuminate\Auth\UserInterface
+	 * @static 
+	 */
+	 public static function getLastAttempted(){
+		return Illuminate\Auth\Guard::getLastAttempted();
 	 }
 
 	/**
@@ -11268,6 +11299,17 @@ class View extends Illuminate\Support\Facades\View{
 	 }
 
 	/**
+	 * Register multiple view composers via an array.
+	 *
+	 * @param array  $composers
+	 * @return array
+	 * @static 
+	 */
+	 public static function composers($composers){
+		return Illuminate\View\Environment::composers($composers);
+	 }
+
+	/**
 	 * Register a view composer event.
 	 *
 	 * @param array|string  $views
@@ -11439,6 +11481,18 @@ class View extends Illuminate\Support\Facades\View{
 	 */
 	 public static function addNamespace($namespace, $hints){
 		 Illuminate\View\Environment::addNamespace($namespace, $hints);
+	 }
+
+	/**
+	 * Prepend a new namespace to the loader.
+	 *
+	 * @param string  $namespace
+	 * @param string|array  $hints
+	 * @return void
+	 * @static 
+	 */
+	 public static function prependNamespace($namespace, $hints){
+		 Illuminate\View\Environment::prependNamespace($namespace, $hints);
 	 }
 
 	/**
