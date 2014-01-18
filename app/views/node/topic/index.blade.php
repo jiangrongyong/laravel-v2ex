@@ -56,20 +56,27 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <a href="{{ action('NodesTopicsController@index', array($topic->node->id)) }}" class="badge">
-                            {{ $node->name}}
-                        </a>
-                        <span style="color: #ccc;">•</span>
-                        <a style="color: rgb(119, 128, 135);font-weight: bold;font-size: 12px;" href="#">
-                            {{ $topic->user->username}}
-                        </a>
-                        <span style="color: #ccc;">•</span>
-                        <span style="color: rgb(204, 204, 204);font-size: 12px;">2 分钟前</span>
-                        <span style="color: #ccc;">•</span>
-                        <span style="color: rgb(204, 204, 204);font-size: 12px;">最后回复来自</span>
-                        <a style="color: rgb(119, 128, 135);font-weight: bold;font-size: 12px;" href="#">
-                            {{$topic->user->username}}
-                        </a>
+                        <small>
+                            <a href="{{ action('NodesTopicsController@index', array($topic->node->id)) }}"
+                               class="badge">
+                                {{ $node->name}}
+                            </a>
+                            <span style="color: #ccc;">•</span>
+                            <strong>
+                                <a style="color: rgb(119, 128, 135);" href="#">
+                                    {{ $topic->user->username}}
+                                </a>
+                            </strong>
+                            <span style="color: #ccc;">•</span>
+                            <span style="color: rgb(204, 204, 204);">2 分钟前</span>
+                            <span style="color: #ccc;">•</span>
+                            <span style="color: rgb(204, 204, 204);">最后回复来自</span>
+                            <strong>
+                                <a style="color: rgb(119, 128, 135);" href="#">
+                                    {{ $topic->user->username}}
+                                </a>
+                            </strong>
+                        </small>
                     </div>
                 </div>
             </div>
