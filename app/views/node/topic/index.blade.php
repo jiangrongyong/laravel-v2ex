@@ -1,5 +1,39 @@
 @extends("layout.auth")
 @section("content")
+<div class="row" style="margin-bottom: 10px;">
+    <div class="col-md-1">
+        <a href="/member/mr7">
+            <img src="http://cdn.v2ex.com/navatar/8613/985e/90_large.png?m=1389769333"
+                 style="width: 73px;height: 73px;"/>
+        </a>
+    </div>
+    <div class="col-md-11" style="padding-left: 30px;">
+        <div class="row">
+            <div class="col-md-3">
+                <a href="/" style="color: rgb(77, 82, 86);">{{Lang::get('app.name')}}</a>
+                ›
+                {{ $node->name}}
+            </div>
+            <div class="col-md-3 col-md-offset-6">
+                <span style="color: rgb(226, 226, 226);font-size: 12px;">主题总数</span>
+                <strong style="color: rgb(153, 153, 153);font-size: 12px;">1600</strong>
+                <span style="color: #ccc;">•</span>
+                <a href="#" style="color: rgb(119, 128, 135);font-size: 12px;">加入收藏</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12"
+                 style="margin-top: 10px;margin-bottom: 10px;color: rgb(153, 153, 153);font-size: 12px;">
+                这里讨论各种 Python 语言编程话题，也包括 Django，Tornado 等框架的讨论。这里是一个能够帮助你解决实际问题的地方。
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1">
+                <button type="button" class="btn btn-default" style="font-size: 12px;">创建新主题</button>
+            </div>
+        </div>
+    </div>
+</div>
 <ul class="list-group">
     @foreach ($topics as $topic)
     <li class="list-group-item" style="padding: 8px 15px;">
