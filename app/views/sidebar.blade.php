@@ -1,52 +1,30 @@
 @section("sidebar")
-<div class="box">
-    <div class="cell">
-        <table cellpadding="0" cellspacing="0" border="0" width="100%">
-            <tbody>
-            <tr>
-                <td width="48" valign="top"><a href="/member/jiangrongyong"><img
-                            src="http://cdn.v2ex.com/avatar/b954/66b8/27658_large.png?m=1382157118" class="avatar"
-                            border="0" align="default" style="max-width: 48px; max-height: 48px;"></a></td>
-                <td width="10" valign="top"></td>
-                <td width="auto" align="left"><span class="bigger"><a
-                            href="/member/jiangrongyong">jiangrongyong</a></span>
-
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        <div class="sep10"></div>
-        <table cellpadding="0" cellspacing="0" border="0" width="100%">
-            <tbody>
-            <tr>
-                <td width="33%" align="center"><a href="/my/nodes" class="dark" style="display: block;"><span
-                            class="bigger">7</span>
-
-                        <div class="sep3"></div>
-                        <span class="fade">节点收藏</span></a></td>
-                <td width="34%"
-                    style="border-left: 1px solid rgba(100, 100, 100, 0.4); border-right: 1px solid rgba(100, 100, 100, 0.4);"
-                    align="center"><a href="/my/topics" class="dark" style="display: block;"><span
-                            class="bigger">57</span>
-
-                        <div class="sep3"></div>
-                        <span class="fade">主题收藏</span></a></td>
-                <td width="33%" align="center"><a href="/my/following" class="dark" style="display: block;"><span
-                            class="bigger">8</span>
-
-                        <div class="sep3"></div>
-                        <span class="fade">特别关注</span></a></td>
-            </tr>
-            </tbody>
-        </table>
+<div class="row">
+    <div class="col-md-3">
+        <a href="/member/mr7">
+            <img src="http://cdn.v2ex.com/avatar/b954/66b8/27658_large.png?m=1382157118"
+                 style="width: 48px;height: 48px;"/>
+        </a>
     </div>
-    <div class="inner">
-        <div class="fr" id="money"><a href="/balance" class="balance_area" style="">1 <img
-                    src="http://cdn.v2ex.com/static/img/gold.png" alt="G" align="absmiddle" border="0"
-                    style="padding-bottom: 2px;"> 8 <img src="http://cdn.v2ex.com/static/img/silver.png" alt="S"
-                                                         align="absmiddle" border="0" style="padding-bottom: 2px;"> 26
-                <img src="http://cdn.v2ex.com/static/img/bronze.png" alt="B" align="absmiddle" border="0"></a></div>
-        <a href="/notifications" class="fade">0 条未读提醒</a></div>
+    <div class="col-md-9" style="padding-top: 10px;">
+        <a href="#" style="color: rgb(77, 82, 86);">jiangrongyong</a>
+    </div>
+</div>
+<div class="row">
+    <a href="#" class="col-md-4" style="cursor: auto;display: block;text-align: -webkit-center;">
+        <div style="color: rgb(128, 128, 128);">7</div>
+        <span style="color: rgb(204, 204, 204);font-size: 12px;">节点收藏</span>
+    </a>
 
+    <a href="#" class="col-md-4"
+       style="cursor: auto;text-align: -webkit-center;display: block;border-left: 1px solid rgba(100, 100, 100, 0.4); border-right: 1px solid rgba(100, 100, 100, 0.4);">
+        <div style="color: rgb(128, 128, 128);">57</div>
+        <span style="color: rgb(204, 204, 204);font-size: 12px;">主题收藏</span>
+    </a>
+
+    <a href="#" class="col-md-4" style="cursor: auto;text-align: -webkit-center;display: block;">
+        <div style="color: rgb(128, 128, 128);">8</div>
+        <span style="color: rgb(204, 204, 204);font-size: 12px;">特别关注</span>
+    </a>
 </div>
 @show
