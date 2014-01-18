@@ -22,16 +22,14 @@
 </div>
 <div class="row">
     <div class="col-md-12">
-        <small style="color: #999;">
-            <span>By</span>
-            <strong>
-                <a href="#" style="color: rgb(119, 128, 135);">{{ $topic->user->username }}</a>
-            </strong>
-            <span style="color: #ccc;">•</span>
-            <span>5 小时 46 分钟前</span>
-            <span style="color: #ccc;">•</span>
-            <span>323 次点击</span>
-        </small>
+        <span class="small" style="color: #999;">By</span>
+        <strong>
+            <a class="small" href="#" style="color: rgb(119, 128, 135);">{{ $topic->user->username }}</a>
+        </strong>
+        <span style="color: #ccc;">•</span>
+        <span class="small" style="color: #999;">5 小时 46 分钟前</span>
+        <span style="color: #ccc;">•</span>
+        <span class="small" style="color: #999;">323 次点击</span>
     </div>
 </div>
 <hr/>
@@ -41,32 +39,26 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-10">
-        <small>
-            <a href="#">加入收藏</a>
-            <a href="#">Tweet</a>
-            <a href="#">Weibo</a>
-            <a href="#">忽略主题</a>
-            <a href="#">感谢</a>
-        </small>
+    <div class="col-md-9">
+        <a class="small" href="#">加入收藏</a>
+        <a class="small" href="#">Tweet</a>
+        <a class="small" href="#">Weibo</a>
+        <a class="small" href="#">忽略主题</a>
+        <a class="small" href="#">感谢</a>
     </div>
-    <div class="col-md-2">
-        <small>
-            <span>343 次点击</span>
-            <span style="color: #ccc;">•</span>
-            <span>1 人收藏</span>
-        </small>
+    <div class="col-md-3 text-right">
+        <span class="small">343 次点击</span>
+        <span style="color: #ccc;">•</span>
+        <span class="small">1 人收藏</span>
     </div>
 </div>
 
 <!-- replies -->
 <div class="row">
     <div class="col-md-12">
-        <small>
-            <span>2 回复</span>
-            <span|</span>
-            <span>直到 2014-01-18 16:15:42</span>
-        </small>
+        <span class="small">2 回复</span>
+        <span|</span>
+        <span class="small">直到 2014-01-18 16:15:42</span>
     </div>
 </div>
 <hr/>
@@ -81,23 +73,17 @@
                 </a>
             </div>
             <div class="col-md-11">
-                <div class="row">
+                <div class="row small">
                     <div class="col-md-4">
-                        <small>
-                            <strong>
-                                <a style="color: rgb(119, 128, 135);" href="#">
-                                    {{ $reply->user->username }}
-                                </a>
-                            </strong>
-                            <span style="color: rgb(204, 204, 204);">5 小时 51 分钟前</span>
-                        </small>
+                        <strong>
+                            <a style="color: rgb(119, 128, 135);" href="#">
+                                {{ $reply->user->username }}
+                            </a>
+                        </strong>
+                        <span style="color: rgb(204, 204, 204);">5 小时 51 分钟前</span>
                     </div>
-                    <div class="col-md-1 col-md-offset-6">
-                        <small>
-                            <a href="#">回复</a>
-                        </small>
-                    </div>
-                    <div class="col-md-1">
+                    <div class="col-md-2 col-md-offset-6 text-right">
+                        <a href="#">回复</a>
                         <a href="#" class="badge">1</a>
                     </div>
                 </div>

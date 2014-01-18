@@ -56,27 +56,25 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <small>
-                            <a href="{{ action('NodesTopicsController@index', array($topic->node->id)) }}"
-                               class="badge">
-                                {{ $node->name}}
+                        <a href="{{ action('NodesTopicsController@index', array($topic->node->id)) }}"
+                           class="badge">
+                            {{ $node->name}}
+                        </a>
+                        <span style="color: #ccc;">•</span>
+                        <strong>
+                            <a style="color: rgb(119, 128, 135);" href="#" class="small">
+                                {{ $topic->user->username}}
                             </a>
-                            <span style="color: #ccc;">•</span>
-                            <strong>
-                                <a style="color: rgb(119, 128, 135);" href="#">
-                                    {{ $topic->user->username}}
-                                </a>
-                            </strong>
-                            <span style="color: #ccc;">•</span>
-                            <span style="color: rgb(204, 204, 204);">2 分钟前</span>
-                            <span style="color: #ccc;">•</span>
-                            <span style="color: rgb(204, 204, 204);">最后回复来自</span>
-                            <strong>
-                                <a style="color: rgb(119, 128, 135);" href="#">
-                                    {{ $topic->user->username}}
-                                </a>
-                            </strong>
-                        </small>
+                        </strong>
+                        <span style="color: #ccc;">•</span>
+                        <span class="small" style="color: rgb(204, 204, 204);">2 分钟前</span>
+                        <span style="color: #ccc;">•</span>
+                        <span class="small" style="color: rgb(204, 204, 204);">最后回复来自</span>
+                        <strong>
+                            <a class="small" style="color: rgb(119, 128, 135);" href="#">
+                                {{ $topic->user->username}}
+                            </a>
+                        </strong>
                     </div>
                 </div>
             </div>
