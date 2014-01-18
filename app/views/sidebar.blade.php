@@ -10,7 +10,7 @@
         <a href="#" style="color: rgb(77, 82, 86);">jiangrongyong</a>
     </div>
 </div>
-<div class="row">
+<div class="row" style="margin-top: 8px;">
     <a href="#" class="col-md-4" style="cursor: auto;display: block;text-align: -webkit-center;">
         <div style="color: rgb(128, 128, 128);">7</div>
         <span style="color: rgb(204, 204, 204);font-size: 12px;">节点收藏</span>
