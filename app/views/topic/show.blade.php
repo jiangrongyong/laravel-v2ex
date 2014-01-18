@@ -72,7 +72,7 @@
 <hr/>
 <ul class="list-group">
     @foreach ($replies as $reply)
-    <li class="list-group-item">
+    <li class="list-group-item" style="padding: 8px 15px;">
         <div class="row">
             <div class="col-md-1">
                 <a href="/member/mr7">
@@ -111,19 +111,4 @@
     </li>
     @endforeach
 </ul>
-
-<!--
-<h2>{{ $topic->title }}</h2>
-<hr />
-{{ $topic->content }}
-
-<h3>Replies</h3>
-<ul class="list-group">
-    @foreach ($replies as $reply)
-        <li class="list-group-item">
-            {{ $reply->content }}
-        </li>
-    @endforeach
-</ul>
--->
 @stop
