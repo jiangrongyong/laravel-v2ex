@@ -10,15 +10,15 @@
     <div class="col-md-11" style="padding-left: 30px;">
         <div class="row">
             <div class="col-md-3">
-                <a href="/" style="color: rgb(77, 82, 86);">{{Lang::get('app.name')}}</a>
+                <a href="/">{{Lang::get('app.name')}}</a>
                 ›
                 {{ $node->name}}
             </div>
-            <div class="col-md-3 col-md-offset-6 small">
-                <span style="color: rgb(226, 226, 226);">主题总数</span>
-                <strong style="color: rgb(153, 153, 153);">1600</strong>
-                <span style="color: #ccc;">•</span>
-                <a href="#" style="color: rgb(119, 128, 135);">加入收藏</a>
+            <div class="col-md-3 col-md-offset-6 small text-muted">
+                <span>主题总数</span>
+                <strong>1600</strong>
+                <span>•</span>
+                <a href="#">加入收藏</a>
             </div>
         </div>
         <div class="row small">
@@ -55,23 +55,23 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12 text-muted small">
                         <a href="{{ action('NodesTopicsController@index', array($topic->node->id)) }}"
                            class="badge">
                             {{ $node->name}}
                         </a>
-                        <span style="color: #ccc;">•</span>
+                        <span>•</span>
                         <strong>
-                            <a style="color: rgb(119, 128, 135);" href="#" class="small">
+                            <a href="#">
                                 {{ $topic->user->username}}
                             </a>
                         </strong>
-                        <span style="color: #ccc;">•</span>
-                        <span class="small" style="color: rgb(204, 204, 204);">2 分钟前</span>
-                        <span style="color: #ccc;">•</span>
-                        <span class="small" style="color: rgb(204, 204, 204);">最后回复来自</span>
+                        <span>•</span>
+                        <span>2 分钟前</span>
+                        <span>•</span>
+                        <span>最后回复来自</span>
                         <strong>
-                            <a class="small" style="color: rgb(119, 128, 135);" href="#">
+                            <a href="#">
                                 {{ $topic->user->username}}
                             </a>
                         </strong>

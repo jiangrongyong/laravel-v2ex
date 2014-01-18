@@ -2,9 +2,9 @@
 @section("content")
 <div class="row">
     <div class="col-md-3">
-        <a href="/" style="color: rgb(77, 82, 86);">{{Lang::get('app.name')}}</a>
+        <a href="/">{{Lang::get('app.name')}}</a>
         ›
-        <a href="{{ action('NodesTopicsController@index', array($topic->node->id)) }}" style="color: rgb(77, 82, 86);">
+        <a href="{{ action('NodesTopicsController@index', array($topic->node->id)) }}">
             {{$topic->node->name }}
         </a>
     </div>
@@ -20,16 +20,16 @@
         </a>
     </div>
 </div>
-<div class="row">
+<div class="row text-muted small">
     <div class="col-md-12">
-        <span class="small" style="color: #999;">By</span>
+        <span>By</span>
         <strong>
-            <a class="small" href="#" style="color: rgb(119, 128, 135);">{{ $topic->user->username }}</a>
+            <a href="#">{{ $topic->user->username }}</a>
         </strong>
-        <span style="color: #ccc;">•</span>
-        <span class="small" style="color: #999;">5 小时 46 分钟前</span>
-        <span style="color: #ccc;">•</span>
-        <span class="small" style="color: #999;">323 次点击</span>
+        <span>•</span>
+        <span>5 小时 46 分钟前</span>
+        <span>•</span>
+        <span>323 次点击</span>
     </div>
 </div>
 <hr/>
@@ -38,27 +38,27 @@
         {{ $topic->content }}
     </div>
 </div>
-<div class="row">
+<div class="row small">
     <div class="col-md-9">
-        <a class="small" href="#">加入收藏</a>
-        <a class="small" href="#">Tweet</a>
-        <a class="small" href="#">Weibo</a>
-        <a class="small" href="#">忽略主题</a>
-        <a class="small" href="#">感谢</a>
+        <a href="#">加入收藏</a>
+        <a href="#">Tweet</a>
+        <a href="#">Weibo</a>
+        <a href="#">忽略主题</a>
+        <a href="#">感谢</a>
     </div>
-    <div class="col-md-3 text-right">
-        <span class="small">343 次点击</span>
-        <span style="color: #ccc;">•</span>
-        <span class="small">1 人收藏</span>
+    <div class="col-md-3 text-right text-muted small">
+        <span>343 次点击</span>
+        <span>•</span>
+        <span>1 人收藏</span>
     </div>
 </div>
 
 <!-- replies -->
 <div class="row">
-    <div class="col-md-12">
-        <span class="small">2 回复</span>
+    <div class="col-md-12 small text-muted">
+        <span>2 回复</span>
         <span|</span>
-        <span class="small">直到 2014-01-18 16:15:42</span>
+        <span>直到 2014-01-18 16:15:42</span>
     </div>
 </div>
 <hr/>
@@ -73,14 +73,14 @@
                 </a>
             </div>
             <div class="col-md-11">
-                <div class="row small">
+                <div class="row small text-muted">
                     <div class="col-md-4">
                         <strong>
-                            <a style="color: rgb(119, 128, 135);" href="#">
+                            <a href="#">
                                 {{ $reply->user->username }}
                             </a>
                         </strong>
-                        <span style="color: rgb(204, 204, 204);">5 小时 51 分钟前</span>
+                        <span>5 小时 51 分钟前</span>
                     </div>
                     <div class="col-md-2 col-md-offset-6 text-right">
                         <a href="#">回复</a>
