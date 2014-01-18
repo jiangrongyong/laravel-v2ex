@@ -14,16 +14,16 @@
                 ›
                 {{ $node->name}}
             </div>
-            <div class="col-md-3 col-md-offset-6">
-                <span style="color: rgb(226, 226, 226);font-size: 12px;">主题总数</span>
-                <strong style="color: rgb(153, 153, 153);font-size: 12px;">1600</strong>
+            <div class="col-md-3 col-md-offset-6 small">
+                <span style="color: rgb(226, 226, 226);">主题总数</span>
+                <strong style="color: rgb(153, 153, 153);">1600</strong>
                 <span style="color: #ccc;">•</span>
-                <a href="#" style="color: rgb(119, 128, 135);font-size: 12px;">加入收藏</a>
+                <a href="#" style="color: rgb(119, 128, 135);">加入收藏</a>
             </div>
         </div>
-        <div class="row">
+        <div class="row small">
             <div class="col-md-12"
-                 style="margin-top: 10px;margin-bottom: 10px;color: rgb(153, 153, 153);font-size: 12px;">
+                 style="margin-top: 10px;margin-bottom: 10px;color: rgb(153, 153, 153);">
                 这里讨论各种 Python 语言编程话题，也包括 Django，Tornado 等框架的讨论。这里是一个能够帮助你解决实际问题的地方。
             </div>
         </div>
