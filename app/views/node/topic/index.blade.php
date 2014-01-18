@@ -20,10 +20,10 @@
                 </div>
                 <div class="row">
                     <div class="col-md-2">
-                        <a href="#" class="badge">奇思妙想</a>
+                        <a href="#" class="badge">{{ $node->name }}</a>
                     </div>
                     <div class="col-md-3">
-                        <a href="#">jiangrongyong</a>
+                        <a href="#">{{ $topic->user->username }}</a>
                     </div>
                 </div>
             </div>

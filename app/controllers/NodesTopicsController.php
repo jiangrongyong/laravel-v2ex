@@ -10,7 +10,8 @@ class NodesTopicsController extends \BaseController {
     public function index($node_id) {
         $node = Node::with('topics.user')->find($node_id);
         $topics = $node->topics;
-        return View::make('node.topic.index')->with(compact('topics'));
+        Clockwork::info($topics);
+        return View::make('node.topic.index')->with(compact('topics', 'node'));
     }
 
     /**
