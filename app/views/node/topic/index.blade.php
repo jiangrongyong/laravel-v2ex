@@ -22,7 +22,9 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <a href="#" class="badge">{{ $node->name }}</a>
+                        <a href="{{ action('NodesTopicsController@index', array($topic->node->id)) }}" class="badge">
+                            {{ $node->name}}
+                        </a>
                         <span style="color: #ccc;">•</span>
                         <a style="color: rgb(119, 128, 135);font-weight: bold;font-size: 12px;" href="#">
                             {{ $topic->user->username}}
