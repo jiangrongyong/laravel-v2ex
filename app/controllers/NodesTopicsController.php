@@ -5,6 +5,7 @@ class NodesTopicsController extends \BaseController {
     /**
      * Display a listing of the resource.
      *
+     * @param $node_id
      * @return Response
      */
     public function index($node_id) {
