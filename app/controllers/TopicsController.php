@@ -40,8 +40,6 @@ class TopicsController extends \BaseController {
         $replies = $topic->replies;
 
         return View::make('topic.show')->with(compact('topic', 'replies'));
-
-        return Response::json($topic);
     }
 
     /**
@@ -51,7 +49,8 @@ class TopicsController extends \BaseController {
      * @return Response
      */
     public function edit($id) {
-        //
+        $topic = Topic::find($id);
+        return View::make('topic.edit')->with(compact('topic'));
     }
 
     /**
@@ -61,7 +60,13 @@ class TopicsController extends \BaseController {
      * @return Response
      */
     public function update($id) {
-        //
+        $topic = Topic::find($id);
+        $topic->title = Input::get('title');
+        $topic->content = Input::get('content');
+
+        $topic->save();
+
+        return Redirect::action('TopicsController@show', [$topic->id]);
     }
 
     /**

@@ -28,13 +28,14 @@ class NodesTopicsController extends \BaseController {
     /**
      * Store a newly created resource in storage.
      *
+     * @param $node_id
      * @return Response
      */
-    public function store() {
+    public function store($node_id) {
         $topic = new Topic();
         $topic->title = Input::get('title');
         $topic->content = Input::get('content');
-        $topic->node_id = Input::get('node_id');
+        $topic->node_id = $node_id;
         $topic->user_id = Auth::user()->id;
 
         $topic->save();
