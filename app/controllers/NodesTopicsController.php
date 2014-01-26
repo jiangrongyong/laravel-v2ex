@@ -18,10 +18,11 @@ class NodesTopicsController extends \BaseController {
     /**
      * Show the form for creating a new resource.
      *
+     * @param $node_id
      * @return Response
      */
-    public function create() {
-        //
+    public function create($node_id) {
+        return View::make('node.topic.create')->with(compact('node_id'));
     }
 
     /**
@@ -30,7 +31,15 @@ class NodesTopicsController extends \BaseController {
      * @return Response
      */
     public function store() {
-        //
+        $topic = new Topic();
+        $topic->title = Input::get('title');
+        $topic->content = Input::get('content');
+        $topic->node_id = Input::get('node_id');
+        $topic->user_id = Auth::user()->id;
+
+        $topic->save();
+
+        return Redirect::action('TopicsController@show', [$topic->id]);
     }
 
     /**

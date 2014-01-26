@@ -29,7 +29,7 @@
         </div>
         <div class="row">
             <div class="col-md-1">
-                <button type="button" class="btn btn-default" style="font-size: 12px;">创建新主题</button>
+                <a href="{{ action('NodesTopicsController@create', [$node->id]) }}" class="btn btn-default" style="font-size: 12px;">创建新主题</a>
             </div>
         </div>
     </div>
