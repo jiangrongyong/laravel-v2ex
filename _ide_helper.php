@@ -103,15 +103,39 @@ class App extends Illuminate\Support\Facades\App{
 	 }
 
 	/**
-	 * Register a service provider with the application.
+	 * Force register a service provider with the application.
 	 *
 	 * @param \Illuminate\Support\ServiceProvider|string  $provider
 	 * @param array  $options
 	 * @return \Illuminate\Support\ServiceProvider
 	 * @static 
 	 */
-	 public static function register($provider, $options = array()){
-		return Illuminate\Foundation\Application::register($provider, $options);
+	 public static function forgeRegister($provider, $options = array()){
+		return Illuminate\Foundation\Application::forgeRegister($provider, $options);
+	 }
+
+	/**
+	 * Register a service provider with the application.
+	 *
+	 * @param \Illuminate\Support\ServiceProvider|string  $provider
+	 * @param array  $options
+	 * @param bool   $force
+	 * @return \Illuminate\Support\ServiceProvider
+	 * @static 
+	 */
+	 public static function register($provider, $options = array(), $force = false){
+		return Illuminate\Foundation\Application::register($provider, $options, $force);
+	 }
+
+	/**
+	 * Get the registered service provider instnace if it exists.
+	 *
+	 * @param \Illuminate\Support\ServiceProvider|string  $provider
+	 * @return \Illuminate\Support\ServiceProvider|null
+	 * @static 
+	 */
+	 public static function getRegistered($provider){
+		return Illuminate\Foundation\Application::getRegistered($provider);
 	 }
 
 	/**
@@ -203,6 +227,17 @@ class App extends Illuminate\Support\Facades\App{
 	 */
 	 public static function shutdown($callback = null){
 		 Illuminate\Foundation\Application::shutdown($callback);
+	 }
+
+	/**
+	 * Register a function for determining when to use array sessions.
+	 *
+	 * @param \Closure  $callback
+	 * @return void
+	 * @static 
+	 */
+	 public static function useArraySessions($callback){
+		 Illuminate\Foundation\Application::useArraySessions($callback);
 	 }
 
 	/**
@@ -455,6 +490,16 @@ class App extends Illuminate\Support\Facades\App{
 	 }
 
 	/**
+	 * Get the environment variables loader instance.
+	 *
+	 * @return \Illuminate\Config\EnvironmentVariablesLoaderInterface
+	 * @static 
+	 */
+	 public static function getEnvironmentVariablesLoader(){
+		return Illuminate\Foundation\Application::getEnvironmentVariablesLoader();
+	 }
+
+	/**
 	 * Get the service provider repository instance.
 	 *
 	 * @return \Illuminate\Foundation\ProviderRepository
@@ -462,27 +507,6 @@ class App extends Illuminate\Support\Facades\App{
 	 */
 	 public static function getProviderRepository(){
 		return Illuminate\Foundation\Application::getProviderRepository();
-	 }
-
-	/**
-	 * Get the current application locale.
-	 *
-	 * @return string
-	 * @static 
-	 */
-	 public static function getLocale(){
-		return Illuminate\Foundation\Application::getLocale();
-	 }
-
-	/**
-	 * Set the current application locale.
-	 *
-	 * @param string  $locale
-	 * @return void
-	 * @static 
-	 */
-	 public static function setLocale($locale){
-		 Illuminate\Foundation\Application::setLocale($locale);
 	 }
 
 	/**
@@ -537,6 +561,27 @@ class App extends Illuminate\Support\Facades\App{
 	 */
 	 public static function onRequest($method, $parameters = array()){
 		return Illuminate\Foundation\Application::onRequest($method, $parameters);
+	 }
+
+	/**
+	 * Get the current application locale.
+	 *
+	 * @return string
+	 * @static 
+	 */
+	 public static function getLocale(){
+		return Illuminate\Foundation\Application::getLocale();
+	 }
+
+	/**
+	 * Set the current application locale.
+	 *
+	 * @param string  $locale
+	 * @return void
+	 * @static 
+	 */
+	 public static function setLocale($locale){
+		 Illuminate\Foundation\Application::setLocale($locale);
 	 }
 
 	/**
@@ -2472,6 +2517,17 @@ class Cookie extends Illuminate\Support\Facades\Cookie{
 	 }
 
 	/**
+	 * Determine if a cookie has been queued.
+	 *
+	 * @param string  $key
+	 * @return bool
+	 * @static 
+	 */
+	 public static function hasQueued($key){
+		return Illuminate\Cookie\CookieJar::hasQueued($key);
+	 }
+
+	/**
 	 * Get a queued cookie instance.
 	 *
 	 * @param string  $key
@@ -4077,12 +4133,15 @@ class Eloquent extends Illuminate\Database\Eloquent\Model{
 	 }
 
 	/**
-	 * 
+	 * Add a raw "order by" clause to the query.
 	 *
+	 * @param string  $sql
+	 * @param array  $bindings
+	 * @return \Illuminate\Database\Query\Builder|static
 	 * @static 
 	 */
 	 public static function orderByRaw($sql, $bindings = array()){
-		 Illuminate\Database\Query\Builder::orderByRaw($sql, $bindings);
+		return Illuminate\Database\Query\Builder::orderByRaw($sql, $bindings);
 	 }
 
 	/**
@@ -4540,14 +4599,14 @@ class Event extends Illuminate\Support\Facades\Event{
 	/**
 	 * Register an event listener with the dispatcher.
 	 *
-	 * @param string  $event
+	 * @param string|array  $event
 	 * @param mixed   $listener
 	 * @param int     $priority
 	 * @return void
 	 * @static 
 	 */
-	 public static function listen($event, $listener, $priority = 0){
-		 Illuminate\Events\Dispatcher::listen($event, $listener, $priority);
+	 public static function listen($events, $listener, $priority = 0){
+		 Illuminate\Events\Dispatcher::listen($events, $listener, $priority);
 	 }
 
 	/**
@@ -4698,17 +4757,6 @@ class File extends Illuminate\Support\Facades\File{
 	 */
 	 public static function get($path){
 		return Illuminate\Filesystem\Filesystem::get($path);
-	 }
-
-	/**
-	 * Get the contents of a remote file.
-	 *
-	 * @param string  $path
-	 * @return string
-	 * @static 
-	 */
-	 public static function getRemote($path){
-		return Illuminate\Filesystem\Filesystem::getRemote($path);
 	 }
 
 	/**
@@ -5748,6 +5796,16 @@ class Input extends Illuminate\Support\Facades\Input{
 	 }
 
 	/**
+	 * Get the current encoded path info for the request.
+	 *
+	 * @return string
+	 * @static 
+	 */
+	 public static function decodedPath(){
+		return Illuminate\Http\Request::decodedPath();
+	 }
+
+	/**
 	 * Get a segment from the URI (1 based index).
 	 *
 	 * @param string  $index
@@ -6069,35 +6127,13 @@ class Input extends Illuminate\Support\Facades\Input{
 	 }
 
 	/**
-	 * Get the Illuminate session store implementation.
+	 * Get the session associated with the request.
 	 *
 	 * @return \Illuminate\Session\Store
-	 * @throws \RuntimeException
 	 * @static 
 	 */
-	 public static function getSessionStore(){
-		return Illuminate\Http\Request::getSessionStore();
-	 }
-
-	/**
-	 * Set the Illuminate session store implementation.
-	 *
-	 * @param \Illuminate\Session\Store  $session
-	 * @return void
-	 * @static 
-	 */
-	 public static function setSessionStore($session){
-		 Illuminate\Http\Request::setSessionStore($session);
-	 }
-
-	/**
-	 * Determine if the session store has been set.
-	 *
-	 * @return bool
-	 * @static 
-	 */
-	 public static function hasSessionStore(){
-		return Illuminate\Http\Request::hasSessionStore();
+	 public static function session(){
+		return Illuminate\Http\Request::session();
 	 }
 
 	/**
@@ -8385,6 +8421,16 @@ class Request extends Illuminate\Support\Facades\Request{
 	 }
 
 	/**
+	 * Get the current encoded path info for the request.
+	 *
+	 * @return string
+	 * @static 
+	 */
+	 public static function decodedPath(){
+		return Illuminate\Http\Request::decodedPath();
+	 }
+
+	/**
 	 * Get a segment from the URI (1 based index).
 	 *
 	 * @param string  $index
@@ -8706,35 +8752,13 @@ class Request extends Illuminate\Support\Facades\Request{
 	 }
 
 	/**
-	 * Get the Illuminate session store implementation.
+	 * Get the session associated with the request.
 	 *
 	 * @return \Illuminate\Session\Store
-	 * @throws \RuntimeException
 	 * @static 
 	 */
-	 public static function getSessionStore(){
-		return Illuminate\Http\Request::getSessionStore();
-	 }
-
-	/**
-	 * Set the Illuminate session store implementation.
-	 *
-	 * @param \Illuminate\Session\Store  $session
-	 * @return void
-	 * @static 
-	 */
-	 public static function setSessionStore($session){
-		 Illuminate\Http\Request::setSessionStore($session);
-	 }
-
-	/**
-	 * Determine if the session store has been set.
-	 *
-	 * @return bool
-	 * @static 
-	 */
-	 public static function hasSessionStore(){
-		return Illuminate\Http\Request::hasSessionStore();
+	 public static function session(){
+		return Illuminate\Http\Request::session();
 	 }
 
 	/**
@@ -11630,6 +11654,225 @@ class View extends Illuminate\Support\Facades\View{
 	 */
 	 public static function getNames(){
 		return Illuminate\View\Environment::getNames();
+	 }
+
+}
+
+class Clockwork extends Clockwork\Support\Laravel\Facade{
+	/**
+	 * Create a new Clockwork instance with default request object
+	 *
+	 * @static 
+	 */
+	 public static function __construct(){
+		 Clockwork\Clockwork::__construct();
+	 }
+
+	/**
+	 * Add a new data source
+	 *
+	 * @static 
+	 */
+	 public static function addDataSource($dataSource){
+		 Clockwork\Clockwork::addDataSource($dataSource);
+	 }
+
+	/**
+	 * Return array of all added data sources
+	 *
+	 * @static 
+	 */
+	 public static function getDataSources(){
+		 Clockwork\Clockwork::getDataSources();
+	 }
+
+	/**
+	 * Return the request object
+	 *
+	 * @static 
+	 */
+	 public static function getRequest(){
+		 Clockwork\Clockwork::getRequest();
+	 }
+
+	/**
+	 * Set a custom request object
+	 *
+	 * @static 
+	 */
+	 public static function setRequest($request){
+		 Clockwork\Clockwork::setRequest($request);
+	 }
+
+	/**
+	 * Add data from all data sources to request
+	 *
+	 * @static 
+	 */
+	 public static function resolveRequest(){
+		 Clockwork\Clockwork::resolveRequest();
+	 }
+
+	/**
+	 * Store request via storage object
+	 *
+	 * @static 
+	 */
+	 public static function storeRequest(){
+		 Clockwork\Clockwork::storeRequest();
+	 }
+
+	/**
+	 * Return the storage object
+	 *
+	 * @static 
+	 */
+	 public static function getStorage(){
+		 Clockwork\Clockwork::getStorage();
+	 }
+
+	/**
+	 * Set a custom storage object
+	 *
+	 * @static 
+	 */
+	 public static function setStorage($storage){
+		 Clockwork\Clockwork::setStorage($storage);
+	 }
+
+	/**
+	 * Return the log instance
+	 *
+	 * @static 
+	 */
+	 public static function getLog(){
+		 Clockwork\Clockwork::getLog();
+	 }
+
+	/**
+	 * Set a custom log instance
+	 *
+	 * @static 
+	 */
+	 public static function setLog($log){
+		 Clockwork\Clockwork::setLog($log);
+	 }
+
+	/**
+	 * Return the timeline instance
+	 *
+	 * @static 
+	 */
+	 public static function getTimeline(){
+		 Clockwork\Clockwork::getTimeline();
+	 }
+
+	/**
+	 * Set a custom timeline instance
+	 *
+	 * @static 
+	 */
+	 public static function setTimeline($timeline){
+		 Clockwork\Clockwork::setTimeline($timeline);
+	 }
+
+	/**
+	 * Shortcut methods for the current log instance
+	 *
+	 * @static 
+	 */
+	 public static function log($level, $message, $context = array()){
+		 Clockwork\Clockwork::log($level, $message, $context);
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function emergency($message, $context = array()){
+		 Clockwork\Clockwork::emergency($message, $context);
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function alert($message, $context = array()){
+		 Clockwork\Clockwork::alert($message, $context);
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function critical($message, $context = array()){
+		 Clockwork\Clockwork::critical($message, $context);
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function error($message, $context = array()){
+		 Clockwork\Clockwork::error($message, $context);
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function warning($message, $context = array()){
+		 Clockwork\Clockwork::warning($message, $context);
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function notice($message, $context = array()){
+		 Clockwork\Clockwork::notice($message, $context);
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function info($message, $context = array()){
+		 Clockwork\Clockwork::info($message, $context);
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function debug($message, $context = array()){
+		 Clockwork\Clockwork::debug($message, $context);
+	 }
+
+	/**
+	 * Shortcut methods for the current timeline instance
+	 *
+	 * @static 
+	 */
+	 public static function startEvent($name, $description, $time = null){
+		 Clockwork\Clockwork::startEvent($name, $description, $time);
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function endEvent($name){
+		 Clockwork\Clockwork::endEvent($name);
 	 }
 
 }
