@@ -97,4 +97,24 @@
     </li>
     @endforeach
 </ul>
+<!-- replies create form -->
+{{ Form::open(["url" => action("RepliesController@store"), "role" => "form"]) }}
+{{ Form::errors() }}
+@if (Session::has('infos'))
+<div class="alert alert-success">
+    <ul>
+        @foreach (Session::get('infos')->all() as $info)
+        <li>{{ $info }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+
+<h2>回复主题</h2>
+
+{{ Form::textarea("content", Input::get("content"), ["placeholder" => 'Content', "class" => "form-control"]) }}
+{{ Form::hidden("topic_id", $topic->id, []) }}
+
+{{ Form::submit("提交", ["class" => "btn btn-lg btn-primary btn-block"]) }}
+{{ Form::close() }}
 @stop
