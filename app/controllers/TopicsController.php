@@ -1,6 +1,14 @@
 <?php
 
+use Laracn\Repo\Topic\TopicInterface;
+
 class TopicsController extends \BaseController {
+
+    protected $topic;
+
+    public function __construct(TopicInterface $topic) {
+        $this->topic = $topic;
+    }
 
     /**
      * Display a listing of the resource.
@@ -36,7 +44,7 @@ class TopicsController extends \BaseController {
      * @return Response
      */
     public function show($id) {
-        $topic = Topic::with('replies.user')->with('user')->find($id);
+        $topic = $this->topic->byId($id);
         $replies = $topic->replies;
 
         return View::make('topic.show')->with(compact('topic', 'replies'));

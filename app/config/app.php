@@ -109,6 +109,7 @@ return array(
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Clockwork\Support\Laravel\ClockworkServiceProvider',
 
+        'Laracn\Repo\RepoServiceProvider',
         'Laracn\Exception\ExceptionServiceProvider',
 	),
 
