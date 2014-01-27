@@ -108,6 +108,8 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Clockwork\Support\Laravel\ClockworkServiceProvider',
+
+        'Laracn\Exception\ExceptionServiceProvider',
 	),
 
 	/*
