@@ -1,14 +1,17 @@
 <?php namespace Laracn\Repo\Topic;
 
 use Laracn\Repo\RepoAbstract;
+use Laracn\Repo\Node\NodeInterface;
 use Illuminate\Database\Eloquent\Model;
 
 class EloquentTopic extends RepoAbstract implements TopicInterface {
 
     protected $topic;
+    protected $node;
 
-    public function __construct(Model $topic) {
+    public function __construct(Model $topic, NodeInterface $node) {
         $this->topic = $topic;
+        $this->node = $node;
     }
 
     public function byId($id) {

@@ -1,6 +1,8 @@
 <?php namespace Laracn\Repo;
 
+use Laracn\Repo\Node\EloquentNode;
 use Topic;
+use Node;
 use Laracn\Repo\Topic\EloquentTopic;
 use Illuminate\Support\ServiceProvider;
 
@@ -15,11 +17,19 @@ class RepoServiceProvider extends ServiceProvider {
         $app = $this->app;
 
         $app->bind('Laracn\Repo\Topic\TopicInterface', function ($app) {
-            $article = new EloquentTopic(
-                new Topic()
+            $topic = new EloquentTopic(
+                new Topic(), new EloquentNode(new Node())
             );
 
-            return $article;
+            return $topic;
+        });
+
+        $app->bind('Laracn\Repo\Node\NodeInterface', function ($app) {
+            $node = new EloquentNode(
+                new Node()
+            );
+
+            return $node;
         });
     }
 }

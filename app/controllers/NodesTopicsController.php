@@ -1,6 +1,17 @@
 <?php
 
+use Laracn\Repo\Topic\TopicInterface;
+use Laracn\Repo\Node\NodeInterface;
+
 class NodesTopicsController extends \BaseController {
+
+    protected $topic;
+    protected $node;
+
+    public function __construct(TopicInterface $topic, NodeInterface $node) {
+        $this->topic = $topic;
+        $this->node = $node;
+    }
 
     /**
      * Display a listing of the resource.
@@ -9,8 +20,9 @@ class NodesTopicsController extends \BaseController {
      * @return Response
      */
     public function index($node_id) {
-        $node = Node::with('topics.user')->find($node_id);
+        $node = $this->node->byId($node_id);
         $topics = $node->topics;
+
         Clockwork::info($topics);
         return View::make('node.topic.index')->with(compact('topics', 'node'));
     }
