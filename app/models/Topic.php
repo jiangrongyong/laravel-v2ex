@@ -25,10 +25,4 @@ class Topic extends Eloquent {
     public function user() {
         return $this->belongsTo('User');
     }
-
-    public function touchRepliedAt() {
-        $this->replied_at = $this->freshTimestamp();
-        $this->save();
-    }
-
 }

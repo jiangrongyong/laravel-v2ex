@@ -12,7 +12,6 @@ class CreateTopicsTable extends Migration {
             $table->text('content');
             $table->integer('node_id');
             $table->integer('user_id');
-            $table->timestamp('replied_at')->nullable();
             $table->timestamp('created_at');
             $table->timestamp('updated_at');
         });
