@@ -33,6 +33,10 @@ class RepliesController extends \BaseController {
 
         $reply->save();
 
+        $topic = $reply->topic;
+        $topic->touchRepliedAt();
+        $topic->touch();
+
         return Redirect::back();
     }
 

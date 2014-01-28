@@ -26,4 +26,9 @@ class Topic extends Eloquent {
         return $this->belongsTo('User');
     }
 
+    public function touchRepliedAt() {
+        $this->replied_at = $this->freshTimestamp();
+        $this->save();
+    }
+
 }
