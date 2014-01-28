@@ -12,6 +12,11 @@ class EloquentNode extends RepoAbstract implements NodeInterface {
     }
 
     public function byId($node_id) {
-        return $this->node->with('topics.user')->find($node_id);
+        return $this->node->find($node_id);
+    }
+
+    public function topics($node_id) {
+        $node = $this->node->find($node_id);
+        return $node->topics;
     }
 }

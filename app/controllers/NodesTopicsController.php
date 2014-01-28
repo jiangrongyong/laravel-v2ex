@@ -21,7 +21,7 @@ class NodesTopicsController extends \BaseController {
      */
     public function index($node_id) {
         $node = $this->node->byId($node_id);
-        $topics = $node->topics;
+        $topics = $this->node->topics($node_id);
 
         return View::make('node.topic.index')->with(compact('topics', 'node'));
     }
