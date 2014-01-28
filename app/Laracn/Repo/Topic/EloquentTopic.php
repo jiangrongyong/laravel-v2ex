@@ -18,6 +18,17 @@ class EloquentTopic extends RepoAbstract implements TopicInterface {
         return $this->topic->with('replies.user')->with('user')->find($id);
     }
 
+    public function create(array $data) {
+        $this->topic->title = $data['title'];
+        $this->topic->content = $data['content'];
+        $this->topic->node_id = $data['node_id'];
+        $this->topic->user_id = $data['user_id'];
+
+        $this->topic->save();
+
+        return $this->topic;
+    }
+
     public function update(array $data) {
         $topic = $this->topic->find($data['id']);
         $topic->title = $data['title'];

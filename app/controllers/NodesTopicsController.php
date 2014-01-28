@@ -43,13 +43,11 @@ class NodesTopicsController extends \BaseController {
      * @return Response
      */
     public function store($node_id) {
-        $topic = new Topic();
-        $topic->title = Input::get('title');
-        $topic->content = Input::get('content');
-        $topic->node_id = $node_id;
-        $topic->user_id = Auth::user()->id;
-
-        $topic->save();
+        $input = array_merge(Input::all(), array(
+            'node_id' => $node_id,
+            'user_id' => Auth::user()->id
+        ));
+        $topic = $this->topic->create($input);
 
         return Redirect::action('TopicsController@show', [$topic->id]);
     }
