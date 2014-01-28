@@ -57,7 +57,7 @@ class TopicsController extends \BaseController {
      * @return Response
      */
     public function edit($id) {
-        $topic = Topic::find($id);
+        $topic = $this->topic->byId($id);
         return View::make('topic.edit')->with(compact('topic'));
     }
 
@@ -68,11 +68,8 @@ class TopicsController extends \BaseController {
      * @return Response
      */
     public function update($id) {
-        $topic = Topic::find($id);
-        $topic->title = Input::get('title');
-        $topic->content = Input::get('content');
-
-        $topic->save();
+        $input = array_merge(Input::all(), array('id' => $id));
+        $topic = $this->topic->update($input);
 
         return Redirect::action('TopicsController@show', [$topic->id]);
     }

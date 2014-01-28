@@ -3,4 +3,6 @@
 interface TopicInterface {
 
     public function byId($id);
+
+    public function update(array $data);
 }
