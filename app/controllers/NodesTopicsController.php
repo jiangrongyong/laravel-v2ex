@@ -23,7 +23,6 @@ class NodesTopicsController extends \BaseController {
         $node = $this->node->byId($node_id);
         $topics = $node->topics;
 
-        Clockwork::info($topics);
         return View::make('node.topic.index')->with(compact('topics', 'node'));
     }
 
