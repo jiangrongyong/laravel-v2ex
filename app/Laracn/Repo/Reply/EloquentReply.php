@@ -11,7 +11,11 @@ class EloquentReply extends RepoAbstract implements ReplyInterface {
         $this->reply = $reply;
     }
 
-    public function byTopicIdEnd($topicId) {
+    public function byTopicEnd($topicId) {
         return $this->reply->with('user')->where('topic_id', $topicId)->orderBy('created_at', 'desc')->limit(1)->first();
+    }
+
+    public function totalByTopic($topicId) {
+        return $this->reply->where('topic_id', $topicId)->count();
     }
 }

@@ -27,19 +27,17 @@ class NodesTopicsController extends \BaseController {
         $topics = $this->node->topics($node_id);
 
         $topics = $topics->each(function ($topic) {
-            $reply = $this->reply->byTopicIdEnd($topic->id);
-            if (is_null($reply)) {
-                $topic->reply = null;
-            } else {
-                // TODO array is ugly
-                $topic->reply = $reply;
-            }
+            $reply = $this->reply->byTopicEnd($topic->id);
+            $topic->replyEnd = $reply or null;
+
+            $repliesTotal = $this->reply->totalByTopic($topic->id);
+            $topic->repliesTotal = $repliesTotal;
             return $topic;
         });
 
         Clockwork::info($topics);
 
-        return View::make('node.topic.index')->with(compact('topics', 'node', 'replies'));
+        return View::make('node.topic.index')->with(compact('topics', 'node'));
     }
 
     /**

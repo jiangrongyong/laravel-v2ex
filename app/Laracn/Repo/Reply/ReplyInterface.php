@@ -2,6 +2,8 @@
 
 interface ReplyInterface {
 
-    public function byTopicIdEnd($topicId);
+    public function byTopicEnd($topicId);
+
+    public function totalByTopic($topicId);
 
 }

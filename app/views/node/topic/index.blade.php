@@ -68,12 +68,12 @@
                         </strong>
                         <span>•</span>
                         <span>{{ $topic->updated_at }}</span>
-                        @if (isset($topic->reply->user->username))
+                        @if (!is_null($topic->replyEnd))
                         <span>•</span>
                         <span>最后回复来自</span>
                         <strong>
                             <a href="#">
-                                {{ $topic->reply->user->username }}
+                                {{ $topic->replyEnd->user->username }}
                             </a>
                         </strong>
                         @endif
@@ -82,7 +82,7 @@
             </div>
             <div class="col-md-1">
                 <a style="margin-top: 15px;" href="{{ action('TopicsController@show', array($topic->id)) }}"
-                   class="badge">14</a>
+                   class="badge">{{ $topic->repliesTotal }}</a>
             </div>
         </div>
     </li>
