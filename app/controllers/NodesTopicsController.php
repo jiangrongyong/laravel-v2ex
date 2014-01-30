@@ -26,8 +26,18 @@ class NodesTopicsController extends \BaseController {
         $node = $this->node->byId($node_id);
         $topics = $this->node->topics($node_id);
 
-        $topicIds = $topics->fetch('id');
-        $replies = $this->reply->byTopicIdsEnd($topicIds->toArray());
+        $topics = $topics->each(function ($topic) {
+            $reply = $this->reply->byTopicIdEnd($topic->id);
+            if (is_null($reply)) {
+                $topic->reply = null;
+            } else {
+                // TODO array is ugly
+                $topic->reply = $reply->toArray();
+            }
+            return $topic;
+        });
+
+        Clockwork::info($topics);
 
         return View::make('node.topic.index')->with(compact('topics', 'node', 'replies'));
     }

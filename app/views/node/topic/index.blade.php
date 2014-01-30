@@ -63,7 +63,7 @@
                         <span>•</span>
                         <strong>
                             <a href="#">
-                                {{ $topic->user->username}}
+                                {{ $topic->user->username }}
                             </a>
                         </strong>
                         <span>•</span>
@@ -72,7 +72,7 @@
                         <span>最后回复来自</span>
                         <strong>
                             <a href="#">
-                                {{ $topic->user->username}}
+                                {{ $topic->reply['user_id'] }}
                             </a>
                         </strong>
                     </div>
