@@ -15,8 +15,8 @@ class EloquentNode extends RepoAbstract implements NodeInterface {
         return $this->node->find($node_id);
     }
 
-    public function topics($node_id) {
+    public function topics($node_id, $perPage = 3) {
         $node = $this->node->find($node_id);
-        return $node->topics()->orderBy('updated_at', 'desc')->get();
+        return $node->topics()->orderBy('updated_at', 'desc')->paginate($perPage);
     }
 }
