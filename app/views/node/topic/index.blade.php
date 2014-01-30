@@ -67,7 +67,7 @@
                             </a>
                         </strong>
                         <span>•</span>
-                        <span>{{ $topic->updated_at }}</span>
+                        <span>{{ $topic->getUpdateAtDiffForHumans() }}</span>
                         @if (!is_null($topic->replyEnd))
                         <span>•</span>
                         <span>最后回复来自</span>
