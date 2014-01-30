@@ -67,14 +67,16 @@
                             </a>
                         </strong>
                         <span>•</span>
-                        <span>2 分钟前</span>
+                        <span>{{ $topic->updated_at }}</span>
+                        @if (isset($topic->reply->user->username))
                         <span>•</span>
                         <span>最后回复来自</span>
                         <strong>
                             <a href="#">
-                                {{ $topic->reply->user->username or '' }}
+                                {{ $topic->reply->user->username }}
                             </a>
                         </strong>
+                        @endif
                     </div>
                 </div>
             </div>
