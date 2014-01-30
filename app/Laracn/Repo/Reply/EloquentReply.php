@@ -12,6 +12,6 @@ class EloquentReply extends RepoAbstract implements ReplyInterface {
     }
 
     public function byTopicIdEnd($topicId) {
-        return $this->reply->where('topic_id', $topicId)->orderBy('created_at', 'desc')->limit(1)->first();
+        return $this->reply->with('user')->where('topic_id', $topicId)->orderBy('created_at', 'desc')->limit(1)->first();
     }
 }

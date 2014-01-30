@@ -32,7 +32,7 @@ class NodesTopicsController extends \BaseController {
                 $topic->reply = null;
             } else {
                 // TODO array is ugly
-                $topic->reply = $reply->toArray();
+                $topic->reply = $reply;
             }
             return $topic;
         });
