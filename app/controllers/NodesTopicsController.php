@@ -2,15 +2,18 @@
 
 use Laracn\Repo\Topic\TopicInterface;
 use Laracn\Repo\Node\NodeInterface;
+use Laracn\Repo\Reply\ReplyInterface;
 
 class NodesTopicsController extends \BaseController {
 
     protected $topic;
     protected $node;
+    protected $reply;
 
-    public function __construct(TopicInterface $topic, NodeInterface $node) {
+    public function __construct(TopicInterface $topic, NodeInterface $node, ReplyInterface $reply) {
         $this->topic = $topic;
         $this->node = $node;
+        $this->reply = $reply;
     }
 
     /**
@@ -23,7 +26,10 @@ class NodesTopicsController extends \BaseController {
         $node = $this->node->byId($node_id);
         $topics = $this->node->topics($node_id);
 
-        return View::make('node.topic.index')->with(compact('topics', 'node'));
+        $topicIds = $topics->fetch('id');
+        $replies = $this->reply->byTopicIdsEnd($topicIds->toArray());
+
+        return View::make('node.topic.index')->with(compact('topics', 'node', 'replies'));
     }
 
     /**

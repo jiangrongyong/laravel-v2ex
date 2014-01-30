@@ -20,7 +20,7 @@ class RepoServiceProvider extends ServiceProvider {
 
         $app->bind('Laracn\Repo\Topic\TopicInterface', function ($app) {
             $topic = new EloquentTopic(
-                new Topic(), new EloquentNode(new Node())
+                new Topic(), new EloquentNode(new Node()), new EloquentReply(new Reply())
             );
 
             return $topic;
