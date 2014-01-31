@@ -27,7 +27,7 @@
             <a href="#">{{ $topic->user->username }}</a>
         </strong>
         <span>•</span>
-        <span>5 小时 46 分钟前</span>
+        <span>{{ $topic->getCreatedAtDiffForHumans() }}</span>
         <span>•</span>
         <span>323 次点击</span>
     </div>

@@ -26,6 +26,10 @@ class Topic extends Eloquent {
         return $this->belongsTo('User');
     }
 
+    public function getCreatedAtDiffForHumans() {
+        return $this->created_at->diffForHumans($this->freshTimestamp());
+    }
+
     public function getUpdateAtDiffForHumans() {
         return $this->updated_at->diffForHumans($this->freshTimestamp());
     }
