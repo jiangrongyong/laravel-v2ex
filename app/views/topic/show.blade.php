@@ -28,8 +28,6 @@
         </strong>
         <span>•</span>
         <span>{{ $topic->getCreatedAtDiffForHumans() }}</span>
-        <span>•</span>
-        <span>323 次点击</span>
     </div>
 </div>
 <hr/>
@@ -38,29 +36,8 @@
         {{ $topic->content }}
     </div>
 </div>
-<div class="row small">
-    <div class="col-md-9">
-        <a href="#">加入收藏</a>
-        <a href="#">Tweet</a>
-        <a href="#">Weibo</a>
-        <a href="#">忽略主题</a>
-        <a href="#">感谢</a>
-    </div>
-    <div class="col-md-3 text-right text-muted small">
-        <span>343 次点击</span>
-        <span>•</span>
-        <span>1 人收藏</span>
-    </div>
-</div>
 
 <!-- replies -->
-<div class="row">
-    <div class="col-md-12 small text-muted">
-        <span>2 回复</span>
-        <span|</span>
-        <span>直到 2014-01-18 16:15:42</span>
-    </div>
-</div>
 <hr/>
 <ul class="list-group">
     @foreach ($replies as $reply)
@@ -80,7 +57,7 @@
                                 {{ $reply->user->username }}
                             </a>
                         </strong>
-                        <span>5 小时 51 分钟前</span>
+                        <span>{{ $reply->getCreatedAtDiffForHumans() }}</span>
                     </div>
                     <div class="col-md-2 col-md-offset-6 text-right">
                         <a href="#">回复</a>

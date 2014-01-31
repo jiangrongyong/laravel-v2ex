@@ -15,4 +15,8 @@ class Reply extends Eloquent {
         return $this->belongsTo('User');
     }
 
+    public function getCreatedAtDiffForHumans() {
+        return $this->created_at->diffForHumans($this->freshTimestamp());
+    }
+
 }
