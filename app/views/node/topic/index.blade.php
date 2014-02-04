@@ -14,10 +14,7 @@
                 ›
                 {{ $node->name}}
             </div>
-            <div class="col-md-3 col-md-offset-6 small text-muted">
-                <span>主题总数</span>
-                <strong>1600</strong>
-                <span>•</span>
+            <div class="col-md-2 col-md-offset-7 small text-muted">
                 <a href="#">加入收藏</a>
             </div>
         </div>
