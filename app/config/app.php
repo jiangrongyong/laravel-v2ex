@@ -108,6 +108,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Clockwork\Support\Laravel\ClockworkServiceProvider',
+        'Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider',
 
         'Laracn\Repo\RepoServiceProvider',
         'Laracn\Exception\ExceptionServiceProvider',
@@ -177,6 +178,7 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
         'Clockwork'       => 'Clockwork\Support\Laravel\Facade',
+        'Gravatar'        => 'Thomaswelton\LaravelGravatar\Facades\Gravatar',
 	),
 
 );

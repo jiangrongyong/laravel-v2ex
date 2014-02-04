@@ -15,7 +15,7 @@
     </div>
     <div class="col-md-2">
         <a href="{{ action('MembersController@show', array($topic->user->id)) }}">
-            <img src="http://cdn.v2ex.com/avatar/b954/66b8/27658_large.png?m=1382157118"
+            <img src="{{ Gravatar::src($topic->user->email, 73) }}"
                  style="width: 73px;height: 73px;"/>
         </a>
     </div>
@@ -45,7 +45,7 @@
         <div class="row">
             <div class="col-md-1">
                 <a href="{{ action('MembersController@show', array($reply->user->id)) }}">
-                    <img src="http://cdn.v2ex.com/avatar/b954/66b8/27658_large.png?m=1382157118"
+                    <img src="{{ Gravatar::src($reply->user->email, 48) }}"
                          style="width: 48px;height: 48px;"/>
                 </a>
             </div>
