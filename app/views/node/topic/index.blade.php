@@ -39,7 +39,7 @@
     <li class="list-group-item" style="padding: 8px 15px;">
         <div class="row">
             <div class="col-md-1">
-                <a href="/member/mr7">
+                <a href="{{ action('MembersController@show', array($topic->user->id)) }}">
                     <img src="http://cdn.v2ex.com/avatar/b954/66b8/27658_large.png?m=1382157118"
                          style="width: 48px;height: 48px;"/>
                 </a>
@@ -62,7 +62,7 @@
                         </a>
                         <span>•</span>
                         <strong>
-                            <a href="#">
+                            <a href="{{ action('MembersController@show', array($topic->user->id)) }}">
                                 {{ $topic->user->username }}
                             </a>
                         </strong>
@@ -72,7 +72,7 @@
                         <span>•</span>
                         <span>最后回复来自</span>
                         <strong>
-                            <a href="#">
+                            <a href="{{ action('MembersController@show', array($topic->replyEnd->user->id)) }}">
                                 {{ $topic->replyEnd->user->username }}
                             </a>
                         </strong>

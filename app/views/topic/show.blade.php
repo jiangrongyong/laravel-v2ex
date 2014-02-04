@@ -14,7 +14,7 @@
         <h2>{{ $topic->title }}</h2>
     </div>
     <div class="col-md-2">
-        <a href="/member/mr7">
+        <a href="{{ action('MembersController@show', array($topic->user->id)) }}">
             <img src="http://cdn.v2ex.com/avatar/b954/66b8/27658_large.png?m=1382157118"
                  style="width: 73px;height: 73px;"/>
         </a>
@@ -24,7 +24,7 @@
     <div class="col-md-12">
         <span>By</span>
         <strong>
-            <a href="#">{{ $topic->user->username }}</a>
+            <a href="{{ action('MembersController@show', array($topic->user->id)) }}">{{ $topic->user->username }}</a>
         </strong>
         <span>•</span>
         <span>{{ $topic->getCreatedAtDiffForHumans() }}</span>
@@ -44,7 +44,7 @@
     <li class="list-group-item" style="padding: 8px 15px;">
         <div class="row">
             <div class="col-md-1">
-                <a href="/member/mr7">
+                <a href="{{ action('MembersController@show', array($reply->user->id)) }}">
                     <img src="http://cdn.v2ex.com/avatar/b954/66b8/27658_large.png?m=1382157118"
                          style="width: 48px;height: 48px;"/>
                 </a>
@@ -53,7 +53,7 @@
                 <div class="row small text-muted">
                     <div class="col-md-4">
                         <strong>
-                            <a href="#">
+                            <a href="{{ action('MembersController@show', array($reply->user->id)) }}">
                                 {{ $reply->user->username }}
                             </a>
                         </strong>
