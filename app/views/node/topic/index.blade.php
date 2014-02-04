@@ -89,9 +89,4 @@
     @endforeach
 </ul>
 <?php echo $topicsPaginator->links(); ?>
-<div>
-    <form>
-
-    </form>
-</div>
 @stop
