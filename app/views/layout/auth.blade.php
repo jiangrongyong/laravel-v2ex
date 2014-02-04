@@ -17,7 +17,7 @@
 @include("header")
 <div class="container">
     <div class="row row-offcanvas row-offcanvas-right">
-        <div class="col-sm-12">
+        <div class="col-sm-9">
             @yield("content")
         </div>
         <!--
