@@ -17,12 +17,14 @@
 @include("header")
 <div class="container">
     <div class="row row-offcanvas row-offcanvas-right">
-        <div class="col-xs-12 col-sm-9">
+        <div class="col-sm-12">
             @yield("content")
         </div>
-        <div class="col-xs-6 col-sm-3 sidebar-offcanvas">
+        <!--
+        <div class="col-sm-3 sidebar-offcanvas">
             @include("sidebar")
         </div>
+        -->
     </div>
 </div>
 @include("footer")

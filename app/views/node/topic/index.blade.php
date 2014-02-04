@@ -14,9 +14,6 @@
                 ›
                 {{ $node->name}}
             </div>
-            <div class="col-md-2 col-md-offset-7 small text-muted">
-                <a href="#">加入收藏</a>
-            </div>
         </div>
         <div class="row small">
             <div class="col-md-12"
