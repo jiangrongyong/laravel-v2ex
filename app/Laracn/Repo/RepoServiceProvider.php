@@ -3,9 +3,11 @@
 use Topic;
 use Node;
 use Reply;
+use User;
 use Laracn\Repo\Topic\EloquentTopic;
 use Laracn\Repo\Node\EloquentNode;
 use Laracn\Repo\Reply\EloquentReply;
+use Laracn\Repo\User\EloquentUser;
 use Illuminate\Support\ServiceProvider;
 
 class RepoServiceProvider extends ServiceProvider {
@@ -40,6 +42,14 @@ class RepoServiceProvider extends ServiceProvider {
             );
 
             return $node;
+        });
+
+        $app->bind('Laracn\Repo\User\UserInterface', function ($app) {
+            $user = new EloquentUser(
+                new User()
+            );
+
+            return $user;
         });
     }
 }

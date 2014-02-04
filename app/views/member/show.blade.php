@@ -10,12 +10,12 @@
     <div class="col-md-11" style="padding-left: 30px;">
         <div class="row">
             <div class="col-md-12">
-                <h3 style="margin-top:14px;">jiangrongyong</h3>
+                <h3 style="margin-top:14px;">{{ $user->username }}</h3>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12 text-muted small">
-                第 48550 号会员，加入于 2013-11-02 19:44:38
+                第 {{ $user->id }} 号会员，加入于 {{ $user->created_at }}
             </div>
         </div>
     </div>

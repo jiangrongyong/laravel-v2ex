@@ -1,6 +1,14 @@
 <?php
 
+use Laracn\Repo\User\UserInterface;
+
 class MembersController extends \BaseController {
+
+    protected $user;
+
+    public function __construct(UserInterface $user) {
+        $this->user = $user;
+    }
 
     /**
      * Display a listing of the resource.
@@ -36,7 +44,8 @@ class MembersController extends \BaseController {
      * @return Response
      */
     public function show($id) {
-        return View::make('member.show');
+        $user = $this->user->byId($id);
+        return View::make('member.show')->with(compact('user'));
     }
 
     /**
