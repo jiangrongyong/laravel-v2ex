@@ -24,7 +24,7 @@
 
     <a href="#" class="col-md-4 text-center" style="display: block;">
         <div>8</div>
-        <span>特别关注</span>
+        <span>关注用户</span>
     </a>
 </div>
 @show
