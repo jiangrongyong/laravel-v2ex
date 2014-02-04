@@ -3,7 +3,7 @@
 <div class="row" style="margin-bottom: 10px;">
     <div class="col-md-1">
         <a href="/member/mr7">
-            <img src="http://cdn.v2ex.com/avatar/b954/66b8/27658_large.png?m=1382157118"
+            <img src="{{ Gravatar::src($user->email, 73) }}"
                  style="width: 73px;height: 73px;"/>
         </a>
     </div>
