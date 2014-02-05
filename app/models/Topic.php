@@ -1,7 +1,6 @@
 <?php
 
-use Illuminate\Auth\UserInterface;
-use Illuminate\Auth\Reminders\RemindableInterface;
+use dflydev\markdown\MarkdownParser;
 
 /**
  * @property mixed content
@@ -32,5 +31,10 @@ class Topic extends Eloquent {
 
     public function getUpdateAtDiffForHumans() {
         return $this->updated_at->diffForHumans($this->freshTimestamp());
+    }
+
+    public function getContentAttribute($value) {
+        $markdownParser = new MarkdownParser();
+        return $markdownParser->transformMarkdown($value);
     }
 }

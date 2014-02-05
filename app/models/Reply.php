@@ -1,7 +1,6 @@
 <?php
 
-use Illuminate\Auth\UserInterface;
-use Illuminate\Auth\Reminders\RemindableInterface;
+use dflydev\markdown\MarkdownParser;
 
 class Reply extends Eloquent {
 
@@ -19,4 +18,8 @@ class Reply extends Eloquent {
         return $this->created_at->diffForHumans($this->freshTimestamp());
     }
 
+    public function getContentAttribute($value) {
+        $markdownParser = new MarkdownParser();
+        return $markdownParser->transformMarkdown($value);
+    }
 }
