@@ -40,7 +40,7 @@
 <!-- replies -->
 <hr/>
 <ul class="list-group">
-    @foreach ($replies as $reply)
+    @foreach ($replies as $index => $reply)
     <li class="list-group-item" style="padding: 8px 15px;">
         <div class="row">
             <div class="col-md-1">
@@ -61,7 +61,7 @@
                     </div>
                     <div class="col-md-2 col-md-offset-6 text-right">
                         <a href="#">回复</a>
-                        <a href="#" class="badge">1</a>
+                        <a href="#reply{{ $index + 1 }}" class="badge">#{{ $index + 1 }}</a>
                     </div>
                 </div>
                 <div class="row">
