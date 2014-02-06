@@ -1,5 +1,8 @@
 <?php namespace Laracn\Syntax;
 
-class SharpSyntax implements SyntaxInterface {
+class SharpSyntax extends SyntaxAbstract implements SyntaxInterface {
 
+    public function handle($value) {
+        echo 'Sharp';
+    }
 }

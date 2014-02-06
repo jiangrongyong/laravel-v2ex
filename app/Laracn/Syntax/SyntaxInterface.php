@@ -2,4 +2,6 @@
 
 interface SyntaxInterface {
 
+    public function handle($value);
+
 }
