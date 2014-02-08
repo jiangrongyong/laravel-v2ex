@@ -1,6 +1,7 @@
 <?php
 
 use dflydev\markdown\MarkdownParser;
+use Laracn\Syntax\AtSyntax;
 
 /**
  * @property mixed content
@@ -35,6 +36,6 @@ class Topic extends Eloquent {
 
     public function getContentAttribute($value) {
         $markdownParser = new MarkdownParser();
-        return $markdownParser->transformMarkdown($value);
+        return $markdownParser->transformMarkdown(new AtSyntax($value));
     }
 }
