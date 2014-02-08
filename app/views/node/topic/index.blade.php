@@ -33,7 +33,7 @@
     <li class="list-group-item" style="padding: 8px 15px;">
         <div class="row">
             <div class="col-md-1">
-                <a href="{{ action('MembersController@show', array($topic->user->id)) }}">
+                <a href="{{ action('MembersController@show', array($topic->user->username)) }}">
                     <img src="{{ Gravatar::src($topic->user->email, 48) }}"
                          style="width: 48px;height: 48px;"/>
                 </a>
@@ -56,7 +56,7 @@
                         </a>
                         <span>•</span>
                         <strong>
-                            <a href="{{ action('MembersController@show', array($topic->user->id)) }}">
+                            <a href="{{ action('MembersController@show', array($topic->user->username)) }}">
                                 {{ $topic->user->username }}
                             </a>
                         </strong>
@@ -66,7 +66,7 @@
                         <span>•</span>
                         <span>最后回复来自</span>
                         <strong>
-                            <a href="{{ action('MembersController@show', array($topic->replyEnd->user->id)) }}">
+                            <a href="{{ action('MembersController@show', array($topic->replyEnd->user->username)) }}">
                                 {{ $topic->replyEnd->user->username }}
                             </a>
                         </strong>

@@ -3,4 +3,6 @@
 interface UserInterface {
 
     public function byId($id);
+
+    public function byUsername($username);
 }

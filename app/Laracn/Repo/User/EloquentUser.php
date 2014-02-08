@@ -14,4 +14,8 @@ class EloquentUser extends RepoAbstract implements UserInterface {
     public function byId($id) {
         return $this->user->find($id);
     }
+
+    public function byUsername($username) {
+        return $this->user->whereUsername($username)->first();
+    }
 }

@@ -40,11 +40,11 @@ class MembersController extends \BaseController {
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param $username
      * @return Response
      */
-    public function show($id) {
-        $user = $this->user->byId($id);
+    public function show($username) {
+        $user = $this->user->byUsername($username);
         return View::make('member.show')->with(compact('user'));
     }
 
