@@ -3,8 +3,8 @@
 <div class="row" style="margin-bottom: 10px;">
     <div class="col-md-1">
         <a href="/member/mr7">
-            <img src="http://cdn.v2ex.com/navatar/8613/985e/90_large.png?m=1389769333"
-                 style="width: 73px;height: 73px;"/>
+            <img src="https://pbs.twimg.com/profile_images/3631880837/74c5dd82a8b5540ab7dd4ce30fc0a2f6_bigger.png"
+                 style="width: 73px;height: 73px;border-radius: 4px;"/>
         </a>
     </div>
     <div class="col-md-11" style="padding-left: 30px;">
