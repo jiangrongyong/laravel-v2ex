@@ -9,6 +9,7 @@ class CreateNodesTable extends Migration {
         Schema::create('nodes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
+            $table->string('header');
             $table->timestamp('created_at');
             $table->timestamp('updated_at');
         });

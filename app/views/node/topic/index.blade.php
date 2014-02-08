@@ -18,7 +18,7 @@
         <div class="row small">
             <div class="col-md-12"
                  style="margin-top: 10px;margin-bottom: 10px;color: rgb(153, 153, 153);">
-                 Artisan is the name of the command-line interface included with Laravel. It provides a number of helpful commands for your use while developing your application.
+                 {{ $node->header }}
             </div>
         </div>
         <div class="row">
