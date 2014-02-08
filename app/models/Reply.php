@@ -2,6 +2,7 @@
 
 use dflydev\markdown\MarkdownParser;
 use Laracn\Syntax\AtSyntax;
+use Laracn\Syntax\SharpSyntax;
 
 class Reply extends Eloquent {
 
@@ -21,6 +22,6 @@ class Reply extends Eloquent {
 
     public function getContentAttribute($value) {
         $markdownParser = new MarkdownParser();
-        return $markdownParser->transformMarkdown(new AtSyntax($value));
+        return $markdownParser->transformMarkdown(new SharpSyntax(new AtSyntax($value)));
     }
 }
