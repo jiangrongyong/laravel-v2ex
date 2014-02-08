@@ -18,7 +18,7 @@
         <div class="row small">
             <div class="col-md-12"
                  style="margin-top: 10px;margin-bottom: 10px;color: rgb(153, 153, 153);">
-                这里讨论各种 Python 语言编程话题，也包括 Django，Tornado 等框架的讨论。这里是一个能够帮助你解决实际问题的地方。
+                 Artisan is the name of the command-line interface included with Laravel. It provides a number of helpful commands for your use while developing your application.
             </div>
         </div>
         <div class="row">
