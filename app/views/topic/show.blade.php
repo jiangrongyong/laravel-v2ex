@@ -41,7 +41,7 @@
 <hr/>
 <ul class="list-group">
     @foreach ($replies as $index => $reply)
-    <li class="list-group-item" style="padding: 8px 15px;">
+    <li id="reply{{ $index + 1 }}" class="list-group-item" style="padding: 8px 15px;">
         <div class="row">
             <div class="col-md-1">
                 <a href="{{ action('MembersController@show', array($reply->user->username)) }}">
