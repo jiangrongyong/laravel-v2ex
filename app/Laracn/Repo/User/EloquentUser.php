@@ -18,4 +18,9 @@ class EloquentUser extends RepoAbstract implements UserInterface {
     public function byUsername($username) {
         return $this->user->whereUsername($username)->first();
     }
+
+    public function topics($user_id, $perPage = 3) {
+        $user = $this->user->find($user_id);
+        return $user->topics()->orderBy('updated_at', 'desc')->paginate($perPage);
+    }
 }
