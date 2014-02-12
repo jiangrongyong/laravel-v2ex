@@ -5,6 +5,7 @@ Route::controller('user', 'UserController');
 Route::resource('nodes', 'NodesController');
 Route::resource('nodes.topics', 'NodesTopicsController');
 Route::resource('members.topics', 'MembersTopicsController');
+Route::resource('members.replies', 'MembersRepliesController');
 
 Route::resource('topics', 'TopicsController');
 Route::resource('replies', 'RepliesController');
