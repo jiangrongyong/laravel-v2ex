@@ -87,11 +87,16 @@
 </div>
 @endif
 
-<h2>回复主题</h2>
-
-{{ Form::textarea("content", Input::get("content"), ["placeholder" => 'Content', "class" => "form-control"]) }}
 {{ Form::hidden("topic_id", $topic->id, []) }}
 
-{{ Form::submit("提交", ["class" => "btn btn-lg btn-primary btn-block"]) }}
+<div class="row">
+    <div class="col-md-10">
+        {{ Form::textarea("content", Input::get("content"), ["placeholder" => '回复', "class" => "form-control", "rows" => 5]) }}
+    </div>
+    <div class="col-md-2">
+        {{ Form::submit("提交", ["class" => "btn btn-lg btn-primary btn-block"]) }}
+    </div>
+</div>
+
 {{ Form::close() }}
 @stop
