@@ -1,12 +1,15 @@
 @extends("layout.auth")
 @section("content")
 <div class="row">
-    <div class="col-md-3">
-        <a href="/">{{Lang::get('app.name')}}</a>
-        ›
-        <a href="{{ action('NodesTopicsController@index', array($topic->node->id)) }}">
-            {{$topic->node->name }}
-        </a>
+    <div class="col-md-12">
+        <ol class="breadcrumb list-unstyled" style="padding:0;margin:0;background-color:white;">
+            <li><a href="/">{{Lang::get('app.name')}}</a></li>
+            <li>
+                <a href="{{ action('NodesTopicsController@index', array($topic->node->id)) }}">
+                    {{$topic->node->name }}
+                </a>
+            </li>
+        </ol>
     </div>
 </div>
 <div class="row">

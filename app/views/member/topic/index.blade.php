@@ -1,5 +1,12 @@
 @extends("layout.auth")
 @section("content")
+<ol class="breadcrumb list-unstyled" style="padding:0;background-color:white;">
+    <li><a href="/">{{Lang::get('app.name')}}</a></li>
+    <li>
+        <a href="{{ action('MembersController@show', array($user->username)) }}">{{ $user->username }}</a>
+    </li>
+    <li class="actived">全部主题</li>
+</ol>
 <ul class="list-group">
     @foreach ($topics as $topic)
     <li class="list-group-item" style="padding: 8px 15px;">
