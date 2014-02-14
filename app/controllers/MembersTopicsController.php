@@ -27,7 +27,18 @@ class MembersTopicsController extends \BaseController {
      */
     public function index($username) {
         $user = $this->user->byUsername($username);
-        return $this->user->topics($user->id);
+        $topicsPaginator = $this->user->topics($user->id);
+
+        $topics = $topicsPaginator->getCollection()->each(function ($topic) {
+            $reply = $this->reply->byTopicEnd($topic->id);
+            $topic->replyEnd = $reply or null;
+
+            $repliesTotal = $this->reply->totalByTopic($topic->id);
+            $topic->repliesTotal = $repliesTotal;
+            return $topic;
+        });
+
+        return View::make('member.topic.index')->with(compact('topics', 'topicsPaginator', 'user'));
     }
 
     /**
