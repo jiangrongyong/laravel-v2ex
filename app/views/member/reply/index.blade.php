@@ -5,7 +5,7 @@
     <li class="list-group-item" style="padding: 8px 15px;">
         <div class="row">
             <div class="col-md-10">
-                <a class="" href="">
+                <a class="" href="{{ action('TopicsController@show', array($reply->topic->id)) }}">
                     <blockquote>
                         {{ $reply->topic->title }}
                     </blockquote>
