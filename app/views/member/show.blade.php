@@ -21,8 +21,6 @@
     </div>
 </div>
 
-<hr/>
-
 <div class="row" style="margin-bottom: 4px;">
     <div class="col-md-2 text-muted small">最近创建的主题</div>
     <div class="col-md-2 col-md-offset-8 text-right">
@@ -77,8 +75,6 @@
     </li>
     @endforeach
 </ul>
-
-<hr />
 
 <div class="row" style="margin-bottom: 4px;">
     <div class="col-md-2 text-muted small">最近回复了</div>
