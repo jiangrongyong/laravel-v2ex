@@ -2,12 +2,12 @@
 <div class="row">
     <div class="col-md-3">
         <a href="/member/mr7">
-            <img src="http://cdn.v2ex.com/avatar/b954/66b8/27658_large.png?m=1382157118"
+            <img src="{{ $user->getAvatar(48) }}"
                  style="width: 48px;height: 48px;"/>
         </a>
     </div>
     <div class="col-md-9" style="padding-top: 10px;">
-        <a href="#">jiangrongyong</a>
+        <a href="{{ action('MembersController@show', array($user->username)) }}">{{ $user->username }}</a>
     </div>
 </div>
 <div class="row text-muted small" style="margin-top: 8px;">

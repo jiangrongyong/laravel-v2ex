@@ -35,7 +35,7 @@
         <div class="row">
             <div class="col-md-1">
                 <a href="{{ action('MembersController@show', array($topic->user->username)) }}">
-                    <img src="{{ Gravatar::src($topic->user->email, 48) }}"
+                    <img src="{{ $topic->user->getAvatar(48) }}"
                          style="width: 48px;height: 48px;"/>
                 </a>
             </div>
