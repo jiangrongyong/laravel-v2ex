@@ -9,5 +9,9 @@ class DatabaseSeeder extends Seeder {
         $this->call('NodeSeeder');
         $this->call('TopicSeeder');
         $this->call('ReplySeeder');
+
+        $this->call('FavoriteNodeSeeder');
+        $this->call('FavoriteTopicSeeder');
+        $this->call('FavoriteUserSeeder');
     }
 }
