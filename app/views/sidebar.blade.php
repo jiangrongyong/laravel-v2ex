@@ -11,18 +11,18 @@
     </div>
 </div>
 <div class="row text-muted small" style="margin-top: 8px;">
-    <a href="#" class="col-md-4 text-center" style="display: block;">
+    <a href="{{ action('MembersNodesController@index', array($user->username)) }}" class="col-md-4 text-center" style="display: block;">
         <div>{{ $favoriteNodeCounts }}</div>
         <span>节点收藏</span>
     </a>
 
-    <a href="#" class="col-md-4 text-center"
+    <a href="{{ action('MembersTopicsController@index', array($user->username)) }}" class="col-md-4 text-center"
        style="display: block;border-left: 1px solid rgba(100, 100, 100, 0.4); border-right: 1px solid rgba(100, 100, 100, 0.4);">
         <div>{{ $favoriteTopicCounts }}</div>
         <span>主题收藏</span>
     </a>
 
-    <a href="#" class="col-md-4 text-center" style="display: block;">
+    <a href="{{ action('MembersFollowsController@index', array($user->username)) }}" class="col-md-4 text-center" style="display: block;">
         <div>{{ $favoriteUserCounts }}</div>
         <span>关注用户</span>
     </a>
