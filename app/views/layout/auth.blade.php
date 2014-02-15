@@ -20,11 +20,9 @@
         <div class="col-sm-9">
             @yield("content")
         </div>
-        <!--
         <div class="col-sm-3 sidebar-offcanvas">
             @include("sidebar")
         </div>
-        -->
     </div>
 </div>
 @include("footer")
