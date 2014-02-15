@@ -58,7 +58,7 @@ class RepoServiceProvider extends ServiceProvider {
 
         $app->bind('Laracn\Repo\Favorite\FavoriteInterface', function ($app) {
             $favorite = new EloquentFavorite(
-                new FavoriteNode(), new FavoriteTopic(), new FavoriteUser()
+                new FavoriteNode(), new FavoriteTopic(), new FavoriteUser(), new EloquentUser(new User)
             );
 
             return $favorite;

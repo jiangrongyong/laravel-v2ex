@@ -29,12 +29,15 @@ class EloquentUser extends RepoAbstract implements UserInterface {
         return $user->replies()->orderBy('updated_at', 'desc')->paginate($perPage);
     }
 
-    public function favoriteNodeCounts($id) {
+    public function favoriteNodes($user_id) {
+        return $this->user->find($user_id)->favoriteNodes;
     }
 
-    public function favoriteTopicCounts($id) {
+    public function favoriteTopics($user_id) {
+        return $this->user->find($user_id)->favoriteTopics;
     }
 
-    public function favoriteUserCounts($id) {
+    public function favoriteUsers($user_id) {
+        return $this->user->find($user_id)->favoriteUsers;
     }
 }

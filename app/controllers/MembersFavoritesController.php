@@ -1,6 +1,26 @@
 <?php
 
+use Laracn\Repo\Topic\TopicInterface;
+use Laracn\Repo\Node\NodeInterface;
+use Laracn\Repo\Reply\ReplyInterface;
+use Laracn\Repo\User\UserInterface;
+use Laracn\Repo\Favorite\FavoriteInterface;
+
 class MembersFavoritesController extends \BaseController {
+
+    protected $topic;
+    protected $node;
+    protected $reply;
+    protected $user;
+    protected $favorite;
+
+    public function __construct(TopicInterface $topic, NodeInterface $node, ReplyInterface $reply, UserInterface $user, FavoriteInterface $favorite) {
+        $this->topic = $topic;
+        $this->node = $node;
+        $this->reply = $reply;
+        $this->user = $user;
+        $this->favorite = $favorite;
+    }
 
     /**
      * Display a listing of the resource.
@@ -9,7 +29,9 @@ class MembersFavoritesController extends \BaseController {
      * @return Response
      */
     public function index($username) {
-        echo $username;
+        $user = $this->user->byUsername($username);
+        $topics = $this->favorite->topics($user->id);
+        return $topics;
     }
 
     /**
