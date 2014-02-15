@@ -1,9 +1,13 @@
 <?php namespace Laracn\Repo;
 
+use Laracn\Repo\Favorite\EloquentFavorite;
 use Topic;
 use Node;
 use Reply;
 use User;
+use FavoriteNode;
+use FavoriteTopic;
+use FavoriteUser;
 use Laracn\Repo\Topic\EloquentTopic;
 use Laracn\Repo\Node\EloquentNode;
 use Laracn\Repo\Reply\EloquentReply;
@@ -50,6 +54,14 @@ class RepoServiceProvider extends ServiceProvider {
             );
 
             return $user;
+        });
+
+        $app->bind('Laracn\Repo\Favorite\FavoriteInterface', function ($app) {
+            $favorite = new EloquentFavorite(
+                new FavoriteNode(), new FavoriteTopic(), new FavoriteUser()
+            );
+
+            return $favorite;
         });
     }
 }
