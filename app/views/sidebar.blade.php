@@ -16,7 +16,7 @@
         <span>节点收藏</span>
     </a>
 
-    <a href="{{ action('MembersTopicsController@index', array($user->username)) }}" class="col-md-4 text-center"
+    <a href="{{ action('MembersFavoritesController@index', array($user->username)) }}" class="col-md-4 text-center"
        style="display: block;border-left: 1px solid rgba(100, 100, 100, 0.4); border-right: 1px solid rgba(100, 100, 100, 0.4);">
         <div>{{ $favoriteTopicCounts }}</div>
         <span>主题收藏</span>
