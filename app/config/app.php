@@ -112,6 +112,7 @@ return array(
 
         'Laracn\Repo\RepoServiceProvider',
         'Laracn\Exception\ExceptionServiceProvider',
+        'Laracn\Composer\ComposerServiceProvider',
 	),
 
 	/*
