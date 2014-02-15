@@ -2,7 +2,7 @@
 @section("content")
 <div class="row" style="margin-bottom: 10px;">
     <div class="col-md-1">
-        <a href="{{ action('MembersController@show', array($user->id)) }}">
+        <a href="{{ action('MembersController@show', array($user->username)) }}">
             <img src="{{ Gravatar::src($user->email, 73) }}"
                  style="width: 73px;height: 73px;"/>
         </a>

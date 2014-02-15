@@ -1,7 +1,7 @@
 @section("sidebar")
 <div class="row">
     <div class="col-md-3">
-        <a href="/member/mr7">
+        <a href="{{ action('MembersController@show', array($user->username)) }}">
             <img src="{{ $user->getAvatar(48) }}"
                  style="width: 48px;height: 48px;"/>
         </a>
