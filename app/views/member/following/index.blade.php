@@ -25,7 +25,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12 text-muted small">
-                        <span>uid: {{ $following->id }}</span>
+                        <span>第 {{ $following->id }} 号会员，加入于 {{ $following->created_at }}</span>
                     </div>
                 </div>
             </div>
