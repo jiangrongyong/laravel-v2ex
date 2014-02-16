@@ -13,9 +13,9 @@ class LayoutAuthComposer {
 
     public function compose($view) {
         $view->with('user', Auth::user());
-        $view->with('favoriteNodeCounts', $this->favorite->nodeCounts(Auth::user()->id));
-        $view->with('favoriteTopicCounts', $this->favorite->topicCounts(Auth::user()->id));
-        $view->with('favoriteUserCounts', $this->favorite->userCounts(Auth::user()->id));
+        $view->with('favoriteNodeTotal', $this->favorite->nodeTotal(Auth::user()->id));
+        $view->with('favoriteTopicTotal', $this->favorite->topicTotal(Auth::user()->id));
+        $view->with('favoriteUserTotal', $this->favorite->userTotal(Auth::user()->id));
     }
 
 }

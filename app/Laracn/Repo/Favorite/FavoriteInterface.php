@@ -2,11 +2,11 @@
 
 interface FavoriteInterface {
 
-    public function nodeCounts($user_id);
+    public function nodeTotal($user_id);
 
-    public function topicCounts($user_id);
+    public function topicTotal($user_id);
 
-    public function userCounts($user_id);
+    public function userTotal($user_id);
 
     public function nodes($user_id);
 
