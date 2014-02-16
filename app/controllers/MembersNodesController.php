@@ -29,9 +29,9 @@ class MembersNodesController extends \BaseController {
      * @return Response
      */
     public function index($username) {
-        $user = $this->user->byUsername($username);
-        $nodes = $this->favorite->nodes($user->id);
-        return $nodes;
+        $member = $this->user->byUsername($username);
+        $nodes = $this->favorite->nodes($member->id);
+        return View::make('member.node.index')->with(compact('member', 'nodes'));
     }
 
     /**
