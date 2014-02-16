@@ -24,20 +24,11 @@ class NodesTopicsController extends \BaseController {
      */
     public function index($node_id) {
         $node = $this->node->byId($node_id);
-        $topicsPaginator = $this->node->topics($node_id);
-
-        $topics = $topicsPaginator->getCollection()->each(function ($topic) {
-            $reply = $this->reply->byTopicEnd($topic->id);
-            $topic->replyEnd = $reply or null;
-
-            $repliesTotal = $this->reply->totalByTopic($topic->id);
-            $topic->repliesTotal = $repliesTotal;
-            return $topic;
-        });
+        $topics = $this->node->topics($node_id);
 
         Clockwork::info($topics);
 
-        return View::make('node.topic.index')->with(compact('topics', 'topicsPaginator', 'node'));
+        return View::make('node.topic.index')->with(compact('topics', 'node'));
     }
 
     /**

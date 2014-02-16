@@ -9,6 +9,8 @@ class TopicSeeder extends DatabaseSeeder {
                 'content' => 'php artisan list',
                 'node_id' => '1',
                 'user_id' => '1',
+                'replies_total' => 2,
+                'reply_end_user_id' => 1
             ],
             [
                 'title' => 'composer install',

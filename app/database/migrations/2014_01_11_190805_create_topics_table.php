@@ -12,6 +12,10 @@ class CreateTopicsTable extends Migration {
             $table->text('content');
             $table->integer('node_id');
             $table->integer('user_id');
+
+            $table->integer('replies_total')->default(0);
+            $table->integer('reply_end_user_id')->nullable();
+
             $table->timestamp('created_at');
             $table->timestamp('updated_at');
         });
