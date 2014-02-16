@@ -43,4 +43,9 @@ class EloquentUser extends RepoAbstract implements UserInterface {
         $user = $this->user->find($user_id);
         return $user->favoriteUsers()->orderBy('created_at', 'desc')->paginate($perPage);
     }
+
+    public function setting($user_id) {
+        $user = $this->user->find($user_id);
+        return $user->setting;
+    }
 }

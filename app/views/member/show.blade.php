@@ -20,6 +20,13 @@
         </div>
     </div>
 </div>
+<div class="small text-muted">
+    <ul>
+        <li>{{ $member->setting->city }}</li>
+        <li><a href="{{ $member->setting->website }}">{{ $member->setting->website }}</a></li>
+        <li>{{ $member->setting->bio }}</li>
+    </ul>
+</div>
 
 <div class="row" style="margin-bottom: 4px;">
     <div class="col-md-2 text-muted small">最近创建的主题</div>
