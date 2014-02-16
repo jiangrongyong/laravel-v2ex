@@ -2,20 +2,20 @@
 @section("content")
 <div class="row" style="margin-bottom: 10px;">
     <div class="col-md-1">
-        <a href="{{ action('MembersController@show', array($user->username)) }}">
-            <img src="{{ Gravatar::src($user->email, 73) }}"
+        <a href="{{ action('MembersController@show', array($member->username)) }}">
+            <img src="{{ $member->getAvatar(73) }}"
                  style="width: 73px;height: 73px;"/>
         </a>
     </div>
     <div class="col-md-11" style="padding-left: 30px;">
         <div class="row">
             <div class="col-md-12">
-                <h3 style="margin-top:14px;">{{ $user->username }}</h3>
+                <h3 style="margin-top:14px;">{{ $member->username }}</h3>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12 text-muted small">
-                第 {{ $user->id }} 号会员，加入于 {{ $user->created_at }}
+                第 {{ $member->id }} 号会员，加入于 {{ $member->created_at }}
             </div>
         </div>
     </div>
@@ -24,7 +24,7 @@
 <div class="row" style="margin-bottom: 4px;">
     <div class="col-md-2 text-muted small">最近创建的主题</div>
     <div class="col-md-2 col-md-offset-8 text-right">
-        <a class="text-muted small" href="{{ action('MembersTopicsController@index', array($user->username)) }}">»更多主题</a>
+        <a class="text-muted small" href="{{ action('MembersTopicsController@index', array($member->username)) }}">»更多主题</a>
     </div>
 </div>
 <ul class="list-group">
@@ -55,12 +55,12 @@
                         </strong>
                         <span>•</span>
                         <span>{{ $topic->getUpdateAtDiffForHumans() }}</span>
-                        @if (!is_null($topic->replyEnd))
+                        @if (!is_null($topic->replyEndUser))
                         <span>•</span>
                         <span>最后回复来自</span>
                         <strong>
-                            <a href="{{ action('MembersController@show', array($topic->replyEnd->user->username)) }}">
-                                {{ $topic->replyEnd->user->username }}
+                            <a href="{{ action('MembersController@show', array($topic->replyEndUser->username)) }}">
+                                {{ $topic->replyEndUser->username }}
                             </a>
                         </strong>
                         @endif
@@ -69,7 +69,7 @@
             </div>
             <div class="col-md-1">
                 <a style="margin-top: 15px;" href="{{ action('TopicsController@show', array($topic->id)) }}"
-                   class="badge">{{ $topic->repliesTotal }}</a>
+                   class="badge">{{ $topic->replies_total }}</a>
             </div>
         </div>
     </li>
@@ -79,7 +79,7 @@
 <div class="row" style="margin-bottom: 4px;">
     <div class="col-md-2 text-muted small">最近回复了</div>
     <div class="col-md-2 col-md-offset-8 text-right">
-        <a class="text-muted small" href="{{ action('MembersRepliesController@index', array($user->username)) }}">»更多回复</a>
+        <a class="text-muted small" href="{{ action('MembersRepliesController@index', array($member->username)) }}">»更多回复</a>
     </div>
 </div>
 <ul class="list-group">

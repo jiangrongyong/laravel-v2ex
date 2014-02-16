@@ -16,7 +16,7 @@
                     <div class="col-md-12">
                         <a href="{{ action('TopicsController@show', array($topic->id)) }}">
                             <h5 style="margin-top: 5px;margin-bottom: 5px;color: rgb(119, 128, 135);font-size: 16px;font-weight: normal;">
-                                {{ $topic->title}}
+                                {{ $topic->title }}
                             </h5>
                         </a>
                     </div>

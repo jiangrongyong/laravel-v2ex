@@ -53,20 +53,11 @@ class MembersController extends \BaseController {
      * @return Response
      */
     public function show($username) {
-        $user = $this->user->byUsername($username);
-        $replies = $this->user->replies($user->id);
+        $member = $this->user->byUsername($username);
+        $replies = $this->user->replies($member->id);
+        $topics = $this->user->topics($member->id);
 
-        $topics = $this->user->topics($user->id);
-        $topics = $topics->getCollection()->each(function ($topic) {
-            $reply = $this->reply->byTopicEnd($topic->id);
-            $topic->replyEnd = $reply or null;
-
-            $repliesTotal = $this->reply->totalByTopic($topic->id);
-            $topic->repliesTotal = $repliesTotal;
-            return $topic;
-        });
-
-        return View::make('member.show')->with(compact('user', 'replies', 'topics'));
+        return View::make('member.show')->with(compact('member', 'replies', 'topics'));
     }
 
     /**
