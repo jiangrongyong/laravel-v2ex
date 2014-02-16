@@ -29,9 +29,9 @@ class MembersFollowsController extends \BaseController {
      * @return Response
      */
     public function index($username) {
-        $user = $this->user->byUsername($username);
-        $users = $this->favorite->users($user->id);
-        return $users;
+        $member = $this->user->byUsername($username);
+        $followings = $this->favorite->users($member->id);
+        return View::make('member.following.index')->with(compact('member', 'followings'));
     }
 
     /**
