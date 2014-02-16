@@ -26,19 +26,10 @@ class MembersTopicsController extends \BaseController {
      * @return Response
      */
     public function index($username) {
-        $user = $this->user->byUsername($username);
-        $topicsPaginator = $this->user->topics($user->id);
+        $member = $this->user->byUsername($username);
+        $topics = $this->user->topics($member->id);
 
-        $topics = $topicsPaginator->getCollection()->each(function ($topic) {
-            $reply = $this->reply->byTopicEnd($topic->id);
-            $topic->replyEnd = $reply or null;
-
-            $repliesTotal = $this->reply->totalByTopic($topic->id);
-            $topic->repliesTotal = $repliesTotal;
-            return $topic;
-        });
-
-        return View::make('member.topic.index')->with(compact('topics', 'topicsPaginator', 'user'));
+        return View::make('member.topic.index')->with(compact('topics', 'member'));
     }
 
     /**
