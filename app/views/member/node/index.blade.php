@@ -33,4 +33,5 @@
     </li>
     @endforeach
 </ul>
+<?php echo $nodes->links(); ?>
 @stop

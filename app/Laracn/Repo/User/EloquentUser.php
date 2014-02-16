@@ -29,8 +29,9 @@ class EloquentUser extends RepoAbstract implements UserInterface {
         return $user->replies()->orderBy('updated_at', 'desc')->paginate($perPage);
     }
 
-    public function favoriteNodes($user_id) {
-        return $this->user->find($user_id)->favoriteNodes;
+    public function favoriteNodes($user_id, $perPage = 2) {
+        $user = $this->user->find($user_id);
+        return $user->favoriteNodes()->orderBy('created_at', 'desc')->paginate($perPage);
     }
 
     public function favoriteTopics($user_id, $perPage = 2) {
@@ -38,7 +39,8 @@ class EloquentUser extends RepoAbstract implements UserInterface {
         return $user->favoriteTopics()->orderBy('created_at', 'desc')->paginate($perPage);
     }
 
-    public function favoriteUsers($user_id) {
-        return $this->user->find($user_id)->favoriteUsers;
+    public function favoriteUsers($user_id, $perPage = 2) {
+        $user = $this->user->find($user_id);
+        return $user->favoriteUsers()->orderBy('created_at', 'desc')->paginate($perPage);
     }
 }

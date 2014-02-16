@@ -10,9 +10,9 @@ interface UserInterface {
 
     public function replies($user_id, $perPage = 3);
 
-    public function favoriteNodes($user_id);
+    public function favoriteNodes($user_id, $perPage = 2);
 
     public function favoriteTopics($user_id, $perPage = 2);
 
-    public function favoriteUsers($user_id);
+    public function favoriteUsers($user_id, $perPage = 2);
 }
