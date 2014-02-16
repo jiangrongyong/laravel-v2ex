@@ -12,7 +12,7 @@ interface UserInterface {
 
     public function favoriteNodes($user_id);
 
-    public function favoriteTopics($user_id);
+    public function favoriteTopics($user_id, $perPage = 2);
 
     public function favoriteUsers($user_id);
 }

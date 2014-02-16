@@ -29,9 +29,19 @@ class MembersFavoritesController extends \BaseController {
      * @return Response
      */
     public function index($username) {
-        $user = $this->user->byUsername($username);
-        $topics = $this->favorite->topics($user->id);
-        return $topics;
+        $member = $this->user->byUsername($username);
+        $topicsPaginator = $this->favorite->topics($member->id);
+
+        $topics = $topicsPaginator->getCollection()->each(function ($topic) {
+            $reply = $this->reply->byTopicEnd($topic->id);
+            $topic->replyEnd = $reply or null;
+
+            $repliesTotal = $this->reply->totalByTopic($topic->id);
+            $topic->repliesTotal = $repliesTotal;
+            return $topic;
+        });
+
+        return View::make('member.favorite.index')->with(compact('member', 'topics', 'topicsPaginator'));
     }
 
     /**
