@@ -12,7 +12,7 @@
     <li class="list-group-item" style="padding: 8px 15px;">
         <div class="row">
             <div class="col-md-1">
-                <img src="https://pbs.twimg.com/profile_images/3631880837/74c5dd82a8b5540ab7dd4ce30fc0a2f6_bigger.png"
+                <img src="{{ $node->avatar }}"
                      style="width: 48px;height: 48px;"/>
             </div>
             <div class="col-md-11">
@@ -25,7 +25,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12 text-muted small">
-                        <span>topics: 100</span>
+                        <span>total: {{ $node->topics_total }}</span>
                     </div>
                 </div>
             </div>

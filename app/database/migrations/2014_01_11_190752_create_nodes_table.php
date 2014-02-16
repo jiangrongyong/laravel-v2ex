@@ -10,6 +10,8 @@ class CreateNodesTable extends Migration {
             $table->increments('id');
             $table->string('name')->unique();
             $table->string('header');
+            $table->integer('topics_total')->default(0);
+            $table->string('avatar')->nullable();
             $table->timestamp('created_at');
             $table->timestamp('updated_at');
         });
