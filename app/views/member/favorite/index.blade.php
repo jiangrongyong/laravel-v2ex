@@ -41,12 +41,12 @@
                         </strong>
                         <span>•</span>
                         <span>{{ $topic->getUpdateAtDiffForHumans() }}</span>
-                        @if (!is_null($topic->replyEnd))
+                        @if (!is_null($topic->replyEndUser))
                         <span>•</span>
                         <span>最后回复来自</span>
                         <strong>
-                            <a href="{{ action('MembersController@show', array($topic->replyEnd->user->username)) }}">
-                                {{ $topic->replyEnd->user->username }}
+                            <a href="{{ action('MembersController@show', array($topic->replyEndUser->username)) }}">
+                                {{ $topic->replyEndUser->username }}
                             </a>
                         </strong>
                         @endif
@@ -55,11 +55,11 @@
             </div>
             <div class="col-md-1">
                 <a style="margin-top: 15px;" href="{{ action('TopicsController@show', array($topic->id)) }}"
-                   class="badge">{{ $topic->repliesTotal }}</a>
+                   class="badge">{{ $topic->replies_total }}</a>
             </div>
         </div>
     </li>
     @endforeach
 </ul>
-<?php echo $topicsPaginator->links(); ?>
+<?php echo $topics->links(); ?>
 @stop
