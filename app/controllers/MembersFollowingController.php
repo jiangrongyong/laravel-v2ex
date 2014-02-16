@@ -6,7 +6,7 @@ use Laracn\Repo\Reply\ReplyInterface;
 use Laracn\Repo\User\UserInterface;
 use Laracn\Repo\Favorite\FavoriteInterface;
 
-class MembersFollowsController extends \BaseController {
+class MembersFollowingController extends \BaseController {
 
     protected $topic;
     protected $node;

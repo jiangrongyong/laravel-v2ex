@@ -7,7 +7,7 @@ Route::resource('nodes.topics', 'NodesTopicsController');
 Route::resource('members.topics', 'MembersTopicsController');
 Route::resource('members.replies', 'MembersRepliesController');
 Route::resource('members.favorites', 'MembersFavoritesController');
-Route::resource('members.follows', 'MembersFollowsController');
+Route::resource('members.following', 'MembersFollowingController');
 Route::resource('members.nodes', 'MembersNodesController');
 
 Route::resource('topics', 'TopicsController');

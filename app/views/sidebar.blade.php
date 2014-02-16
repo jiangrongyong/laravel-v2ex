@@ -22,7 +22,7 @@
         <span>主题收藏</span>
     </a>
 
-    <a href="{{ action('MembersFollowsController@index', array($user->username)) }}" class="col-md-4 text-center" style="display: block;">
+    <a href="{{ action('MembersFollowingController@index', array($user->username)) }}" class="col-md-4 text-center" style="display: block;">
         <div>{{ $favoriteUserCounts }}</div>
         <span>关注用户</span>
     </a>
