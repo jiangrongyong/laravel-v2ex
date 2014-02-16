@@ -12,15 +12,19 @@
     <li class="list-group-item" style="padding: 8px 15px;">
         <div class="row">
             <div class="col-md-1">
-                <img src="{{ $node->avatar }}"
-                     style="width: 48px;height: 48px;"/>
+                <a href="{{ action('NodesTopicsController@index', array($node->id)) }}">
+                    <img src="{{ $node->avatar }}"
+                         style="width: 48px;height: 48px;"/>
+                </a>
             </div>
             <div class="col-md-11">
                 <div class="row">
                     <div class="col-md-12">
-                        <h5 style="margin-top: 5px;margin-bottom: 5px;color: rgb(119, 128, 135);font-size: 16px;font-weight: normal;">
-                            {{ $node->name }}
-                        </h5>
+                        <a href="{{ action('NodesTopicsController@index', array($node->id)) }}">
+                            <h5 style="margin-top: 5px;margin-bottom: 5px;color: rgb(119, 128, 135);font-size: 16px;font-weight: normal;">
+                                {{ $node->name }}
+                            </h5>
+                        </a>
                     </div>
                 </div>
                 <div class="row">
