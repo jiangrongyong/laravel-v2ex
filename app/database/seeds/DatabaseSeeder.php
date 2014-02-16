@@ -13,5 +13,7 @@ class DatabaseSeeder extends Seeder {
         $this->call('FavoriteNodeSeeder');
         $this->call('FavoriteTopicSeeder');
         $this->call('FavoriteUserSeeder');
+
+        $this->call('SettingSeeder');
     }
 }
