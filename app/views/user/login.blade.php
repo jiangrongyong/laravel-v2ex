@@ -3,15 +3,7 @@
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
     {{ Form::open(["action" => "UserController@postLogin", "autocomplete" => "off", "class" => "form-login", "role" => "form"]) }}
         {{ Form::errors() }}
-        @if (Session::has('infos'))
-            <div class="alert alert-success">
-                <ul>
-                    @foreach (Session::get('infos')->all() as $info)
-                        <li>{{ $info }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+        {{ Form::infos() }}
         <h2>{{Lang::get('app.name')}}</h2>
         {{ Form::text("username", Input::get("username"), ["placeholder" => Lang::get('login.username'), "class" => "form-control", "autofocus" => "true"]) }}
         {{ Form::password("password", ["placeholder" => Lang::get('login.password'), "class" => "form-control"]) }}
