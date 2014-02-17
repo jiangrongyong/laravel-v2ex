@@ -64,7 +64,7 @@ class SettingsController extends \BaseController {
      * @return Response
      */
     public function update($id) {
-        $input = array_merge(Input::all(), array('id' => $id));
+        $input = array_merge(Input::all());
         $this->setting->update($input);
 
         return Redirect::back();

@@ -42,6 +42,8 @@
         <div class="col-md-2"></div>
         <div class="col-md-6">{{ Form::submit('提交', ['class' => 'btn btn-lg btn-primary btn-block']) }}</div>
     </div>
+
+    {{ Form::hidden('id', $user->setting->id) }}
 {{ Form::close() }}
 
 @stop
