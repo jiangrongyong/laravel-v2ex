@@ -15,16 +15,26 @@
         </div>
         <div class="row">
             <div class="col-md-12 text-muted small">
+                <span class="glyphicon glyphicon-time"></span>
                 第 {{ $member->id }} 号会员，加入于 {{ $member->created_at }}
             </div>
         </div>
     </div>
 </div>
 <div class="small text-muted">
-    <ul>
-        <li>{{ $member->setting->city }}</li>
-        <li><a href="{{ $member->setting->website }}">{{ $member->setting->website }}</a></li>
-        <li>{{ $member->setting->bio }}</li>
+    <ul class="list-unstyled" style="margin-left: 16px;">
+        <li>
+            <span class="glyphicon glyphicon-pushpin" style="margin-right:4px;"></span>
+            {{ $member->setting->city }}
+        </li>
+        <li>
+            <span class="glyphicon glyphicon-link" style="margin-right:4px;"></span>
+            <a href="{{ $member->setting->website }}">{{ $member->setting->website }}</a>
+        </li>
+        <li>
+            <span class="glyphicon glyphicon-hand-right" style="margin-right:4px;"></span>
+            {{ $member->setting->bio }}
+        </li>
     </ul>
 </div>
 
