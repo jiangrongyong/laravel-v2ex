@@ -17,7 +17,7 @@
     <li class='actived'>设置</li>
 </ol>
 
-{{ Form::open(['action' => 'UserController@postLogin', 'role' => 'form', 'id' => 'settings_form']) }}
+{{ Form::open(['url' => action('SettingsController@update', $user->setting->id), 'role' => 'form', 'id' => 'settings_form', 'method' => 'put']) }}
     <div class="row">
         <div class="col-md-2 text-right">用户名</div>
         <div class="col-md-6">{{ $user->username }}</div>

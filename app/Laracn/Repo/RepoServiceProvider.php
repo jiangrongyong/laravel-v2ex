@@ -1,6 +1,5 @@
 <?php namespace Laracn\Repo;
 
-use Laracn\Repo\Favorite\EloquentFavorite;
 use Topic;
 use Node;
 use Reply;
@@ -8,10 +7,13 @@ use User;
 use FavoriteNode;
 use FavoriteTopic;
 use FavoriteUser;
+use Setting;
 use Laracn\Repo\Topic\EloquentTopic;
 use Laracn\Repo\Node\EloquentNode;
 use Laracn\Repo\Reply\EloquentReply;
 use Laracn\Repo\User\EloquentUser;
+use Laracn\Repo\Favorite\EloquentFavorite;
+use Laracn\Repo\Setting\EloquentSetting;
 use Illuminate\Support\ServiceProvider;
 
 class RepoServiceProvider extends ServiceProvider {
@@ -62,6 +64,14 @@ class RepoServiceProvider extends ServiceProvider {
             );
 
             return $favorite;
+        });
+
+        $app->bind('Laracn\Repo\Setting\SettingInterface', function ($app) {
+            $setting = new EloquentSetting(
+                new Setting()
+            );
+
+            return $setting;
         });
     }
 }

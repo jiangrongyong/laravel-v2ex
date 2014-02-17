@@ -1,6 +1,14 @@
 <?php
 
+use Laracn\Repo\Setting\SettingInterface;
+
 class SettingsController extends \BaseController {
+
+    protected $setting;
+
+    public function __construct(SettingInterface $setting) {
+        $this->setting = $setting;
+    }
 
     /**
      * Display a listing of the resource.
@@ -56,7 +64,10 @@ class SettingsController extends \BaseController {
      * @return Response
      */
     public function update($id) {
-        //
+        $input = array_merge(Input::all(), array('id' => $id));
+        $this->setting->update($input);
+
+        return Redirect::back();
     }
 
     /**
