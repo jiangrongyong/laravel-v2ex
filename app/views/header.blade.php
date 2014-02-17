@@ -20,6 +20,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->username }}<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="{{ action('MembersController@show', array($user->username)) }}">个人资料</a></li>
+                            <li><a href="{{ action('SettingsController@index') }}">设置</a></li>
                             <li><a href="{{ action('UserController@getLogout') }}">注销</a></li>
                         </ul>
                     </li>
