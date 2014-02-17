@@ -19,15 +19,7 @@
 
 {{ Form::open(['url' => action('SettingsController@update', $user->setting->id), 'role' => 'form', 'id' => 'settings_form', 'method' => 'put']) }}
     {{ Form::errors() }}
-    @if (Session::has('infos'))
-    <div class="alert alert-success">
-        <ul>
-            @foreach (Session::get('infos')->all() as $info)
-            <li>{{ $info }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
+    {{ Form::infos() }}
 
     <div class="row">
         <div class="col-md-2 text-right">用户名</div>
