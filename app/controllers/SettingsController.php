@@ -65,8 +65,15 @@ class SettingsController extends \BaseController {
      * @return Response
      */
     public function update($id) {
-        $input = array_merge(Input::all());
-        $this->setting->update($input);
+        $validator = Validator::make(Input::all(), [
+            'website' => 'url',
+        ]);
+
+        if ($validator->fails()) {
+            return Redirect::back()->withInput()->withErrors($validator->messages());
+        }
+
+        $this->setting->update(Input::all());
 
         return Redirect::back()->withInfos(new MessageBag(['修改成功']));
     }
