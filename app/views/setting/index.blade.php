@@ -42,6 +42,13 @@
         <div class="col-md-6">{{ Form::textarea('bio', $user->setting->bio, ['class' => 'form-control']) }}</div>
     </div>
     <div class="row">
+        <div class="col-md-2 text-right"></div>
+        <div class="col-md-6">
+            <img src="{{ $user->getAvatar(30) }}" />
+            <a href="https://gravatar.com/">在Gravatar.com修改您的头像</a>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-6">{{ Form::submit('提交', ['class' => 'btn btn-lg btn-primary btn-block']) }}</div>
     </div>
