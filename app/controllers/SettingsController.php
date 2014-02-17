@@ -1,6 +1,7 @@
 <?php
 
 use Laracn\Repo\Setting\SettingInterface;
+use Illuminate\Support\MessageBag;
 
 class SettingsController extends \BaseController {
 
@@ -67,7 +68,7 @@ class SettingsController extends \BaseController {
         $input = array_merge(Input::all());
         $this->setting->update($input);
 
-        return Redirect::back();
+        return Redirect::back()->withInfos(new MessageBag(['修改成功']));
     }
 
     /**
