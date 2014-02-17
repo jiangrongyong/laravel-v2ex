@@ -45,7 +45,7 @@
         <div class="col-md-2 text-right"></div>
         <div class="col-md-6">
             <img src="{{ $user->getAvatar(30) }}" />
-            <a href="https://gravatar.com/">在Gravatar.com修改您的头像</a>
+            <a href="https://gravatar.com/">在gravatar.com修改您的头像</a>
         </div>
     </div>
     <div class="row">
