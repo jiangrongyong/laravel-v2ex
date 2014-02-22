@@ -6,8 +6,7 @@
     "require": {
         "laravel/framework": "4.1.*",
         "barryvdh/laravel-ide-helper": "1.*",
-        "itsgoingd/clockwork": "1.*",
-        "thomaswelton/laravel-gravatar": "dev-master"
+        "itsgoingd/clockwork": "1.*"
     },
     "autoload": {
         "classmap": [
@@ -38,5 +37,5 @@
     "config": {
         "preferred-install": "dist"
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "stable"
 }

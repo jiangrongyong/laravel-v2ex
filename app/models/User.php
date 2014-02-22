@@ -26,7 +26,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     }
 
     public function getAvatar($size) {
-        return Gravatar::src($this->email, $size);
+        return 'http://cdn.v2ex.com/avatar/b954/66b8/27658_large.png?m=1382157118';
     }
 
     public function topics() {
