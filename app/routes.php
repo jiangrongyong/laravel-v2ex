@@ -14,3 +14,5 @@ Route::resource('topics', 'TopicsController');
 Route::resource('replies', 'RepliesController');
 Route::resource('members', 'MembersController');
 Route::resource('settings', 'SettingsController');
+
+Route::get('nodes/{node_id}/favorite', ['uses' => 'NodesController@postFavorite']);

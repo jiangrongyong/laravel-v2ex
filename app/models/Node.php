@@ -11,4 +11,8 @@ class Node extends Eloquent {
         return $this->hasMany('Topic');
     }
 
+    public function favorites() {
+        return $this->belongsToMany('FavoriteNode', 'favorite_nodes', 'node_id', 'user_id');
+    }
+
 }

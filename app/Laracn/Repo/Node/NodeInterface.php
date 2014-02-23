@@ -6,4 +6,6 @@ interface NodeInterface {
 
     public function topics($node_id);
 
+    public function favorite($node_id, $user_id);
+
 }

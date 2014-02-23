@@ -19,7 +19,7 @@
                 主题总数
                 <strong>{{ $node->topics_total }}</strong>
                 <span>•</span>
-                <a href="#">加入收藏</a>
+                <a href="{{ action('NodesController@postFavorite', array($node->id)) }}">加入收藏</a>
             </div>
         </div>
         <div class="row small">
