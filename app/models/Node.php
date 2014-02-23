@@ -12,7 +12,7 @@ class Node extends Eloquent {
     }
 
     public function favorites() {
-        return $this->belongsToMany('FavoriteNode', 'favorite_nodes', 'node_id', 'user_id');
+        return $this->belongsToMany('User', 'favorite_nodes', 'node_id', 'user_id');
     }
 
 }

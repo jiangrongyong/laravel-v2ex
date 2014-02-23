@@ -33,4 +33,9 @@ class EloquentNode extends RepoAbstract implements NodeInterface {
         $node = $this->node->find($node_id);
         $node->favorites()->detach($user_id);
     }
+
+    public function isFavorite($node_id, $user_id) {
+        $node = $this->node->find($node_id);
+        return is_null($node->favorites()->where('user_id', $user_id)->first()) ? false : true;
+    }
 }

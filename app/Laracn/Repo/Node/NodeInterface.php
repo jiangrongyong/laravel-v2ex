@@ -10,4 +10,6 @@ interface NodeInterface {
 
     public function unfavorite($node_id, $user_id);
 
+    public function isFavorite($node_id, $user_id);
+
 }

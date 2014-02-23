@@ -25,8 +25,10 @@ class NodesTopicsController extends \BaseController {
     public function index($node_id) {
         $node = $this->node->byId($node_id);
         $topics = $this->node->topics($node_id);
+        $user = Auth::user();
+        $isFavorite = $this->node->isFavorite($node_id, $user->id);
 
-        return View::make('node.topic.index')->with(compact('topics', 'node'));
+        return View::make('node.topic.index')->with(compact('topics', 'node', 'isFavorite'));
     }
 
     /**
