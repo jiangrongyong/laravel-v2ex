@@ -9,11 +9,17 @@
     </div>
     <div class="col-md-11" style="padding-left: 30px;">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-9">
                 <ol class="breadcrumb list-unstyled" style="padding:0;margin:0;background-color:white;">
                     <li><a href="/">{{Lang::get('app.name')}}</a></li>
                     <li class="active">{{ $node->name}}</li>
                 </ol>
+            </div>
+            <div class="col-md-3 small text-muted text-right">
+                主题总数
+                <strong>{{ $node->topics_total }}</strong>
+                <span>•</span>
+                <a href="#">加入收藏</a>
             </div>
         </div>
         <div class="row small">

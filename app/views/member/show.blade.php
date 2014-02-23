@@ -9,8 +9,11 @@
     </div>
     <div class="col-md-11" style="padding-left: 30px;">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-10">
                 <h3 style="margin-top:14px;">{{ $member->username }}</h3>
+            </div>
+            <div class="col-md-2 text-right small">
+                <a href="#">+ 加入关注</a>
             </div>
         </div>
         <div class="row">

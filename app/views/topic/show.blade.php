@@ -31,6 +31,8 @@
         </strong>
         <span>•</span>
         <span>{{ $topic->getCreatedAtDiffForHumans() }}</span>
+        <span>•</span>
+        <a href="#">加入收藏</a>
     </div>
 </div>
 <hr/>
