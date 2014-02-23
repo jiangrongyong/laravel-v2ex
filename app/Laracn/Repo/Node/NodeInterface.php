@@ -8,4 +8,6 @@ interface NodeInterface {
 
     public function favorite($node_id, $user_id);
 
+    public function unfavorite($node_id, $user_id);
+
 }

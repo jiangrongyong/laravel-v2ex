@@ -101,4 +101,18 @@ class NodesController extends \BaseController {
         return Redirect::back();
     }
 
+    /**
+     *
+     * Unfavorite node.
+     *
+     * @param $node_id
+     * @return Response
+     */
+    public function postUnfavorite($node_id) {
+        $user = Auth::user();
+        $this->node->unfavorite($node_id, $user->id);
+
+        return Redirect::back();
+    }
+
 }

@@ -12,6 +12,8 @@ class CreateFavoriteNodesTable extends Migration {
             $table->integer('user_id');
             $table->timestamp('created_at');
             $table->timestamp('updated_at');
+
+            $table->unique(array('node_id', 'user_id'));
         });
     }
 

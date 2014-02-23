@@ -12,6 +12,8 @@ class CreateFavoriteUsersTable extends Migration {
             $table->integer('follow_user_id');
             $table->timestamp('created_at');
             $table->timestamp('updated_at');
+
+            $table->unique(array('follow_user_id', 'user_id'));
         });
     }
 

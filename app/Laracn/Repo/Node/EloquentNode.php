@@ -28,4 +28,9 @@ class EloquentNode extends RepoAbstract implements NodeInterface {
             'updated_at' => new Carbon()
         ]);
     }
+
+    public function unfavorite($node_id, $user_id) {
+        $node = $this->node->find($node_id);
+        $node->favorites()->detach($user_id);
+    }
 }
