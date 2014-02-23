@@ -46,8 +46,10 @@ class TopicsController extends \BaseController {
     public function show($id) {
         $topic = $this->topic->byId($id);
         $replies = $topic->replies;
+        $user = Auth::user();
+        $isFavorite = $this->topic->isFavorite($id, $user->id);
 
-        return View::make('topic.show')->with(compact('topic', 'replies'));
+        return View::make('topic.show')->with(compact('topic', 'replies', 'isFavorite'));
     }
 
     /**
@@ -82,6 +84,34 @@ class TopicsController extends \BaseController {
      */
     public function destroy($id) {
         //
+    }
+
+    /**
+     *
+     * Favorite topic.
+     *
+     * @param $topic_id
+     * @return Response
+     */
+    public function postFavorite($topic_id) {
+        $user = Auth::user();
+        $this->topic->favorite($topic_id, $user->id);
+
+        return Redirect::back();
+    }
+
+    /**
+     *
+     * Unfavorite topic.
+     *
+     * @param $topic_id
+     * @return Response
+     */
+    public function postUnfavorite($topic_id) {
+        $user = Auth::user();
+        $this->topic->unfavorite($topic_id, $user->id);
+
+        return Redirect::back();
     }
 
 }

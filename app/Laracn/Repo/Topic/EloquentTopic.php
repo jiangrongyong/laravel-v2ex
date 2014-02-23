@@ -3,6 +3,7 @@
 use Laracn\Repo\RepoAbstract;
 use Laracn\Repo\Node\NodeInterface;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class EloquentTopic extends RepoAbstract implements TopicInterface {
 
@@ -37,5 +38,23 @@ class EloquentTopic extends RepoAbstract implements TopicInterface {
         $topic->save();
 
         return $topic;
+    }
+
+    public function favorite($topic_id, $user_id) {
+        $topic = $this->topic->find($topic_id);
+        $topic->favorites()->attach($user_id, [
+            'created_at' => new Carbon(),
+            'updated_at' => new Carbon()
+        ]);
+    }
+
+    public function unfavorite($topic_id, $user_id) {
+        $topic = $this->topic->find($topic_id);
+        $topic->favorites()->detach($user_id);
+    }
+
+    public function isFavorite($topic_id, $user_id) {
+        $topic = $this->topic->find($topic_id);
+        return !is_null($topic->favorites()->where('user_id', $user_id)->first());
     }
 }
