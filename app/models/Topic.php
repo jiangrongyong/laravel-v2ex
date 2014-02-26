@@ -31,7 +31,7 @@ class Topic extends Eloquent {
     }
 
     public function favorites() {
-        return $this->belongsToMany('User', 'favorite_topics', 'topic_id', 'user_id');
+        return $this->belongsToMany('User', 'favorites', 'topic_id', 'user_id');
     }
 
     public function getCreatedAtDiffForHumans() {
