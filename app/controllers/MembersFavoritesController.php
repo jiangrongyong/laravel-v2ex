@@ -30,7 +30,7 @@ class MembersFavoritesController extends \BaseController {
      */
     public function index($username) {
         $member = $this->user->byUsername($username);
-        $topics = $this->favorite->topics($member->id);
+        $topics = $this->favorite->byUserId($member->id);
 
         return View::make('member.favorite.index')->with(compact('member', 'topics'));
     }

@@ -6,30 +6,20 @@ use Laracn\Repo\User\UserInterface;
 
 class EloquentFavorite extends RepoAbstract implements FavoriteInterface {
 
-    protected $favoriteNode;
-    protected $favoriteTopic;
+    protected $favorite;
     protected $user;
 
-    public function __construct(Model $favoriteNode, Model $favoriteTopic, UserInterface $user) {
-        $this->favoriteNode = $favoriteNode;
-        $this->favoriteTopic = $favoriteTopic;
+    public function __construct(Model $favorite, UserInterface $user) {
+        $this->favorite = $favorite;
         $this->user = $user;
     }
 
-    public function nodeTotal($user_id) {
-        return $this->favoriteNode->whereUserId($user_id)->count();
+    public function total($user_id) {
+        return $this->favorite->whereUserId($user_id)->count();
     }
 
-    public function topicTotal($user_id) {
-        return $this->favoriteTopic->whereUserId($user_id)->count();
-    }
-
-    public function nodes($user_id) {
-        return $this->user->favoriteNodes($user_id);
-    }
-
-    public function topics($user_id) {
-        return $this->user->favoriteTopics($user_id);
+    public function byUserId($user_id) {
+        return $this->user->favorites($user_id);
     }
 
 }

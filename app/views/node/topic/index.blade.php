@@ -18,13 +18,6 @@
             <div class="col-md-3 small text-muted text-right">
                 主题总数
                 <strong>{{ $node->topics_total }}</strong>
-                <span>•</span>
-                @if ($isFavorite)
-                    <a href="{{ action('NodesController@postUnfavorite', array($node->id)) }}">取消收藏</a>
-                @else
-                    <a href="{{ action('NodesController@postFavorite', array($node->id)) }}">加入收藏</a>
-                @endif
-
             </div>
         </div>
         <div class="row small">

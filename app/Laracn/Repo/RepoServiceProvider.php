@@ -4,8 +4,7 @@ use Topic;
 use Node;
 use Reply;
 use User;
-use FavoriteNode;
-use FavoriteTopic;
+use Favorite;
 use Follow;
 use Setting;
 use Laracn\Repo\Topic\EloquentTopic;
@@ -61,7 +60,7 @@ class RepoServiceProvider extends ServiceProvider {
 
         $app->bind('Laracn\Repo\Favorite\FavoriteInterface', function ($app) {
             $favorite = new EloquentFavorite(
-                new FavoriteNode(), new FavoriteTopic(), new EloquentUser(new User)
+                new Favorite(), new EloquentUser(new User)
             );
 
             return $favorite;

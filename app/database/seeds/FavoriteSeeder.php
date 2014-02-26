@@ -1,9 +1,9 @@
 <?php
 
-class FavoriteTopicSeeder extends DatabaseSeeder {
+class FavoriteSeeder extends DatabaseSeeder {
 
     public function run() {
-        $favoriteTopics = [
+        $favorites = [
             [
                 'user_id' => 1,
                 'topic_id' => 1
@@ -18,8 +18,8 @@ class FavoriteTopicSeeder extends DatabaseSeeder {
             ],
         ];
 
-        foreach ($favoriteTopics as $favoriteTopic) {
-            FavoriteTopic::create($favoriteTopic);
+        foreach ($favorites as $favorite) {
+            Favorite::create($favorite);
         }
     }
 }
