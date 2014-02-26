@@ -23,7 +23,7 @@
     </a>
 
     <a href="{{ action('MembersFollowingController@index', array($user->username)) }}" class="col-md-4 text-center" style="display: block;">
-        <div>{{ $favoriteUserTotal }}</div>
+        <div>{{ $followingTotal }}</div>
         <span>关注用户</span>
     </a>
 </div>

@@ -14,6 +14,7 @@ use Laracn\Repo\Reply\EloquentReply;
 use Laracn\Repo\User\EloquentUser;
 use Laracn\Repo\Favorite\EloquentFavorite;
 use Laracn\Repo\Setting\EloquentSetting;
+use Laracn\Repo\Follow\EloquentFollow;
 use Illuminate\Support\ServiceProvider;
 
 class RepoServiceProvider extends ServiceProvider {
@@ -60,7 +61,7 @@ class RepoServiceProvider extends ServiceProvider {
 
         $app->bind('Laracn\Repo\Favorite\FavoriteInterface', function ($app) {
             $favorite = new EloquentFavorite(
-                new FavoriteNode(), new FavoriteTopic(), new Follow(), new EloquentUser(new User)
+                new FavoriteNode(), new FavoriteTopic(), new EloquentUser(new User)
             );
 
             return $favorite;
@@ -72,6 +73,14 @@ class RepoServiceProvider extends ServiceProvider {
             );
 
             return $setting;
+        });
+
+        $app->bind('Laracn\Repo\Follow\FollowInterface', function ($app) {
+            $follow = new EloquentFollow(
+                new Follow(), new EloquentUser(new User)
+            );
+
+            return $follow;
         });
     }
 }

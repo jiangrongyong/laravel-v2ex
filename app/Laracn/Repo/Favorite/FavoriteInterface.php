@@ -6,12 +6,8 @@ interface FavoriteInterface {
 
     public function topicTotal($user_id);
 
-    public function userTotal($user_id);
-
     public function nodes($user_id);
 
     public function topics($user_id);
-
-    public function users($user_id);
 
 }

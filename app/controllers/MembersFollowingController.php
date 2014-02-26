@@ -5,6 +5,7 @@ use Laracn\Repo\Node\NodeInterface;
 use Laracn\Repo\Reply\ReplyInterface;
 use Laracn\Repo\User\UserInterface;
 use Laracn\Repo\Favorite\FavoriteInterface;
+use Laracn\Repo\Follow\FollowInterface;
 
 class MembersFollowingController extends \BaseController {
 
@@ -13,13 +14,15 @@ class MembersFollowingController extends \BaseController {
     protected $reply;
     protected $user;
     protected $favorite;
+    protected $follow;
 
-    public function __construct(TopicInterface $topic, NodeInterface $node, ReplyInterface $reply, UserInterface $user, FavoriteInterface $favorite) {
+    public function __construct(TopicInterface $topic, NodeInterface $node, ReplyInterface $reply, UserInterface $user, FavoriteInterface $favorite, FollowInterface $follow) {
         $this->topic = $topic;
         $this->node = $node;
         $this->reply = $reply;
         $this->user = $user;
         $this->favorite = $favorite;
+        $this->follow = $follow;
     }
 
     /**
@@ -30,7 +33,7 @@ class MembersFollowingController extends \BaseController {
      */
     public function index($username) {
         $member = $this->user->byUsername($username);
-        $followings = $this->favorite->users($member->id);
+        $followings = $this->follow->followings($member->id);
         return View::make('member.following.index')->with(compact('member', 'followings'));
     }
 
