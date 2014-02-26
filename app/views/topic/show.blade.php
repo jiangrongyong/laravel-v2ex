@@ -32,7 +32,7 @@
         <span>•</span>
         <span>{{ $topic->getCreatedAtDiffForHumans() }}</span>
         <span>•</span>
-        @if($isFavorite)
+        @if($isFavoriting)
             <a href="{{ action('TopicsController@postUnfavorite', array($topic->id)) }}">取消收藏</a>
         @else
             <a href="{{ action('TopicsController@postFavorite', array($topic->id)) }}">加入收藏</a>

@@ -1,13 +1,16 @@
 <?php
 
 use Laracn\Repo\Topic\TopicInterface;
+use Laracn\Repo\User\UserInterface;
 
 class TopicsController extends \BaseController {
 
     protected $topic;
+    protected $user;
 
-    public function __construct(TopicInterface $topic) {
+    public function __construct(TopicInterface $topic, UserInterface $user) {
         $this->topic = $topic;
+        $this->user = $user;
     }
 
     /**
@@ -47,9 +50,9 @@ class TopicsController extends \BaseController {
         $topic = $this->topic->byId($id);
         $replies = $topic->replies;
         $user = Auth::user();
-        $isFavorite = $this->topic->isFavorite($id, $user->id);
+        $isFavoriting = $this->user->isFavoriting($id, $user->id);
 
-        return View::make('topic.show')->with(compact('topic', 'replies', 'isFavorite'));
+        return View::make('topic.show')->with(compact('topic', 'replies', 'isFavoriting'));
     }
 
     /**

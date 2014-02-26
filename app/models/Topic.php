@@ -30,10 +30,6 @@ class Topic extends Eloquent {
         return $this->belongsTo('User', 'reply_end_user_id');
     }
 
-    public function favorites() {
-        return $this->belongsToMany('User', 'favorites', 'topic_id', 'user_id');
-    }
-
     public function getCreatedAtDiffForHumans() {
         return $this->created_at->diffForHumans($this->freshTimestamp());
     }
