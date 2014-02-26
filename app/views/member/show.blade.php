@@ -13,7 +13,11 @@
                 <h3 style="margin-top:14px;">{{ $member->username }}</h3>
             </div>
             <div class="col-md-2 text-right small">
-                <a href="#">+ 加入关注</a>
+                @if ($isFollowing)
+                    <a href="{{ action('MembersController@postUnfollow', array($member->id)) }}">- 取消关注</a>
+                @else
+                    <a href="{{ action('MembersController@postFollow', array($member->id)) }}">+ 加入关注</a>
+                @endif
             </div>
         </div>
         <div class="row">

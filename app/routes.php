@@ -19,3 +19,5 @@ Route::get('nodes/{node_id}/favorite', ['uses' => 'NodesController@postFavorite'
 Route::get('nodes/{node_id}/unfavorite', ['uses' => 'NodesController@postUnfavorite']);
 Route::get('topics/{topic_id}/favorite', ['uses' => 'TopicsController@postFavorite']);
 Route::get('topics/{topic_id}/unfavorite', ['uses' => 'TopicsController@postUnfavorite']);
+Route::get('members/{follow_user_id}/follow', ['uses' => 'MembersController@postFollow']);
+Route::get('members/{follow_user_id}/unfollow', ['uses' => 'MembersController@postUnfollow']);

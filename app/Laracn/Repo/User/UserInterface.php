@@ -17,4 +17,10 @@ interface UserInterface {
     public function favoriteUsers($user_id, $perPage = 2);
 
     public function setting($user_id);
+
+    public function follow($follow_user_id, $user_id);
+
+    public function unfollow($follow_user_id, $user_id);
+
+    public function isFollowing($follow_user_id, $user_id);
 }

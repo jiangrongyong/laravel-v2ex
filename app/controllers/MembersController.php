@@ -56,8 +56,10 @@ class MembersController extends \BaseController {
         $member = $this->user->byUsername($username);
         $replies = $this->user->replies($member->id);
         $topics = $this->user->topics($member->id);
+        $user = Auth::user();
+        $isFollowing = $this->user->isFollowing($member->id, $user->id);
 
-        return View::make('member.show')->with(compact('member', 'replies', 'topics'));
+        return View::make('member.show')->with(compact('member', 'replies', 'topics', 'isFollowing'));
     }
 
     /**
@@ -88,6 +90,34 @@ class MembersController extends \BaseController {
      */
     public function destroy($id) {
         //
+    }
+
+    /**
+     *
+     * Follow member.
+     *
+     * @param $follow_user_id
+     * @return Response
+     */
+    public function postFollow($follow_user_id) {
+        $user = Auth::user();
+        $this->user->follow($follow_user_id, $user->id);
+
+        return Redirect::back();
+    }
+
+    /**
+     *
+     * Follow member.
+     *
+     * @param $follow_user_id
+     * @return Response
+     */
+    public function postUnfollow($follow_user_id) {
+        $user = Auth::user();
+        $this->user->unfollow($follow_user_id, $user->id);
+
+        return Redirect::back();
     }
 
 }
