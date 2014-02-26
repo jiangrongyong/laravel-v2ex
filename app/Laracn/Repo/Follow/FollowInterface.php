@@ -2,7 +2,7 @@
 
 interface FollowInterface {
 
-    public function followingsTotal($user_id);
+    public function followingTotal($user_id);
 
     public function followings($user_id);
 

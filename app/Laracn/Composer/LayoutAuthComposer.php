@@ -18,7 +18,7 @@ class LayoutAuthComposer {
         $view->with('user', Auth::user());
         $view->with('favoriteNodeTotal', $this->favorite->nodeTotal(Auth::user()->id));
         $view->with('favoriteTopicTotal', $this->favorite->topicTotal(Auth::user()->id));
-        $view->with('followingTotal', $this->follow->followingsTotal(Auth::user()->id));
+        $view->with('followingTotal', $this->follow->followingTotal(Auth::user()->id));
     }
 
 }

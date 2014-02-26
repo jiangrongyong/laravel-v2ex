@@ -14,7 +14,7 @@ class EloquentFollow extends RepoAbstract implements FollowInterface {
         $this->user = $user;
     }
 
-    public function followingsTotal($user_id) {
+    public function followingTotal($user_id) {
         return $this->follow->whereUserId($user_id)->count();
     }
 
