@@ -20,22 +20,4 @@ class EloquentNode extends RepoAbstract implements NodeInterface {
         $node = $this->node->find($node_id);
         return $node->topics()->orderBy('updated_at', 'desc')->paginate($perPage);
     }
-
-    public function favorite($node_id, $user_id) {
-        $node = $this->node->find($node_id);
-        $node->favorites()->attach($user_id, [
-            'created_at' => new Carbon(),
-            'updated_at' => new Carbon()
-        ]);
-    }
-
-    public function unfavorite($node_id, $user_id) {
-        $node = $this->node->find($node_id);
-        $node->favorites()->detach($user_id);
-    }
-
-    public function isFavorite($node_id, $user_id) {
-        $node = $this->node->find($node_id);
-        return !is_null($node->favorites()->where('user_id', $user_id)->first());
-    }
 }

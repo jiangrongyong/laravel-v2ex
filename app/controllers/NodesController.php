@@ -87,32 +87,4 @@ class NodesController extends \BaseController {
         //
     }
 
-    /**
-     *
-     * Favorite node.
-     *
-     * @param $node_id
-     * @return Response
-     */
-    public function postFavorite($node_id) {
-        $user = Auth::user();
-        $this->node->favorite($node_id, $user->id);
-
-        return Redirect::back();
-    }
-
-    /**
-     *
-     * Unfavorite node.
-     *
-     * @param $node_id
-     * @return Response
-     */
-    public function postUnfavorite($node_id) {
-        $user = Auth::user();
-        $this->node->unfavorite($node_id, $user->id);
-
-        return Redirect::back();
-    }
-
 }
