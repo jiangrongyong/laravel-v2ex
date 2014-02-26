@@ -3,10 +3,10 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFavoriteUsersTable extends Migration {
+class CreateFollowsTable extends Migration {
 
     public function up() {
-        Schema::create('favorite_users', function (Blueprint $table) {
+        Schema::create('follows', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('follow_user_id');
@@ -18,7 +18,7 @@ class CreateFavoriteUsersTable extends Migration {
     }
 
     public function down() {
-        Schema::dropIfExists('favorite_users');
+        Schema::dropIfExists('follows');
     }
 
 }

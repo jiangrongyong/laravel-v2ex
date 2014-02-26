@@ -40,9 +40,9 @@ class EloquentUser extends RepoAbstract implements UserInterface {
         return $user->favoriteTopics()->orderBy('created_at', 'desc')->paginate($perPage);
     }
 
-    public function favoriteUsers($user_id, $perPage = 2) {
+    public function followings($user_id, $perPage = 2) {
         $user = $this->user->find($user_id);
-        return $user->favoriteUsers()->orderBy('created_at', 'desc')->paginate($perPage);
+        return $user->followings()->orderBy('created_at', 'desc')->paginate($perPage);
     }
 
     public function setting($user_id) {
@@ -52,7 +52,7 @@ class EloquentUser extends RepoAbstract implements UserInterface {
 
     public function follow($follow_user_id, $user_id) {
         $user = $this->user->find($user_id);
-        $user->favoriteUsers()->attach($follow_user_id, [
+        $user->followings()->attach($follow_user_id, [
             'created_at' => new Carbon(),
             'updated_at' => new Carbon()
         ]);
@@ -60,11 +60,11 @@ class EloquentUser extends RepoAbstract implements UserInterface {
 
     public function unfollow($follow_user_id, $user_id) {
         $user = $this->user->find($user_id);
-        $user->favoriteUsers()->detach($follow_user_id);
+        $user->followings()->detach($follow_user_id);
     }
 
     public function isFollowing($follow_user_id, $user_id) {
         $user = $this->user->find($user_id);
-        return !is_null($user->favoriteUsers()->where('follow_user_id', $follow_user_id)->first());
+        return !is_null($user->followings()->where('follow_user_id', $follow_user_id)->first());
     }
 }

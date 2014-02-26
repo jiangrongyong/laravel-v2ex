@@ -14,7 +14,7 @@ interface UserInterface {
 
     public function favoriteTopics($user_id, $perPage = 2);
 
-    public function favoriteUsers($user_id, $perPage = 2);
+    public function followings($user_id, $perPage = 2);
 
     public function setting($user_id);
 

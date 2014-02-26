@@ -39,6 +39,6 @@ class EloquentFavorite extends RepoAbstract implements FavoriteInterface {
     }
 
     public function users($user_id) {
-        return $this->user->favoriteUsers($user_id);
+        return $this->user->followings($user_id);
     }
 }
