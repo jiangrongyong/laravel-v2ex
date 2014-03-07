@@ -2,8 +2,8 @@
 
 interface FollowInterface {
 
-    public function followingTotal($user_id);
+    public function byUserId($user_id, $perPage = 2);
 
-    public function followings($user_id);
+    public function followingTotal($user_id);
 
 }

@@ -10,8 +10,6 @@ interface UserInterface {
 
     // Follow
 
-    public function followings($user_id, $perPage = 2);
-
     public function follow($follow_user_id, $user_id);
 
     public function unfollow($follow_user_id, $user_id);

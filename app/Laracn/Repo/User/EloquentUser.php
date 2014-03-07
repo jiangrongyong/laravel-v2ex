@@ -24,11 +24,6 @@ class EloquentUser extends RepoAbstract implements UserInterface {
 
     // Follow
 
-    public function followings($user_id, $perPage = 2) {
-        $user = $this->user->find($user_id);
-        return $user->followings()->orderBy('created_at', 'desc')->paginate($perPage);
-    }
-
     public function follow($follow_user_id, $user_id) {
         $user = $this->user->find($user_id);
         $user->followings()->attach($follow_user_id, [

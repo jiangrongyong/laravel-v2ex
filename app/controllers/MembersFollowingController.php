@@ -33,7 +33,7 @@ class MembersFollowingController extends \BaseController {
      */
     public function index($username) {
         $member = $this->user->byUsername($username);
-        $followings = $this->follow->followings($member->id);
+        $followings = $this->follow->byUserId($member->id);
         return View::make('member.following.index')->with(compact('member', 'followings'));
     }
 
