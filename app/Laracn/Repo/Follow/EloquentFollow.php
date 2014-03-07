@@ -19,7 +19,7 @@ class EloquentFollow extends RepoAbstract implements FollowInterface {
         return $user->followings()->orderBy('created_at', 'desc')->paginate($perPage);
     }
 
-    public function followingTotal($user_id) {
+    public function totalByUserId($user_id) {
         return $this->follow->whereUserId($user_id)->count();
     }
 

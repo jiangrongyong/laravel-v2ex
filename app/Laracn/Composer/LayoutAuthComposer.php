@@ -17,7 +17,7 @@ class LayoutAuthComposer {
     public function compose($view) {
         $user = Auth::user();
         $favoriteTotal = $this->favorite->totalByUserId($user->id);
-        $followingTotal = $this->follow->followingTotal($user->id);
+        $followingTotal = $this->follow->totalByUserId($user->id);
 
         $view->with(compact('user', 'favoriteTotal', 'followingTotal'));
     }

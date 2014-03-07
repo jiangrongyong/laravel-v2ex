@@ -4,6 +4,6 @@ interface FollowInterface {
 
     public function byUserId($user_id, $perPage = 2);
 
-    public function followingTotal($user_id);
+    public function totalByUserId($user_id);
 
 }
