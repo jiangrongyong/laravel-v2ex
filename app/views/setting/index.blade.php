@@ -17,7 +17,7 @@
     <li class='actived'>设置</li>
 </ol>
 
-{{ Form::open(['url' => action('SettingsController@update', $user->setting->id), 'role' => 'form', 'id' => 'settings_form', 'method' => 'put']) }}
+{{ Form::open(['url' => action('SettingsController@update', $setting->id), 'role' => 'form', 'id' => 'settings_form', 'method' => 'put']) }}
     {{ Form::errors() }}
     {{ Form::infos() }}
 
@@ -31,15 +31,15 @@
     </div>
     <div class="row">
         <div class="col-md-2 text-right">{{ Form::label('city', '所在城市') }}</div>
-        <div class="col-md-6">{{ Form::text('city', $user->setting->city, ['class' => 'form-control']) }}</div>
+        <div class="col-md-6">{{ Form::text('city', $setting->city, ['class' => 'form-control']) }}</div>
     </div>
     <div class="row">
         <div class="col-md-2 text-right">{{ Form::label('website', '个人网站') }}</div>
-        <div class="col-md-6">{{ Form::text('website', $user->setting->website, ['class' => 'form-control']) }}</div>
+        <div class="col-md-6">{{ Form::text('website', $setting->website, ['class' => 'form-control']) }}</div>
     </div>
     <div class="row">
         <div class="col-md-2 text-right">{{ Form::label('bio', '个人简介') }}</div>
-        <div class="col-md-6">{{ Form::textarea('bio', $user->setting->bio, ['class' => 'form-control']) }}</div>
+        <div class="col-md-6">{{ Form::textarea('bio', $setting->bio, ['class' => 'form-control']) }}</div>
     </div>
     <div class="row">
         <div class="col-md-2 text-right"></div>
@@ -53,7 +53,7 @@
         <div class="col-md-6">{{ Form::submit('提交', ['class' => 'btn btn-lg btn-primary btn-block']) }}</div>
     </div>
 
-    {{ Form::hidden('id', $user->setting->id) }}
+    {{ Form::hidden('id', $setting->id) }}
 {{ Form::close() }}
 
 @stop

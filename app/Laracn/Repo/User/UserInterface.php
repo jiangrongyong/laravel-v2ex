@@ -8,10 +8,6 @@ interface UserInterface {
 
     public function byUsername($username);
 
-    // Setting
-
-    public function setting($user_id);
-
     // Topic
 
     public function topics($user_id, $perPage = 3);

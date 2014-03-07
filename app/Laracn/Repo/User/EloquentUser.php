@@ -22,13 +22,6 @@ class EloquentUser extends RepoAbstract implements UserInterface {
         return $this->user->whereUsername($username)->first();
     }
 
-    // Setting
-
-    public function setting($user_id) {
-        $user = $this->user->find($user_id);
-        return $user->setting;
-    }
-
     // Topic
 
     public function topics($user_id, $perPage = 3) {

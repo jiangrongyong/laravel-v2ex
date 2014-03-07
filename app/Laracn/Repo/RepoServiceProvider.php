@@ -68,7 +68,7 @@ class RepoServiceProvider extends ServiceProvider {
 
         $app->bind('Laracn\Repo\Setting\SettingInterface', function ($app) {
             $setting = new EloquentSetting(
-                new Setting()
+                new Setting(), new EloquentUser(new User)
             );
 
             return $setting;

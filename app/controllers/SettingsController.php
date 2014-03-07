@@ -17,7 +17,9 @@ class SettingsController extends \BaseController {
      * @return Response
      */
     public function index() {
-        return View::make('setting.index')->with('user', Auth::user());
+        $user = Auth::user();
+        $setting = $this->setting->byUserId($user->id);
+        return View::make('setting.index')->with(compact('user', 'setting'));
     }
 
     /**

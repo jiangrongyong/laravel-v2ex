@@ -3,7 +3,6 @@
 use Laracn\Repo\RepoAbstract;
 use Laracn\Repo\Node\NodeInterface;
 use Illuminate\Database\Eloquent\Model;
-use Carbon\Carbon;
 
 class EloquentTopic extends RepoAbstract implements TopicInterface {
 
