@@ -3,15 +3,18 @@
 use Laracn\Repo\RepoAbstract;
 use Laracn\Repo\Node\NodeInterface;
 use Illuminate\Database\Eloquent\Model;
+use Laracn\Repo\User\UserInterface;
 
 class EloquentTopic extends RepoAbstract implements TopicInterface {
 
     protected $topic;
     protected $node;
+    protected $user;
 
-    public function __construct(Model $topic, NodeInterface $node) {
+    public function __construct(Model $topic, NodeInterface $node, UserInterface $user) {
         $this->topic = $topic;
         $this->node = $node;
+        $this->user = $user;
     }
 
     public function byId($id) {
@@ -21,6 +24,11 @@ class EloquentTopic extends RepoAbstract implements TopicInterface {
     public function byNodeId($node_id, $perPage = 3) {
         $node = $this->node->byId($node_id);
         return $node->topics()->orderBy('updated_at', 'desc')->paginate($perPage);
+    }
+
+    public function byUserId($user_id, $perPage = 3) {
+        $user = $this->user->byId($user_id);
+        return $user->topics()->orderBy('updated_at', 'desc')->paginate($perPage);
     }
 
     public function create(array $data) {

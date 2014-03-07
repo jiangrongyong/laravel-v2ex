@@ -28,7 +28,7 @@ class RepoServiceProvider extends ServiceProvider {
 
         $app->bind('Laracn\Repo\Topic\TopicInterface', function ($app) {
             $topic = new EloquentTopic(
-                new Topic(), new EloquentNode(new Node()), new EloquentReply(new Reply())
+                new Topic(), new EloquentNode(new Node()), new EloquentUser(new User())
             );
 
             return $topic;
@@ -60,7 +60,7 @@ class RepoServiceProvider extends ServiceProvider {
 
         $app->bind('Laracn\Repo\Favorite\FavoriteInterface', function ($app) {
             $favorite = new EloquentFavorite(
-                new Favorite(), new EloquentUser(new User)
+                new Favorite(), new EloquentUser(new User())
             );
 
             return $favorite;
@@ -68,7 +68,7 @@ class RepoServiceProvider extends ServiceProvider {
 
         $app->bind('Laracn\Repo\Setting\SettingInterface', function ($app) {
             $setting = new EloquentSetting(
-                new Setting(), new EloquentUser(new User)
+                new Setting(), new EloquentUser(new User())
             );
 
             return $setting;
@@ -76,7 +76,7 @@ class RepoServiceProvider extends ServiceProvider {
 
         $app->bind('Laracn\Repo\Follow\FollowInterface', function ($app) {
             $follow = new EloquentFollow(
-                new Follow(), new EloquentUser(new User)
+                new Follow(), new EloquentUser(new User())
             );
 
             return $follow;

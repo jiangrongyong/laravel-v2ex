@@ -27,7 +27,7 @@ class MembersTopicsController extends \BaseController {
      */
     public function index($username) {
         $member = $this->user->byUsername($username);
-        $topics = $this->user->topics($member->id);
+        $topics = $this->topic->byUserId($member->id);
 
         return View::make('member.topic.index')->with(compact('topics', 'member'));
     }

@@ -55,7 +55,7 @@ class MembersController extends \BaseController {
     public function show($username) {
         $member = $this->user->byUsername($username);
         $replies = $this->user->replies($member->id);
-        $topics = $this->user->topics($member->id);
+        $topics = $this->topic->byUserId($member->id);
         $user = Auth::user();
         $isFollowing = $this->user->isFollowing($member->id, $user->id);
 
