@@ -1,16 +1,21 @@
 <?php
 
+use Laracn\Repo\Favorite\FavoriteInterface;
 use Laracn\Repo\Topic\TopicInterface;
 use Laracn\Repo\User\UserInterface;
 
 class TopicsController extends \BaseController {
 
     protected $topic;
+
     protected $user;
 
-    public function __construct(TopicInterface $topic, UserInterface $user) {
+    protected $favorite;
+
+    public function __construct(TopicInterface $topic, UserInterface $user, FavoriteInterface $favorite) {
         $this->topic = $topic;
         $this->user = $user;
+        $this->favorite = $favorite;
     }
 
     /**
@@ -98,7 +103,7 @@ class TopicsController extends \BaseController {
      */
     public function postFavorite($topic_id) {
         $user = Auth::user();
-        $this->user->favorite($topic_id, $user->id);
+        $this->favorite->create($topic_id, $user->id);
 
         return Redirect::back();
     }
@@ -112,7 +117,7 @@ class TopicsController extends \BaseController {
      */
     public function postUnfavorite($topic_id) {
         $user = Auth::user();
-        $this->user->unfavorite($topic_id, $user->id);
+        $this->favorite->delete($topic_id, $user->id);
 
         return Redirect::back();
     }

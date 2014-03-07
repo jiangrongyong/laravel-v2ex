@@ -24,19 +24,6 @@ class EloquentUser extends RepoAbstract implements UserInterface {
 
     // Favorite
 
-    public function favorite($topic_id, $user_id) {
-        $user = $this->user->find($user_id);
-        $user->favorites()->attach($topic_id, [
-            'created_at' => new Carbon(),
-            'updated_at' => new Carbon()
-        ]);
-    }
-
-    public function unfavorite($topic_id, $user_id) {
-        $user = $this->user->find($user_id);
-        $user->favorites()->detach($topic_id);
-    }
-
     public function isFavoriting($topic_id, $user_id) {
         $user = $this->user->find($user_id);
         return !is_null($user->favorites()->where('topic_id', $topic_id)->first());

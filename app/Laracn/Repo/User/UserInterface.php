@@ -10,10 +10,6 @@ interface UserInterface {
 
     // Favorite
 
-    public function favorite($topic_id, $user_id);
-
-    public function unfavorite($topic_id, $user_id);
-
     public function isFavoriting($topic_id, $user_id);
 
     // Follow
