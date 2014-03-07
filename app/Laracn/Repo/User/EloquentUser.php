@@ -12,6 +12,8 @@ class EloquentUser extends RepoAbstract implements UserInterface {
         $this->user = $user;
     }
 
+    // User
+
     public function byId($id) {
         return $this->user->find($id);
     }
@@ -20,29 +22,57 @@ class EloquentUser extends RepoAbstract implements UserInterface {
         return $this->user->whereUsername($username)->first();
     }
 
+    // Setting
+
+    public function setting($user_id) {
+        $user = $this->user->find($user_id);
+        return $user->setting;
+    }
+
+    // Topic
+
     public function topics($user_id, $perPage = 3) {
         $user = $this->user->find($user_id);
         return $user->topics()->orderBy('updated_at', 'desc')->paginate($perPage);
     }
+
+    // Reply
 
     public function replies($user_id, $perPage = 3) {
         $user = $this->user->find($user_id);
         return $user->replies()->orderBy('updated_at', 'desc')->paginate($perPage);
     }
 
+    // Favorite
+
     public function favorites($user_id, $perPage = 2) {
         $user = $this->user->find($user_id);
         return $user->favorites()->orderBy('created_at', 'desc')->paginate($perPage);
     }
 
+    public function favorite($topic_id, $user_id) {
+        $user = $this->user->find($user_id);
+        $user->favorites()->attach($topic_id, [
+            'created_at' => new Carbon(),
+            'updated_at' => new Carbon()
+        ]);
+    }
+
+    public function unfavorite($topic_id, $user_id) {
+        $user = $this->user->find($user_id);
+        $user->favorites()->detach($topic_id);
+    }
+
+    public function isFavoriting($topic_id, $user_id) {
+        $user = $this->user->find($user_id);
+        return !is_null($user->favorites()->where('topic_id', $topic_id)->first());
+    }
+
+    // Follow
+
     public function followings($user_id, $perPage = 2) {
         $user = $this->user->find($user_id);
         return $user->followings()->orderBy('created_at', 'desc')->paginate($perPage);
-    }
-
-    public function setting($user_id) {
-        $user = $this->user->find($user_id);
-        return $user->setting;
     }
 
     public function follow($follow_user_id, $user_id) {
@@ -63,21 +93,4 @@ class EloquentUser extends RepoAbstract implements UserInterface {
         return !is_null($user->followings()->where('follow_user_id', $follow_user_id)->first());
     }
 
-    public function favorite($topic_id, $user_id) {
-        $user = $this->user->find($user_id);
-        $user->favorites()->attach($topic_id, [
-            'created_at' => new Carbon(),
-            'updated_at' => new Carbon()
-        ]);
-    }
-
-    public function unfavorite($topic_id, $user_id) {
-        $user = $this->user->find($user_id);
-        $user->favorites()->detach($topic_id);
-    }
-
-    public function isFavoriting($topic_id, $user_id) {
-        $user = $this->user->find($user_id);
-        return !is_null($user->favorites()->where('topic_id', $topic_id)->first());
-    }
 }

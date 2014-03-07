@@ -2,19 +2,37 @@
 
 interface UserInterface {
 
+    // User
+
     public function byId($id);
 
     public function byUsername($username);
 
+    // Setting
+
+    public function setting($user_id);
+
+    // Topic
+
     public function topics($user_id, $perPage = 3);
+
+    // Reply
 
     public function replies($user_id, $perPage = 3);
 
+    // Favorite
+
     public function favorites($user_id, $perPage = 2);
 
-    public function followings($user_id, $perPage = 2);
+    public function favorite($topic_id, $user_id);
 
-    public function setting($user_id);
+    public function unfavorite($topic_id, $user_id);
+
+    public function isFavoriting($topic_id, $user_id);
+
+    // Follow
+
+    public function followings($user_id, $perPage = 2);
 
     public function follow($follow_user_id, $user_id);
 
