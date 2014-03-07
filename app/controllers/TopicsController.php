@@ -55,7 +55,7 @@ class TopicsController extends \BaseController {
         $topic = $this->topic->byId($id);
         $replies = $topic->replies;
         $user = Auth::user();
-        $isFavoriting = $this->user->isFavoriting($id, $user->id);
+        $isFavoriting = $this->favorite->byUserIdTopicId($user->id, $id);
 
         return View::make('topic.show')->with(compact('topic', 'replies', 'isFavoriting'));
     }

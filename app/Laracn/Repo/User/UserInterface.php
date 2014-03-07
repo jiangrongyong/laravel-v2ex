@@ -8,10 +8,6 @@ interface UserInterface {
 
     public function byUsername($username);
 
-    // Favorite
-
-    public function isFavoriting($topic_id, $user_id);
-
     // Follow
 
     public function followings($user_id, $perPage = 2);

@@ -22,13 +22,6 @@ class EloquentUser extends RepoAbstract implements UserInterface {
         return $this->user->whereUsername($username)->first();
     }
 
-    // Favorite
-
-    public function isFavoriting($topic_id, $user_id) {
-        $user = $this->user->find($user_id);
-        return !is_null($user->favorites()->where('topic_id', $topic_id)->first());
-    }
-
     // Follow
 
     public function followings($user_id, $perPage = 2) {

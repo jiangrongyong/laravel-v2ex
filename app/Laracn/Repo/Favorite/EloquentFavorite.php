@@ -24,6 +24,10 @@ class EloquentFavorite extends RepoAbstract implements FavoriteInterface {
         return $this->favorite->whereUserId($user_id)->count();
     }
 
+    public function byUserIdTopicId($user_id, $topic_id) {
+        return !is_null($this->favorite->where('user_id', $user_id)->where('topic_id', $topic_id)->first());
+    }
+
     public function create($topic_id, $user_id) {
         $user = $this->user->byId($user_id);
         $user->favorites()->attach($topic_id, [
