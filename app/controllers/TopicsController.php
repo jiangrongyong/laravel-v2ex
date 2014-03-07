@@ -98,7 +98,7 @@ class TopicsController extends \BaseController {
      */
     public function postFavorite($topic_id) {
         $user = Auth::user();
-        $this->topic->favorite($topic_id, $user->id);
+        $this->user->favorite($topic_id, $user->id);
 
         return Redirect::back();
     }
@@ -112,7 +112,7 @@ class TopicsController extends \BaseController {
      */
     public function postUnfavorite($topic_id) {
         $user = Auth::user();
-        $this->topic->unfavorite($topic_id, $user->id);
+        $this->user->unfavorite($topic_id, $user->id);
 
         return Redirect::back();
     }
