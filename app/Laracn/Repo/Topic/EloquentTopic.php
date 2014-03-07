@@ -15,7 +15,7 @@ class EloquentTopic extends RepoAbstract implements TopicInterface {
     }
 
     public function byId($id) {
-        return $this->topic->with('replies.user')->with('user')->find($id);
+        return $this->topic->find($id);
     }
 
     public function byNodeId($node_id, $perPage = 3) {
