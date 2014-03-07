@@ -19,6 +19,11 @@ class EloquentTopic extends RepoAbstract implements TopicInterface {
         return $this->topic->with('replies.user')->with('user')->find($id);
     }
 
+    public function byNodeId($node_id, $perPage = 3) {
+        $node = $this->node->byId($node_id);
+        return $node->topics()->orderBy('updated_at', 'desc')->paginate($perPage);
+    }
+
     public function create(array $data) {
         $this->topic->title = $data['title'];
         $this->topic->content = $data['content'];
@@ -38,11 +43,6 @@ class EloquentTopic extends RepoAbstract implements TopicInterface {
         $topic->save();
 
         return $topic;
-    }
-
-    public function byNodeId($node_id, $perPage = 3) {
-        $node = $this->node->byId($node_id);
-        return $node->topics()->orderBy('updated_at', 'desc')->paginate($perPage);
     }
 
 }
