@@ -22,13 +22,6 @@ class EloquentUser extends RepoAbstract implements UserInterface {
         return $this->user->whereUsername($username)->first();
     }
 
-    // Reply
-
-    public function replies($user_id, $perPage = 3) {
-        $user = $this->user->find($user_id);
-        return $user->replies()->orderBy('updated_at', 'desc')->paginate($perPage);
-    }
-
     // Favorite
 
     public function favorites($user_id, $perPage = 2) {

@@ -27,7 +27,7 @@ class MembersRepliesController extends \BaseController {
      */
     public function index($username) {
         $member = $this->user->byUsername($username);
-        $replies = $this->user->replies($member->id);
+        $replies = $this->reply->byUserId($member->id);
         return View::make('member.reply.index')->with(compact('member', 'replies'));
     }
 

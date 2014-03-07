@@ -8,10 +8,6 @@ interface UserInterface {
 
     public function byUsername($username);
 
-    // Reply
-
-    public function replies($user_id, $perPage = 3);
-
     // Favorite
 
     public function favorites($user_id, $perPage = 2);

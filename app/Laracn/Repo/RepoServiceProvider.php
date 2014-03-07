@@ -44,7 +44,7 @@ class RepoServiceProvider extends ServiceProvider {
 
         $app->bind('Laracn\Repo\Reply\ReplyInterface', function ($app) {
             $node = new EloquentReply(
-                new Reply()
+                new Reply(), new EloquentUser(new User())
             );
 
             return $node;
