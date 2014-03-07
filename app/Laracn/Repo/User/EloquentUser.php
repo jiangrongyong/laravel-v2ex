@@ -2,7 +2,6 @@
 
 use Laracn\Repo\RepoAbstract;
 use Illuminate\Database\Eloquent\Model;
-use Carbon\Carbon;
 
 class EloquentUser extends RepoAbstract implements UserInterface {
 
@@ -23,19 +22,6 @@ class EloquentUser extends RepoAbstract implements UserInterface {
     }
 
     // Follow
-
-    public function follow($follow_user_id, $user_id) {
-        $user = $this->user->find($user_id);
-        $user->followings()->attach($follow_user_id, [
-            'created_at' => new Carbon(),
-            'updated_at' => new Carbon()
-        ]);
-    }
-
-    public function unfollow($follow_user_id, $user_id) {
-        $user = $this->user->find($user_id);
-        $user->followings()->detach($follow_user_id);
-    }
 
     public function isFollowing($follow_user_id, $user_id) {
         $user = $this->user->find($user_id);

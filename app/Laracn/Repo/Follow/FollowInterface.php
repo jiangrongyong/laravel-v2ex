@@ -6,4 +6,8 @@ interface FollowInterface {
 
     public function totalByUserId($user_id);
 
+    public function create($follow_user_id, $user_id);
+
+    public function delete($follow_user_id, $user_id);
+
 }

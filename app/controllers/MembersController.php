@@ -1,5 +1,6 @@
 <?php
 
+use Laracn\Repo\Follow\FollowInterface;
 use Laracn\Repo\Topic\TopicInterface;
 use Laracn\Repo\Node\NodeInterface;
 use Laracn\Repo\Reply\ReplyInterface;
@@ -11,12 +12,14 @@ class MembersController extends \BaseController {
     protected $node;
     protected $reply;
     protected $user;
+    protected $follow;
 
-    public function __construct(TopicInterface $topic, NodeInterface $node, ReplyInterface $reply, UserInterface $user) {
+    public function __construct(TopicInterface $topic, NodeInterface $node, ReplyInterface $reply, UserInterface $user, FollowInterface $follow) {
         $this->topic = $topic;
         $this->node = $node;
         $this->reply = $reply;
         $this->user = $user;
+        $this->follow = $follow;
     }
 
     /**
@@ -101,7 +104,7 @@ class MembersController extends \BaseController {
      */
     public function postFollow($follow_user_id) {
         $user = Auth::user();
-        $this->user->follow($follow_user_id, $user->id);
+        $this->follow->create($follow_user_id, $user->id);
 
         return Redirect::back();
     }
@@ -115,7 +118,7 @@ class MembersController extends \BaseController {
      */
     public function postUnfollow($follow_user_id) {
         $user = Auth::user();
-        $this->user->unfollow($follow_user_id, $user->id);
+        $this->follow->delete($follow_user_id, $user->id);
 
         return Redirect::back();
     }

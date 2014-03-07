@@ -1,5 +1,6 @@
 <?php namespace Laracn\Repo\Follow;
 
+use Carbon\Carbon;
 use Laracn\Repo\RepoAbstract;
 use Illuminate\Database\Eloquent\Model;
 use Laracn\Repo\User\UserInterface;
@@ -21,6 +22,19 @@ class EloquentFollow extends RepoAbstract implements FollowInterface {
 
     public function totalByUserId($user_id) {
         return $this->follow->whereUserId($user_id)->count();
+    }
+
+    public function create($follow_user_id, $user_id) {
+        $user = $this->user->byId($user_id);
+        $user->followings()->attach($follow_user_id, [
+            'created_at' => new Carbon(),
+            'updated_at' => new Carbon()
+        ]);
+    }
+
+    public function delete($follow_user_id, $user_id) {
+        $user = $this->user->byId($user_id);
+        $user->followings()->detach($follow_user_id);
     }
 
 }
