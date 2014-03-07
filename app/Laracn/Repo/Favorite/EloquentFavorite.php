@@ -14,7 +14,7 @@ class EloquentFavorite extends RepoAbstract implements FavoriteInterface {
         $this->user = $user;
     }
 
-    public function total($user_id) {
+    public function totalByUserId($user_id) {
         return $this->favorite->whereUserId($user_id)->count();
     }
 

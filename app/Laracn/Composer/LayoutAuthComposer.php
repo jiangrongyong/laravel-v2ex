@@ -15,9 +15,11 @@ class LayoutAuthComposer {
     }
 
     public function compose($view) {
-        $view->with('user', Auth::user());
-        $view->with('favoriteTotal', $this->favorite->total(Auth::user()->id));
-        $view->with('followingTotal', $this->follow->followingTotal(Auth::user()->id));
+        $user = Auth::user();
+        $favoriteTotal = $this->favorite->totalByUserId($user->id);
+        $followingTotal = $this->follow->followingTotal($user->id);
+
+        $view->with(compact('user', 'favoriteTotal', 'followingTotal'));
     }
 
 }

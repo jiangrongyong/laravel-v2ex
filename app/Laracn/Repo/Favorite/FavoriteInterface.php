@@ -2,7 +2,7 @@
 
 interface FavoriteInterface {
 
-    public function total($user_id);
+    public function totalByUserId($user_id);
 
     public function byUserId($user_id);
 
