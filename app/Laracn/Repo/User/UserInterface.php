@@ -10,8 +10,6 @@ interface UserInterface {
 
     // Favorite
 
-    public function favorites($user_id, $perPage = 2);
-
     public function favorite($topic_id, $user_id);
 
     public function unfavorite($topic_id, $user_id);

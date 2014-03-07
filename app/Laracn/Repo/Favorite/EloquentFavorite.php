@@ -18,8 +18,9 @@ class EloquentFavorite extends RepoAbstract implements FavoriteInterface {
         return $this->favorite->whereUserId($user_id)->count();
     }
 
-    public function byUserId($user_id) {
-        return $this->user->favorites($user_id);
+    public function byUserId($user_id, $perPage = 2) {
+        $user = $this->user->byId($user_id);
+        return $user->favorites()->orderBy('created_at', 'desc')->paginate($perPage);
     }
 
 }
