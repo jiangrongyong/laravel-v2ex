@@ -40,4 +40,9 @@ class EloquentTopic extends RepoAbstract implements TopicInterface {
         return $topic;
     }
 
+    public function byNodeId($node_id, $perPage = 3) {
+        $node = $this->node->byId($node_id);
+        return $node->topics()->orderBy('updated_at', 'desc')->paginate($perPage);
+    }
+
 }

@@ -8,4 +8,6 @@ interface TopicInterface {
 
     public function update(array $data);
 
+    public function byNodeId($node_id, $perPage = 3);
+
 }
