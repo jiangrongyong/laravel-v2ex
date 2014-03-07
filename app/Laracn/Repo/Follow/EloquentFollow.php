@@ -24,6 +24,11 @@ class EloquentFollow extends RepoAbstract implements FollowInterface {
         return $this->follow->whereUserId($user_id)->count();
     }
 
+    public function byUserIdFollowUserId($user_id, $follow_user_id) {
+        return !is_null($this->follow->where('user_id', $user_id)
+            ->where('follow_user_id', $follow_user_id)->first());
+    }
+
     public function create($follow_user_id, $user_id) {
         $user = $this->user->byId($user_id);
         $user->followings()->attach($follow_user_id, [

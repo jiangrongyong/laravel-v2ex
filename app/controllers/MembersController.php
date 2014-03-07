@@ -60,7 +60,7 @@ class MembersController extends \BaseController {
         $replies = $this->reply->byUserId($member->id);
         $topics = $this->topic->byUserId($member->id);
         $user = Auth::user();
-        $isFollowing = $this->user->isFollowing($member->id, $user->id);
+        $isFollowing = $this->follow->byUserIdFollowUserId($user->id, $member->id);
 
         return View::make('member.show')->with(compact('member', 'replies', 'topics', 'isFollowing'));
     }
