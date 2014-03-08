@@ -31,6 +31,10 @@ class EloquentTopic extends RepoAbstract implements TopicInterface {
         return $user->topics()->orderBy('updated_at', 'desc')->paginate($perPage);
     }
 
+    public function byPage($perPage = 3) {
+        return $this->topic->orderBy('updated_at', 'desc')->paginate($perPage);
+    }
+
     public function create(array $data) {
         $this->topic->title = $data['title'];
         $this->topic->content = $data['content'];

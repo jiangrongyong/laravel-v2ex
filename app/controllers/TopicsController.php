@@ -24,7 +24,8 @@ class TopicsController extends \BaseController {
      * @return Response
      */
     public function index() {
-        //
+        $topics = $this->topic->byPage();
+        return View::make('topic.index')->with(compact('topics'));
     }
 
     /**

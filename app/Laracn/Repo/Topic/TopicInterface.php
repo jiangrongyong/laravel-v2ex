@@ -8,6 +8,8 @@ interface TopicInterface {
 
     public function byUserId($user_id, $perPage = 3);
 
+    public function byPage($perPage = 3);
+
     public function create(array $data);
 
     public function update(array $data);
