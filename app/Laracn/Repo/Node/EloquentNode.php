@@ -16,4 +16,8 @@ class EloquentNode extends RepoAbstract implements NodeInterface {
         return $this->node->find($node_id);
     }
 
+    public function all() {
+        return $this->node->get();
+    }
+
 }
