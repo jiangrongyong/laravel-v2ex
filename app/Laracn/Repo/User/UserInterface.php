@@ -6,4 +6,6 @@ interface UserInterface {
 
     public function byUsername($username);
 
+    public function byPage($perPage = 20);
+
 }

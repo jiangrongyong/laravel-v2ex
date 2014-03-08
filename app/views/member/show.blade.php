@@ -32,15 +32,15 @@
     <ul class="list-unstyled" style="margin-left: 16px;">
         <li>
             <span class="glyphicon glyphicon-pushpin" style="margin-right:4px;"></span>
-            {{ $member->setting->city }}
+            {{ $setting->city or '空' }}
         </li>
         <li>
             <span class="glyphicon glyphicon-link" style="margin-right:4px;"></span>
-            <a href="{{ $member->setting->website }}">{{ $member->setting->website }}</a>
+            <a href="{{ $setting->website or ''}}">{{ $setting->website or '空'}}</a>
         </li>
         <li>
             <span class="glyphicon glyphicon-hand-right" style="margin-right:4px;"></span>
-            {{ $member->setting->bio }}
+            {{ $setting->bio or '空'}}
         </li>
     </ul>
 </div>

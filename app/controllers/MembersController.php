@@ -1,6 +1,7 @@
 <?php
 
 use Laracn\Repo\Follow\FollowInterface;
+use Laracn\Repo\Setting\SettingInterface;
 use Laracn\Repo\Topic\TopicInterface;
 use Laracn\Repo\Node\NodeInterface;
 use Laracn\Repo\Reply\ReplyInterface;
@@ -13,13 +14,15 @@ class MembersController extends \BaseController {
     protected $reply;
     protected $user;
     protected $follow;
+    protected $setting;
 
-    public function __construct(TopicInterface $topic, NodeInterface $node, ReplyInterface $reply, UserInterface $user, FollowInterface $follow) {
+    public function __construct(TopicInterface $topic, NodeInterface $node, ReplyInterface $reply, UserInterface $user, FollowInterface $follow, SettingInterface $setting) {
         $this->topic = $topic;
         $this->node = $node;
         $this->reply = $reply;
         $this->user = $user;
         $this->follow = $follow;
+        $this->setting = $setting;
     }
 
     /**
@@ -28,7 +31,8 @@ class MembersController extends \BaseController {
      * @return Response
      */
     public function index() {
-        //
+        $members = $this->user->byPage();
+        return View::make('member.index')->with(compact('members'));
     }
 
     /**
@@ -61,8 +65,9 @@ class MembersController extends \BaseController {
         $topics = $this->topic->byUserId($member->id);
         $user = Auth::user();
         $isFollowing = $this->follow->byUserIdFollowUserId($user->id, $member->id);
+        $setting = $this->setting->byUserId($member->id);
 
-        return View::make('member.show')->with(compact('member', 'replies', 'topics', 'isFollowing'));
+        return View::make('member.show')->with(compact('member', 'replies', 'topics', 'isFollowing', 'setting'));
     }
 
     /**
