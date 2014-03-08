@@ -3,15 +3,20 @@
 class UserSeeder extends DatabaseSeeder {
 
     public function run() {
-        $users = [
-            [
-                'username' => 'jiangrongyong',
-                'password' => 'kingsoft',
-                'email' => 'jiangrongyong@gmail.com'
-            ],
-        ];
+        $faker = Faker\Factory::create();
 
-        foreach ($users as $user) {
+        User::create([
+            'username' => 'jiangrongyong',
+            'password' => 'kingsoft',
+            'email' => 'jiangrongyong@gmail.com'
+        ]);
+
+        for ($i = 0; $i < 10; $i++) {
+            $user = [
+                'username' => $faker->username,
+                'password' => 'kingsoft',
+                'email' => $faker->email
+            ];
             User::create($user);
         }
     }
