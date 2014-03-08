@@ -18,3 +18,5 @@ Route::get('topics/{topic_id}/favorite', ['uses' => 'TopicsController@postFavori
 Route::get('topics/{topic_id}/unfavorite', ['uses' => 'TopicsController@postUnfavorite']);
 Route::get('members/{follow_user_id}/follow', ['uses' => 'MembersController@postFollow']);
 Route::get('members/{follow_user_id}/unfollow', ['uses' => 'MembersController@postUnfollow']);
+
+Route::get('/', ['uses' => 'TopicsController@index']);
