@@ -10,7 +10,8 @@
         "fzaninotto/faker": "v1.3.0"
     },
     "require-dev": {
-        "mockery/mockery": "dev-master"
+        "mockery/mockery": "dev-master",
+        "way/laravel-test-helpers": "dev-master"
     },
     "autoload": {
         "classmap": [
