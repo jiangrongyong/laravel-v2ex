@@ -111,7 +111,7 @@ class MembersController extends \BaseController {
         $user = Auth::user();
         $this->follow->create($follow_user_id, $user->id);
 
-        return Redirect::back();
+        return Redirect::to('/');
     }
 
     /**
@@ -125,7 +125,7 @@ class MembersController extends \BaseController {
         $user = Auth::user();
         $this->follow->delete($follow_user_id, $user->id);
 
-        return Redirect::back();
+        return Redirect::to('/');
     }
 
 }
