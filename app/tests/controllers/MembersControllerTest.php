@@ -20,7 +20,7 @@ class MembersControllerTest extends TestCase {
         $user = Factory::create('User');
         $this->be($user);
 
-        $this->call('GET', "/members/{$user->username}");
+        $this->call('GET', action('MembersController@show', array($user->username)));
         $this->assertResponseOk();
     }
 
