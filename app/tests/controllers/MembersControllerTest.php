@@ -35,7 +35,18 @@ class MembersControllerTest extends TestCase {
     }
 
     public function testPostUnfollow() {
+        $user = Factory::create('User');
+        $this->be($user);
 
+        $member = Factory::create('User');
+
+        Factory::create('Follow', [
+            'user_id' => $user->id,
+            'follow_user_id' => $member->id
+        ]);
+
+        $this->call('GET', action('MembersController@postUnfollow', array($member->id)));
+        $this->assertResponseStatus(302);
     }
 
 }
