@@ -108,6 +108,7 @@ class MembersController extends \BaseController {
      * @return Response
      */
     public function postFollow($follow_user_id) {
+        // TODO Use ajax
         $user = Auth::user();
         $this->follow->create($follow_user_id, $user->id);
 
@@ -122,6 +123,7 @@ class MembersController extends \BaseController {
      * @return Response
      */
     public function postUnfollow($follow_user_id) {
+        // TODO Use ajax
         $user = Auth::user();
         $this->follow->delete($follow_user_id, $user->id);
 
