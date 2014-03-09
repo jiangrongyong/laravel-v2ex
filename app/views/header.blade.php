@@ -18,7 +18,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->username }}<b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ $user->username }}<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="{{ action('MembersController@show', array($user->username)) }}">个人资料</a></li>
                             <li><a href="{{ action('SettingsController@index') }}">设置</a></li>
