@@ -18,4 +18,24 @@ class MembersControllerTest extends TestCase {
         $this->assertTrue($this->client->getResponse()->isOk());
     }
 
+    public function testShow() {
+        $user = new User();
+        $user->id = 1;
+        $user->username = 'jiangrongyong';
+        $user->email = 'jiangrongyong@gmail.com';
+
+        Auth::shouldReceive('user')->twice()->andReturn($user);
+
+        $this->client->request('GET', "/members/{$user->username}");
+        $this->assertTrue($this->client->getResponse()->isOk());
+    }
+
+    public function testPostFollow() {
+
+    }
+
+    public function testPostUnfollow() {
+
+    }
+
 }
