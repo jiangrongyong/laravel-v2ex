@@ -1,5 +1,7 @@
 <?php
 
+use Way\Tests\Factory;
+
 class MembersControllerTest extends TestCase {
 
     public function tearDown() {
@@ -7,27 +9,19 @@ class MembersControllerTest extends TestCase {
     }
 
     public function testIndex() {
-        $user = new User();
-        $user->id = 1;
-        $user->username = 'jiangrongyong';
-        $user->email = 'jiangrongyong@gmail.com';
+        $user = Factory::create('User');
+        $this->be($user);
 
-        Auth::shouldReceive('user')->once()->andReturn($user);
-
-        $this->client->request('GET', '/members');
-        $this->assertTrue($this->client->getResponse()->isOk());
+        $this->call('GET', '/members');
+        $this->assertResponseOk();
     }
 
     public function testShow() {
-        $user = new User();
-        $user->id = 1;
-        $user->username = 'jiangrongyong';
-        $user->email = 'jiangrongyong@gmail.com';
+        $user = Factory::create('User');
+        $this->be($user);
 
-        Auth::shouldReceive('user')->twice()->andReturn($user);
-
-        $this->client->request('GET', "/members/{$user->username}");
-        $this->assertTrue($this->client->getResponse()->isOk());
+        $this->call('GET', "/members/{$user->username}");
+        $this->assertResponseOk();
     }
 
     public function testPostFollow() {
