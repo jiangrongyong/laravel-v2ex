@@ -30,7 +30,8 @@ class MembersControllerTest extends TestCase {
 
         $member = Factory::create('User');
 
-        $this->call('GET', "members/{$member->id}/follow");
+        // TODO 优化路由
+        $this->call('GET', action('MembersController@postFollow', array($member->id)));
         $this->assertResponseStatus(302);
     }
 
